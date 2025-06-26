@@ -1,0 +1,34 @@
+.text-center{
+    text-align: center;
+}
+.text-right{
+    text-align: right;
+}
+
+.max-width-300{
+    max-width: 30rem;
+}
+.max-width-500{
+    max-width: 50rem;
+}
+.max-width-700{
+    max-width: 70rem;
+}
+
+.vertical-central-flex{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.vertical-right-flex{
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: center;
+}
+
+.pointer{
+    cursor: pointer;
+}

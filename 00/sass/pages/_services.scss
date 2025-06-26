@@ -1,0 +1,99 @@
+.page-services{
+
+    .ac-hero{
+        min-height: 150vh;
+        margin-top: 8rem;
+        background-image: radial-gradient(circle farthest-corner at 125% 100%,
+         #fff 19%, #fff0 41%), linear-gradient(38deg, #fff0 78%, #ffffffb0),
+          linear-gradient(45deg, #fff 10%, #fff0 22%), linear-gradient(0deg, #fff,
+           #fff0 91%), radial-gradient(circle farthest-corner at 0 -50%, #fff0 15%,
+            #70cfff96 38%, #fff0 65%), repeating-linear-gradient(214deg, #fff0,
+             #614cff4d 25%, #fff0 71%), repeating-linear-gradient(212deg, #fff0 51%,
+              #7c14fc3b 64%, #fff0 80%);
+
+
+        .container{
+            gap: 6.4rem;
+            
+            .ac-hero-top-grid{
+                display: grid;
+                align-items: center;
+                grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
+                gap: 4.8rem;
+                min-height: calc(100vh - 17.6rem);
+                
+                &-texts{
+                    height: 100%;
+                    width: 100%;
+                    gap: .8rem;
+                    padding-bottom: 2rem;
+
+                    .super-script{
+                        margin-top: auto;
+                    }
+                    
+                    .heading-1{
+                        margin-bottom: 1rem;
+                        line-height: 1.6;
+                    }
+                    
+                    .paragraph{
+                        color: var(--text-color-primary);
+                    }
+                    
+                    a{
+                        margin-top: auto;
+                        margin-bottom: .8rem;
+                    }
+                    
+                    &-subscripts{
+                        display: flex;
+                        align-items: center;
+                        justify-content: start;
+                        gap: .8rem;
+                        
+                        &-dot{
+                            height: 0;
+                            width: 0;
+                            border: 3px solid var(--text-color-subscript);
+                            border-radius: 50%;
+                        }
+                        
+                        &-subscript{
+                            display: flex;
+                            align-items: center;
+                            justify-content: start;
+                            gap: .8rem;
+                            
+                            .subscript{
+                                color: var(--text-color-primary);
+                            }
+                            
+                            img{
+                                height: 1.6rem;
+                            }
+                            
+                        }
+                    }
+                }
+
+                &-wrapper{
+                    height: 100%;
+                    width: 100%;
+                    border-radius: var(--border-radius-10);
+                    overflow: hidden;
+
+                    img{
+                        align-self: center;
+                        height: auto;
+                        max-height: 70vh;
+                        width: 100%;
+                        object-fit: cover;
+                        object-position: top;
+                        border-radius: var(--border-radius-10);
+                    }
+                }
+            }
+        }
+    }
+}
