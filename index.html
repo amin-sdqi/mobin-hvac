@@ -311,10 +311,15 @@
     <section class="section section-services">
 
         <div class="gradient-bg">
-            <picture><!-- دایره گرادیانی پس زمینه -->
-                <source srcset="./assets/img/gradient-circle-high.webp" type="image/webp">
-                <!-- <source srcset="image.jpg" type="image/jpeg"> -->
-                <img src="./assets/img/gradient-circle-high.webp" alt="تصویر گرادیان پس زمینه">
+            <picture>
+            <!-- تصویر با کیفیت پایین برای موبایل -->
+            <source srcset="./assets/img/gradient-circle-low.webp" type="image/webp" media="(max-width: 760px)">
+            
+            <!-- تصویر با کیفیت بالا برای دسکتاپ -->
+            <source srcset="./assets/img/gradient-circle-high.webp" type="image/webp" media="(min-width: 761px)">
+            
+            <!-- Fallback برای مرورگرهایی که webp نمی‌فهمند -->
+            <img src="./assets/img/gradient-circle-high.jpg" alt="تصویر گرادیان پس‌زمینه سکشن خدمات">
             </picture>
         </div>
 
@@ -487,7 +492,8 @@
                             تعهدی که تضمین‌ کننده‌ی کیفیت و دقت در انجام هر خدمت است.
                         </p>
                         <div class="spacer"></div>
-                        <img src="./assets/img/features-1.webp" alt="تصویری که در آن دست فردی در حال فعال کردن چک مارک یا تیک کنار واژه ی استاندارد است که اهمیت مطابقت با استاندارد را در مرکز خدمات فنی مبین به نمایش می گذارد.">
+                        <img src="./assets/img/feature-1.webp" alt="تصویری که در آن دست فردی در حال فعال کردن چک مارک یا تیک کنار واژه ی استاندارد است که اهمیت مطابقت با استاندارد را در مرکز خدمات فنی مبین به نمایش می گذارد.">
+                        
                 </div>
                 <div class="section-features-wrapper-subfeatures section-features-wrapper-subfeatures-1">
                         <div class="section-features-wrapper-subfeatures-subfeature">
@@ -527,7 +533,8 @@
                         و ارائه‌ی ضمانت معتبر برای آسودگی خاطر مشتریان عزیز.
                     </p>
                     <div class="spacer"></div>
-                    <img src="./assets/img/features-7.webp" alt="تصویر فردی که در حال مهر و موم کردن زیر یک برگه است که نمادی از ارائه ضمانت در خدمات مرکز فنی مبین می باشد.">
+                    <img src="./assets/img/feature-2.webp" alt="تصویر فردی که در حال مهر و موم کردن زیر یک برگه است که نمادی از ارائه ضمانت در خدمات مرکز فنی مبین می باشد.">
+                    
                 </div>
                 
                 <div class="section-features-wrapper-subfeatures section-features-wrapper-subfeatures-2">
@@ -569,7 +576,8 @@
                              رضایت کامل شما، رویکرد ثابت ما در ارائه خدمات است.
                         </p>
                         <div class="spacer"></div>
-                        <img src="./assets/img/features-3.webp" alt="تصویر فردی با کت و شلوار که در دستش ستاره زرد و نشان تیک دارد که نماد سرعت در خدمات و اهمیت رضایت مشتری در مرکز خدمات فنی مبین است.">
+                        <img src="./assets/img/feature-3.webp" alt="تصویر فردی با کت و شلوار که در دستش ستاره زرد و نشان تیک دارد که نماد سرعت در خدمات و اهمیت رضایت مشتری در مرکز خدمات فنی مبین است.">
+                        
                 </div>
                     
                 <div class="section-features-wrapper-subfeatures section-features-wrapper-subfeatures-3">
@@ -861,12 +869,14 @@
             <div class="section-articles-slider">
                 <!-- slide 1 -->
                 <a class="section-articles-slider-slide" href="#">
-                    <img class="section-articles-slider-slide-img" src="./assets/img/washing-machine-smell.webp" alt="تصویر زنی در حال بو کردن لباس بعد از شستشو با ماشین لباسشویی" >
+                    <img class="section-articles-slider-slide-img" src="./assets/img/article-1.webp" alt="تصویر زنی در حال بو کردن لباس بعد از شستشو با ماشین لباسشویی" >
                     <div class="section-articles-slider-slide-content">
                         <h4 class="heading-4">چرا لباس‌ها بعد از شست‌وشو بوی بد می‌گیرند؟</h4>
                         <p class="paragraph">تمیز نکردن مخزن و باقی
                              ماندن رطوبت در لباسشویی می‌تواند منجر به بوی نامطبوع لباس‌ها شود. 
-                            خشک کردن درب پس از هر بار استفاده و جرم‌گیری[…]</p>
+                            خشک کردن درب پس از هر بار استفاده و جرم‌گیری[…]
+                        </p>
+                        <div class="spacer"></div>                     
                         <div class="section-articles-slider-slide-content-date">
                             <img  class="section-articles-slider-slide-content-date-icon" src="./assets/icons/calendar-96.png" alt="آیکون تقویم که نماد تاریخ انتشار مقاله است.">
                             <p class="caption">7 خرداد 1404</p>
@@ -876,11 +886,13 @@
                 
                 <!-- slide 2 -->
                 <a class="section-articles-slider-slide" href="#">
-                    <img class="section-articles-slider-slide-img" src="./assets/img/air-conditioner-compressor.webp" alt="تصویر کمپرسور کولر اسپلیت که در فضای باز روی زمین و زیر پنجره نصب شده است." >
+                    <img class="section-articles-slider-slide-img" src="./assets/img/article-2.webp" alt="تصویر کمپرسور کولر اسپلیت که در فضای باز روی زمین و زیر پنجره نصب شده است." >
                     <div class="section-articles-slider-slide-content">
                         <h4 class="heading-4">نحوه تشخیص خرابی کمپرسور کولر گازی</h4>
                         <p class="paragraph">کم‌باد بودن خروجی، صدای غیرعادی و روشن نشدن کمپرسور از
-                             علائم خرابی آن است. بررسی فشار گاز و سلامت خازن‌ها می‌تواند در تشخیص[…]</p>
+                             علائم خرابی آن است. بررسی فشار گاز و سلامت خازن‌ها می‌تواند در تشخیص[…]
+                        </p>
+                        <div class="spacer"></div>
                         <div class="section-articles-slider-slide-content-date">
                             <img  class="section-articles-slider-slide-content-date-icon" src="./assets/icons/calendar-96.png" alt="آیکون تقویم که نماد تاریخ انتشار مقاله است.">
                             <p class="caption">7 خرداد 1404</p>
@@ -890,12 +902,14 @@
 
                 <!-- slide 3 -->
                 <a class="section-articles-slider-slide" href="#">
-                    <img class="section-articles-slider-slide-img" src="./assets/img/fridge-repairman.webp" alt="تصویر مردی جوان در حال عیب یابی و بررسی قسمت پشتی یک یخچال در آشپزخانه" >
+                    <img class="section-articles-slider-slide-img" src="./assets/img/article-3.webp" alt="تصویر مردی جوان در حال عیب یابی و بررسی قسمت پشتی یک یخچال در آشپزخانه" >
                     <div class="section-articles-slider-slide-content">
                         <h4 class="heading-4">دلایل سرد نکردن یخچال و راه‌حل آن</h4>
                         <p class="paragraph">کم شدن گاز، خرابی ترموستات یا مسدود شدن لوله‌ها
                              از دلایل رایج سرد نکردن یخچال است. 
-                             بررسی تخصصی توسط تعمیرکار ماهر[…]</p>
+                             بررسی تخصصی توسط تعمیرکار ماهر[…]
+                        </p>
+                        <div class="spacer"></div>
                         <div class="section-articles-slider-slide-content-date">
                             <img  class="section-articles-slider-slide-content-date-icon" src="./assets/icons/calendar-96.png" alt="آیکون تقویم که نماد تاریخ انتشار مقاله است.">
                             <p class="caption">7 خرداد 1404</p>
@@ -905,12 +919,14 @@
 
                 <!-- slide 4 -->
                 <a class="section-articles-slider-slide" href="#">
-                    <img class="section-articles-slider-slide-img" src="./assets/img/washing-machine-double.webp" alt="تصویر مدرن دو دستگاه ماشین لباسشویی برروی هم که در یک خانه در کنار گلدان گل و درب قرار دارند." >
+                    <img class="section-articles-slider-slide-img" src="./assets/img/article-4.webp" alt="تصویر مدرن دو دستگاه ماشین لباسشویی برروی هم که در یک خانه در کنار گلدان گل و درب قرار دارند." >
                     <div class="section-articles-slider-slide-content">
                         <h4 class="heading-4">نکاتی برای استفاده بهینه از ماشین لباسشویی</h4>
                         <p class="paragraph"> استفاده از برنامه مناسب شست‌وشو و جلوگیری از 
                             بارگیری بیش از حد، عمر مفید لباسشویی
-                             را افزایش می‌دهد. همچنین تمیز کردن فیلتر و لاستیک درب[…]</p>
+                             را افزایش می‌دهد. همچنین تمیز کردن فیلتر و لاستیک درب[…]
+                        </p>
+                        <div class="spacer"></div>
                         <div class="section-articles-slider-slide-content-date">
                             <img  class="section-articles-slider-slide-content-date-icon" src="./assets/icons/calendar-96.png" alt="آیکون تقویم که نماد تاریخ انتشار مقاله است.">
                             <p class="caption">7 خرداد 1404</p>
@@ -920,12 +936,14 @@
 
                 <!-- slide 5 -->
                 <a class="section-articles-slider-slide" href="#">
-                    <img class="section-articles-slider-slide-img" src="./assets/img/inverter.webp" alt="تصویر پنل کولر اسپلیت در کنار متنی با این سوال که تفاوت کولر اینورتر و معمولی چیست." >
+                    <img class="section-articles-slider-slide-img" src="./assets/img/article-5.webp" alt="تصویر پنل کولر اسپلیت در کنار متنی با این سوال که تفاوت کولر اینورتر و معمولی چیست." >
                     <div class="section-articles-slider-slide-content">
                         <h4 class="heading-4">تفاوت کولر گازی اینورتر با معمولی</h4>
                         <p class="paragraph"> کولرهای اینورتر با تنظیم دور موتور، مصرف برق
                              کمتری دارند و عملکرد بهینه‌تری ارائه می‌دهند. در حالی‌که 
-                             کولرهای معمولی پیوسته روشن و خاموش می‌شوند و مصرف انرژی[…]</p>
+                             کولرهای معمولی پیوسته روشن و خاموش می‌شوند و مصرف انرژی[…]
+                        </p>
+                        <div class="spacer"></div>
                         <div class="section-articles-slider-slide-content-date">
                             <img  class="section-articles-slider-slide-content-date-icon" src="./assets/icons/calendar-96.png" alt="آیکون تقویم که نماد تاریخ انتشار مقاله است.">
                             <p class="caption">7 خرداد 1404</p>
@@ -935,11 +953,13 @@
 
                 <!-- slide 6 -->
                 <a class="section-articles-slider-slide" href="#">
-                    <img class="section-articles-slider-slide-img" src="./assets/img/fridge-water-leakage.webp" alt="تصویر انیمیشنی نشت آب از یخچال و خانمی نگران در کنار تعمیرکار" >
+                    <img class="section-articles-slider-slide-img" src="./assets/img/article-6.webp" alt="تصویر انیمیشنی نشت آب از یخچال و خانمی نگران در کنار تعمیرکار" >
                     <div class="section-articles-slider-slide-content">
                         <h4 class="heading-4">نشتی آب از یخچال؛ علت و راهکارها</h4>
                         <p class="paragraph">نشتی آب معمولاً به دلیل گرفتگی مسیر تخلیه
-                             یا خرابی لاستیک درب ایجاد می‌شود. بررسی منظم و رفع انسداد می‌تواند از آسیب […]</p>
+                             یا خرابی لاستیک درب ایجاد می‌شود. بررسی منظم و رفع انسداد می‌تواند از آسیب […]
+                        </p>
+                        <div class="spacer"></div>
                         <div class="section-articles-slider-slide-content-date">
                             <img  class="section-articles-slider-slide-content-date-icon" src="./assets/icons/calendar-96.png" alt="آیکون تقویم که نماد تاریخ انتشار مقاله است.">
                             <p class="caption">7 خرداد 1404</p>
