@@ -5,29 +5,47 @@
 ///////////////////////////////////////
 
 ////////////////همبرگر
-  const hamburger = document.getElementById('hamburger');
-  hamburger.addEventListener('click', () => {
-    hamburger.classList.toggle('active');
-    document.querySelector('.navbar-ul').classList.toggle('active');
-    document.body.classList.toggle("menu-open");
-  });
+// همبرگر و منو
+const hamburger = document.getElementById('hamburger');
+const navbarUL = document.querySelector('.navbar-ul');
 
-  // وقتی منو همبرگری نیست کلاس منواوپن از بادی حذف میشه
-  const closePhoneMenu = ()=> {
-    const emToPx = parseFloat(getComputedStyle(document.documentElement).fontSize); // معمولاً 16px
-    const isNotPhone = window.innerWidth > (37.5 * emToPx);
-    if(isNotPhone){
-      hamburger.classList.remove('active');
-      document.querySelector('.navbar-ul').classList.remove('active');
-      document.body.classList.remove("menu-open");
-    }
-  };
-  
-  
-  // وقتی صفحه تغییر اندازه پیدا کرد، منو رو ببند
-  window.addEventListener("resize", closePhoneMenu);
-  // هم هنگام بارگذاری صفحه چک کن
-  document.addEventListener('DOMContentLoaded', closePhoneMenu);
+// تشخیص حالت موبایل
+const getIsMobile = () => {
+  const emToPx = parseFloat(getComputedStyle(document.documentElement).fontSize);
+  return window.innerWidth <= (37.5 * emToPx); // 600px
+};
+
+let lastIsMobile = getIsMobile();
+
+// هندل تغییر اندازه صفحه
+const handleResize = () => {
+  const isMobile = getIsMobile();
+
+  // اگر از موبایل رفتیم به دسکتاپ، منو رو ببند
+  if (lastIsMobile && !isMobile) {
+    hamburger.classList.remove('active');
+    navbarUL.classList.remove('active');
+    document.body.classList.remove('menu-open');
+  }
+
+  lastIsMobile = isMobile;
+};
+
+// کلیک روی همبرگر
+hamburger.addEventListener('click', () => {
+  hamburger.classList.toggle('active');
+  navbarUL.classList.toggle('active');
+
+  if (getIsMobile()) {
+    document.body.classList.toggle('menu-open'); // فقط توی موبایل اسکرول رو قفل کن
+  } else {
+    document.body.classList.remove('menu-open'); // توی دسکتاپ اطمینان حاصل کن اسکرول فعاله
+  }
+});
+
+// اجرا روی resize و بارگذاری
+window.addEventListener('resize', handleResize);
+document.addEventListener('DOMContentLoaded', handleResize);
 
 
   // برای باز شدن زیر منوها در حالت موبایل
