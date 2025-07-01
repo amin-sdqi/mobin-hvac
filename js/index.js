@@ -13,21 +13,25 @@
   });
 
   // وقتی منو همبرگری نیست کلاس منواوپن از بادی حذف میشه
-  const closePhoneMenu = ()=> {
-    const emToPx = parseFloat(getComputedStyle(document.documentElement).fontSize); // معمولاً 16px
-    const isNotPhone = window.innerWidth > (37.5 * emToPx);
-    if(isNotPhone){
+let lastIsNotPhone = window.innerWidth > (37.5 * parseFloat(getComputedStyle(document.documentElement).fontSize));
+
+const closePhoneMenu = () => {
+  const emToPx = parseFloat(getComputedStyle(document.documentElement).fontSize);
+  const isNotPhone = window.innerWidth > (37.5 * emToPx);
+
+  // فقط اگر حالت نمایشی تغییر کرد
+  if (isNotPhone !== lastIsNotPhone) {
+    if (isNotPhone) {
       hamburger.classList.remove('active');
       document.querySelector('.navbar-ul').classList.remove('active');
       document.body.classList.remove("menu-open");
     }
-  };
-  
-  
-  // وقتی صفحه تغییر اندازه پیدا کرد، منو رو ببند
-  window.addEventListener("resize", closePhoneMenu);
-  // هم هنگام بارگذاری صفحه چک کن
-  document.addEventListener('DOMContentLoaded', closePhoneMenu);
+    lastIsNotPhone = isNotPhone;
+  }
+};
+
+window.addEventListener("resize", closePhoneMenu);
+document.addEventListener('DOMContentLoaded', closePhoneMenu);
 
 
   // برای باز شدن زیر منوها در حالت موبایل
