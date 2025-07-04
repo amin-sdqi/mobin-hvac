@@ -7,6 +7,15 @@
 const hamburger = document.getElementById('hamburger');
 const navbarUL = document.querySelector('.navbar-ul');
 
+//کلیک روی دکمه تماس با ما
+const ctaBtn = document.querySelector('#cta-btn');
+ctaBtn.addEventListener('click', ()=>{
+  hamburger.classList.remove('active');
+  navbarUL.classList.remove('active');
+  document.body.classList.remove('menu-open');
+})
+
+
 // تشخیص حالت موبایل
 const getIsMobile = () => {
   const emToPx = parseFloat(getComputedStyle(document.documentElement).fontSize);
