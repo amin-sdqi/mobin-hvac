@@ -14,6 +14,11 @@ ctaBtn.addEventListener('click', ()=>{
   navbarUL.classList.remove('active');
   document.body.classList.remove('menu-open');
 })
+ctaBtn.addEventListener('touchend', ()=>{
+  hamburger.classList.remove('active');
+  navbarUL.classList.remove('active');
+  document.body.classList.remove('menu-open');
+})
 
 
 // تشخیص حالت موبایل
