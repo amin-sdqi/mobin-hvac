@@ -1,8 +1,6 @@
 "use strict";
 
 
-// navbar 
-///////////////////////////////////////
 
 ////////////////همبرگر
 // همبرگر و منو
@@ -33,6 +31,16 @@ const handleResize = () => {
 
 // کلیک روی همبرگر
 hamburger.addEventListener('click', () => {
+  hamburger.classList.toggle('active');
+  navbarUL.classList.toggle('active');
+
+  if (getIsMobile()) {
+    document.body.classList.toggle('menu-open'); // فقط توی موبایل اسکرول رو قفل کن
+  } else {
+    document.body.classList.remove('menu-open'); // توی دسکتاپ اطمینان حاصل کن اسکرول فعاله
+  }
+});
+hamburger.addEventListener('touchend', () => {
   hamburger.classList.toggle('active');
   navbarUL.classList.toggle('active');
 
