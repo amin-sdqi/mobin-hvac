@@ -9,6 +9,7 @@ const hamburger = document.getElementById('hamburger');
 hamburger.addEventListener('click', () => {
   hamburger.classList.toggle('active');
   document.querySelector('.phone-navbar-ul').classList.toggle('active')
+  
   document.body.classList.toggle('menu-open')
 });
 
