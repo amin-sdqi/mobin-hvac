@@ -19,28 +19,30 @@
 </head>
 <body>
 <!-- section navbar -->
-    <section class="section-navbar">
-        <div class="container" id="navbar-container">
-            <a href="./index.html">
-                <img src="./assets/logos/brand-logo/main-brand-logo.svg" alt="لوگوی برند مبین - ارائه‌دهنده خدمات نصب، تعمیر و سرویس کولر، یخچال و ماشین لباسشویی" class="navbar-logo" id="navbar-logo">
-            </a>
+    <section class="section section-navbar">
+        <div class="container">
+            <!-- منوی باز ////////////////////////////////////// -->
             <ul class="navbar-ul">
-                <!-- منوی خدمات با زیرمنو -->
-                <li class="navbar-ul-li ">
-                    <div class="navbar-ul-li-services">
-                        <button class="navbar-ul-li-services-toggle" id="menu-1" data-target="submenu-1">
-                            خدمات<span>&#10094;</span>
-                        </button>
-                        <div class="navbar-ul-li-services-submenu" id="submenu-1">
-                            <div class="navbar-ul-li-services-submenu-right">
+                <li class="navbar-ul-li">
+                    <a href="#">
+                        <img class="navbar-logo" src="./assets/logos/brand-logo/main-brand-logo.svg" alt="" >
+                    </a>
+                </li>
+                <!-- خدمات  -->
+                <li class="navbar-ul-li hidden-on-phone">
+                    <div>
+                        <button class="navbar-ul-li-button">خدمات<span>&#10094;</span></button>
+                        <!-- زیرمنو خدمات -->
+                        <div class="navbar-ul-li-submenu">
+                            <div class="navbar-ul-li-submenu-right">
                                 <h4 class="heading-4">تنوع در خدمات، تمایز در کیفیت</h4>
                                 <P class="caption">از جزئی‌ترین مسائل تا چالش‌های پیچیده؛ فراتر از آنچه انتظارش را دارید.</P>
                             </div>
-                            <div class="navbar-ul-li-services-submenu-left">
+                            <div class="navbar-ul-li-submenu-left">
                                 <a href="./services-air-conditioner.html">
-                                    <div class="navbar-ul-li-services-submenu-left-service">
-                                        <img class="navbar-ul-li-services-submenu-left-service-img1" src="./assets/icons/index/air-conditioner-96.png" alt="آیکون کولر گازی با خطوط جریان هوا">
-                                        <div class="navbar-ul-li-services-submenu-left-service-content">
+                                    <div class="navbar-ul-li-submenu-left-service">
+                                        <img class="navbar-ul-li-submenu-left-service-img1" src="./assets/icons/index/air-conditioner-96.png" alt="آیکون کولر گازی با خطوط جریان هوا">
+                                        <div class="navbar-ul-li-submenu-left-service-content">
                                             <h4 class="heading-4">کولر اسپلیت و پنجره ای </h4>
                                             <p class="caption">خدمات تخصصی نصب، سرویس و تعمیر کولرهای گازی و آبی با تضمین کیفیت.</p>
                                         </div>
@@ -48,9 +50,9 @@
                                 </a>
 
                                 <a href="#">
-                                    <div class="navbar-ul-li-services-submenu-left-service">
-                                        <img class="navbar-ul-li-services-submenu-left-service-img2" src="./assets/icons/index/refrigerator-96.png" alt="آیکون خدمات نصب، تعمیر و سرویس یخچال و فریزرهای خانگی و صنعتی.">
-                                        <div class="navbar-ul-li-services-submenu-left-service-content">
+                                    <div class="navbar-ul-li-submenu-left-service">
+                                        <img class="navbar-ul-li-submenu-left-service-img2" src="./assets/icons/index/refrigerator-96.png" alt="آیکون خدمات نصب، تعمیر و سرویس یخچال و فریزرهای خانگی و صنعتی.">
+                                        <div class="navbar-ul-li-submenu-left-service-content">
                                             <h4 class="heading-4">یخچال و فریزر</h4>
                                             <p class="caption">عیب‌یابی، سرویس و تعمیر تخصصی انواع یخچال‌های خانگی و صنعتی.</p>
                                         </div>
@@ -58,9 +60,9 @@
                                 </a>
 
                                 <a href="#">
-                                    <div class="navbar-ul-li-services-submenu-left-service">
-                                        <img class="navbar-ul-li-services-submenu-left-service-img3" src="./assets/icons/index/washing-machine-96.png" alt="آیکون نصب، تعمیر و سرویس ماشین لباسشویی.">
-                                        <div class="navbar-ul-li-services-submenu-left-service-content">
+                                    <div class="navbar-ul-li-submenu-left-service">
+                                        <img class="navbar-ul-li-submenu-left-service-img3" src="./assets/icons/index/washing-machine-96.png" alt="آیکون نصب، تعمیر و سرویس ماشین لباسشویی.">
+                                        <div class="navbar-ul-li-submenu-left-service-content">
                                             <h4 class="heading-4">ماشین لباسشویی</h4>
                                             <p class="caption">تعمیر و سرویس ماشین‌های لباسشویی با رفع سریع ارور‌ها و مشکلات رایج.</p>
                                         </div>
@@ -70,23 +72,21 @@
                         </div>
                     </div>
                 </li>
-        
-                <!-- منوی دانستنی ها با زیرمنو -->
-                <li class="navbar-ul-li ">
-                    <div class="navbar-ul-li-services">
-                        <button class="navbar-ul-li-services-toggle" id="menu-2" data-target="submenu-2">
-                            دانستنی ها<span>&#10094;</span>
-                        </button>
-                        <div class="navbar-ul-li-services-submenu" id="submenu-2">
-                            <div class="navbar-ul-li-services-submenu-right">
+                <!-- دانستنی ها  -->
+                <li class="navbar-ul-li hidden-on-phone">
+                    <div>
+                        <button class="navbar-ul-li-button">دانستنی ها<span>&#10094;</span></button>
+                        <!-- زیرمنو دانستنی ها -->
+                        <div class="navbar-ul-li-submenu">
+                            <div class="navbar-ul-li-submenu-right"> 
                                 <h4 class="heading-4">همیشه آگاه، همیشه آماده</h4>
                                 <P class="caption">درک درست از علت وقوع رویدادها، پایه و اساس تصمیمات هوشمندانه است.</P>
                             </div>
-                            <div class="navbar-ul-li-services-submenu-left">
+                            <div class="navbar-ul-li-submenu-left">
                                 <a href="#">
-                                    <div class="navbar-ul-li-services-submenu-left-service">
-                                        <img class="navbar-ul-li-services-submenu-left-service-img1" src="./assets/icons/index/article-96.png" alt="آیکون مقاله که نماد مقالات آموزشی است.">
-                                        <div class="navbar-ul-li-services-submenu-left-service-content">
+                                    <div class="navbar-ul-li-submenu-left-service">
+                                        <img class="navbar-ul-li-submenu-left-service-img1" src="./assets/icons/index/article-96.png" alt="آیکون مقاله که نماد مقالات آموزشی است.">
+                                        <div class="navbar-ul-li-submenu-left-service-content">
                                             <h4 class="heading-4">مقالات آموزشی</h4>
                                             <p class="caption">جدیدترین اخبار، نوآوری‌ها و دستاوردهای حوزه فناوری و سبک زندگی هوشمند</p>
                                         </div>
@@ -94,9 +94,9 @@
                                 </a>
 
                                 <a href="#">
-                                    <div class="navbar-ul-li-services-submenu-left-service">
-                                        <img class="navbar-ul-li-services-submenu-left-service-img2" src="./assets/icons/index/circled-play-button-96-submenu.png" alt="آیکون نماد ویدیو">
-                                        <div class="navbar-ul-li-services-submenu-left-service-content">
+                                    <div class="navbar-ul-li-submenu-left-service">
+                                        <img class="navbar-ul-li-submenu-left-service-img2" src="./assets/icons/index/circled-play-button-96-submenu.png" alt="آیکون نماد ویدیو">
+                                        <div class="navbar-ul-li-submenu-left-service-content">
                                             <h4 class="heading-4">ویدیوهای آموزشی</h4>
                                             <p class="caption">ویدیوهای آموزشی تخصصی در زمینه‌های مختلف علمی و عملی</p>
                                         </div>
@@ -104,9 +104,9 @@
                                 </a>
 
                                 <a href="#">
-                                    <div class="navbar-ul-li-services-submenu-left-service">
-                                        <img class="navbar-ul-li-services-submenu-left-service-img3" src="./assets/icons/index/error-96-submenu.png" alt="آیکون نماد خطا و ارور دستگاه ها">
-                                        <div class="navbar-ul-li-services-submenu-left-service-content">
+                                    <div class="navbar-ul-li-submenu-left-service">
+                                        <img class="navbar-ul-li-submenu-left-service-img3" src="./assets/icons/index/error-96-submenu.png" alt="آیکون نماد خطا و ارور دستگاه ها">
+                                        <div class="navbar-ul-li-submenu-left-service-content">
                                             <h4 class="heading-4">خطاهای دستگاه‌ها</h4>
                                             <p class="caption">پوشش جامع خطاها و مشکلات معمول در انواع دستگاه‌های خانگی و صنعتی</p>
                                         </div>
@@ -114,9 +114,9 @@
                                 </a>
 
                                 <a href="#">
-                                    <div class="navbar-ul-li-services-submenu-left-service">
-                                        <img class="navbar-ul-li-services-submenu-left-service-img4" src="./assets/icons/index/faq-96-submenu.png" alt="آیکون نماد سوالات متداول">
-                                        <div class="navbar-ul-li-services-submenu-left-service-content">
+                                    <div class="navbar-ul-li-submenu-left-service">
+                                        <img class="navbar-ul-li-submenu-left-service-img4" src="./assets/icons/index/faq-96-submenu.png" alt="آیکون نماد سوالات متداول">
+                                        <div class="navbar-ul-li-submenu-left-service-content">
                                             <h4 class="heading-4">سوالات متداول</h4>
                                             <p class="caption">پاسخ به پرتکرارترین سوالات کاربران و مشتریان درباره خدمات و محصولات</p>
                                         </div>
@@ -124,9 +124,9 @@
                                 </a>
 
                                 <a href="#">
-                                    <div class="navbar-ul-li-services-submenu-left-service">
-                                        <img class="navbar-ul-li-services-submenu-left-service-img5" src="./assets/icons/index/user-manual-96-submenu.png" alt="آیکون نماد دفترچه راهنمای دستگاه ها">
-                                        <div class="navbar-ul-li-services-submenu-left-service-content">
+                                    <div class="navbar-ul-li-submenu-left-service">
+                                        <img class="navbar-ul-li-submenu-left-service-img5" src="./assets/icons/index/user-manual-96-submenu.png" alt="آیکون نماد دفترچه راهنمای دستگاه ها">
+                                        <div class="navbar-ul-li-submenu-left-service-content">
                                             <h4 class="heading-4">دفترچه راهنمای دستگاه‌ها</h4>
                                             <p class="caption">دانلود رایگان دفترچه‌های راهنمای استفاده، نگهداری و عیب‌یابی انواع دستگاه‌ها</p>
                                         </div>
@@ -134,37 +134,135 @@
                                 </a>
                             </div>
                         </div>
+                    
                     </div>
                 </li>
-        
-                <!-- سایر آیتم‌های منو -->
+                <li class="navbar-ul-li hidden-on-phone"><a href="#">درباره ما</a></li>
+                <li class="navbar-ul-li hidden-on-phone"><a class="btn btn-primary" href="#">تماس با ما</a></li>
+                <!-- همبرگر منو  -->
                 <li class="navbar-ul-li">
-                    <a href="#">
-                        <div class="navbar-ul-li-services-toggle">
-                            درباره ما
-                        </div>
-                    </a>
-                </li>
-                <li class="navbar-ul-li btn btn-primary" >
-                    <a href="#"id="cta-btn">
-                        تماس با ما
-                    </a>
+                    <button id="hamburger" aria-label="منو" class="hamburger-button">
+                        <svg class="hamburger-button-hambur"  width="32" height="32" viewBox="0 0 100 100" fill="none">
+                            <path class="line top" d="M 20,30 H 80" stroke="black" stroke-width="6" stroke-linecap="round"/>
+                            <path class="line middle" d="M 20,50 H 80" stroke="black" stroke-width="6" stroke-linecap="round"/>
+                            <path class="line bottom" d="M 20,70 H 80" stroke="black" stroke-width="6" stroke-linecap="round"/>
+                        </svg>
+                        <svg class="hamburger-button-x" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M6 6L18 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                            <path d="M6 18L18 6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                        </svg>
+                    </button>
                 </li>
             </ul>
-            <button id="hamburger" aria-label="منو" class="hamburger-button">
-                <svg class="hamburger-button-hambur"  width="32" height="32" viewBox="0 0 100 100" fill="none">
-                    <path class="line top" d="M 20,30 H 80" stroke="black" stroke-width="6" stroke-linecap="round"/>
-                    <path class="line middle" d="M 20,50 H 80" stroke="black" stroke-width="6" stroke-linecap="round"/>
-                    <path class="line bottom" d="M 20,70 H 80" stroke="black" stroke-width="6" stroke-linecap="round"/>
-                </svg>
-                <svg class="hamburger-button-x" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M6 6L18 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-                    <path d="M6 18L18 6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-                </svg>
-            </button>
-
         </div>
+            <!-- منوی موبایل ///////////////////////////////////// -->
+        <ul class="phone-navbar-ul">
+                    <!-- خدمات  -->
+            <li class="phone-navbar-ul-li">
+                <div>
+                    <button class="phone-navbar-ul-li-button">خدمات<span>&#10094;</span></button>
+                    <!-- زیرمنو خدمات -->
+                    <div class="phone-navbar-ul-li-submenu">
+                        
+                        <a href="./services-air-conditioner.html">
+                            <div class="phone-navbar-ul-li-submenu-service">
+                                <img class="phone-navbar-ul-li-submenu-service-img1" src="./assets/icons/index/air-conditioner-96.png" alt="آیکون کولر گازی با خطوط جریان هوا">
+                                <div class="phone-navbar-ul-li-submenu-service-content">
+                                    <h4 class="heading-4">کولر اسپلیت و پنجره ای </h4>
+                                    <p class="caption">خدمات تخصصی نصب، سرویس و تعمیر کولرهای گازی و آبی با تضمین کیفیت.</p>
+                                </div>
+                            </div>
+                        </a>
+
+                        <a href="#">
+                            <div class="phone-navbar-ul-li-submenu-service">
+                                <img class="phone-navbar-ul-li-submenu-service-img2" src="./assets/icons/index/refrigerator-96.png" alt="آیکون خدمات نصب، تعمیر و سرویس یخچال و فریزرهای خانگی و صنعتی.">
+                                <div class="phone-navbar-ul-li-submenu-service-content">
+                                    <h4 class="heading-4">یخچال و فریزر</h4>
+                                    <p class="caption">عیب‌یابی، سرویس و تعمیر تخصصی انواع یخچال‌های خانگی و صنعتی.</p>
+                                </div>
+                            </div>
+                        </a>
+
+                        <a href="#">
+                            <div class="phone-navbar-ul-li-submenu-service">
+                                <img class="phone-navbar-ul-li-submenu-service-img3" src="./assets/icons/index/washing-machine-96.png" alt="آیکون نصب، تعمیر و سرویس ماشین لباسشویی.">
+                                <div class="phone-navbar-ul-li-submenu-service-content">
+                                    <h4 class="heading-4">ماشین لباسشویی</h4>
+                                    <p class="caption">تعمیر و سرویس ماشین‌های لباسشویی با رفع سریع ارور‌ها و مشکلات رایج.</p>
+                                </div>
+                            </div>
+                        </a>
+                        
+                    </div>
+                </div>
+            </li>
+                    <!-- دانستنی ها  -->
+            <li class="phone-navbar-ul-li">
+                <div>
+                    <button class="phone-navbar-ul-li-button">دانستنی ها<span>&#10094;</span></button>
+                    <!-- زیرمنو دانستنی ها -->
+                    <div class="phone-navbar-ul-li-submenu">
+                            <a href="#">
+                                <div class="phone-navbar-ul-li-submenu-service">
+                                    <img class="phone-navbar-ul-li-submenu-service-img1" src="./assets/icons/index/article-96.png" alt="آیکون مقاله که نماد مقالات آموزشی است.">
+                                    <div class="phone-navbar-ul-li-submenu-service-content">
+                                        <h4 class="heading-4">مقالات آموزشی</h4>
+                                        <p class="caption">جدیدترین اخبار، نوآوری‌ها و دستاوردهای حوزه فناوری و سبک زندگی هوشمند</p>
+                                    </div>
+                                </div>
+                            </a>
+
+                            <a href="#">
+                                <div class="phone-navbar-ul-li-submenu-service">
+                                    <img class="phone-navbar-ul-li-submenu-service-img2" src="./assets/icons/index/circled-play-button-96-submenu.png" alt="آیکون نماد ویدیو">
+                                    <div class="phone-navbar-ul-li-submenu-service-content">
+                                        <h4 class="heading-4">ویدیوهای آموزشی</h4>
+                                        <p class="caption">ویدیوهای آموزشی تخصصی در زمینه‌های مختلف علمی و عملی</p>
+                                    </div>
+                                </div>
+                            </a>
+
+                            <a href="#">
+                                <div class="phone-navbar-ul-li-submenu-service">
+                                    <img class="phone-navbar-ul-li-submenu-service-img3" src="./assets/icons/index/error-96-submenu.png" alt="آیکون نماد خطا و ارور دستگاه ها">
+                                    <div class="phone-navbar-ul-li-submenu-service-content">
+                                        <h4 class="heading-4">خطاهای دستگاه‌ها</h4>
+                                        <p class="caption">پوشش جامع خطاها و مشکلات معمول در انواع دستگاه‌های خانگی و صنعتی</p>
+                                    </div>
+                                </div>
+                            </a>
+
+                            <a href="#">
+                                <div class="phone-navbar-ul-li-submenu-service">
+                                    <img class="phone-navbar-ul-li-submenu-service-img4" src="./assets/icons/index/faq-96-submenu.png" alt="آیکون نماد سوالات متداول">
+                                    <div class="phone-navbar-ul-li-submenu-service-content">
+                                        <h4 class="heading-4">سوالات متداول</h4>
+                                        <p class="caption">پاسخ به پرتکرارترین سوالات کاربران و مشتریان درباره خدمات و محصولات</p>
+                                    </div>
+                                </div>
+                            </a>
+
+                            <a href="#">
+                                <div class="phone-navbar-ul-li-submenu-service">
+                                    <img class="phone-navbar-ul-li-submenu-service-img5" src="./assets/icons/index/user-manual-96-submenu.png" alt="آیکون نماد دفترچه راهنمای دستگاه ها">
+                                    <div class="phone-navbar-ul-li-submenu-service-content">
+                                        <h4 class="heading-4">دفترچه راهنمای دستگاه‌ها</h4>
+                                        <p class="caption">دانلود رایگان دفترچه‌های راهنمای استفاده، نگهداری و عیب‌یابی انواع دستگاه‌ها</p>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                
+                </div>
+            </li>
+            <li class="phone-navbar-ul-li"><a href="#">درباره ما</a></li>
+            <li class="phone-navbar-ul-li"><a class="btn btn-primary" href="#">تماس با ما</a></li>
+            
+        </ul>
     </section>
+
 
 <!-- section request form overlay ثبت درخواست کارشناسی-->
 
