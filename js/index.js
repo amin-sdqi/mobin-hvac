@@ -39,16 +39,7 @@ hamburger.addEventListener('click', () => {
     document.body.classList.remove('menu-open'); // توی دسکتاپ اطمینان حاصل کن اسکرول فعاله
   }
 });
-hamburger.addEventListener('touchend', () => {
-  hamburger.classList.toggle('active');
-  navbarUL.classList.toggle('active');
 
-  if (getIsMobile()) {
-    document.body.classList.toggle('menu-open'); // فقط توی موبایل اسکرول رو قفل کن
-  } else {
-    document.body.classList.remove('menu-open'); // توی دسکتاپ اطمینان حاصل کن اسکرول فعاله
-  }
-});
 
 // اجرا روی resize و بارگذاری
 window.addEventListener('resize', handleResize);
