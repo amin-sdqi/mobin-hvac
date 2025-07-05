@@ -2,24 +2,8 @@
 
 
 
-////////////////همبرگر
 // همبرگر و منو
 const hamburger = document.getElementById('hamburger');
-const navbarUL = document.querySelector('.navbar-ul');
-
-//کلیک روی دکمه تماس با ما
-const ctaBtn = document.querySelector('#cta-btn');
-ctaBtn.addEventListener('click', ()=>{
-  hamburger.classList.remove('active');
-  navbarUL.classList.remove('active');
-  document.body.classList.remove('menu-open');
-})
-// ctaBtn.addEventListener('touchend', ()=>{
-//   hamburger.classList.remove('active');
-//   navbarUL.classList.remove('active');
-//   document.body.classList.remove('menu-open');
-// })
-
 
 // تشخیص حالت موبایل
 const getIsMobile = () => {
@@ -36,7 +20,7 @@ const handleResize = () => {
   // اگر از موبایل رفتیم به دسکتاپ، منو رو ببند
   if (lastIsMobile && !isMobile) {
     hamburger.classList.remove('active');
-    navbarUL.classList.remove('active');
+    document.querySelector('.phone-navbar-ul').classList.remove('active');
     document.body.classList.remove('menu-open');
   }
 
@@ -46,7 +30,8 @@ const handleResize = () => {
 // کلیک روی همبرگر
 hamburger.addEventListener('click', () => {
   hamburger.classList.toggle('active');
-  navbarUL.classList.toggle('active');
+  document.querySelector('.phone-navbar-ul').classList.toggle('active')
+
 
   if (getIsMobile()) {
     document.body.classList.toggle('menu-open'); // فقط توی موبایل اسکرول رو قفل کن
@@ -71,19 +56,19 @@ document.addEventListener('DOMContentLoaded', handleResize);
 
 
   // برای باز شدن زیر منوها در حالت موبایل
-  document.addEventListener('DOMContentLoaded', () => {
-  const menu1 = document.querySelector('#menu-1');
-  const submenu1 = document.querySelector('#submenu-1');
-  const menu2 = document.querySelector('#menu-2');
-  const submenu2 = document.querySelector('#submenu-2');
+document.addEventListener('DOMContentLoaded', () => {
+  const buttons = document.querySelectorAll('.phone-navbar-ul-li-button');
 
-  menu1.addEventListener('click', ()=>{
-    submenu1.classList.toggle('active')
-  })
-  menu2.addEventListener('click', ()=>{
-    submenu2.classList.toggle('active')
-  })
+  buttons.forEach(button => {
+    button.addEventListener('click', () => {
+      const submenu = button.nextElementSibling;
+      if (submenu && submenu.classList.contains('phone-navbar-ul-li-submenu')) {
+        submenu.classList.toggle('active');
+      }
+    });
+  });
 });
+
 
 
 /// تغییر سایز نوبار با اسکرول
@@ -91,21 +76,22 @@ window.onscroll = function() {scrollFunction()};
 
 function scrollFunction() {
   if (document.body.scrollTop > 80 || document.documentElement.scrollTop > 80) {
-    document.querySelector(".section-navbar").style.height = "5.4rem";
-    document.querySelector("#submenu-1").style.top = "4.45rem";
-    document.querySelector("#submenu-1").style.setProperty('--submenu-before-top', '-1.8rem');
-    document.querySelector("#submenu-2").style.top = "4.45rem";
-    document.querySelector("#submenu-2").style.setProperty('--submenu-before-top', '-1.8rem');
-    document.getElementById("navbar-container").style.height = "5rem";
+    document.querySelector(".section-navbar").style.minHeight = "5.4rem";
+    // document.querySelector("#submenu-1").style.top = "4.45rem";
+    // document.querySelector("#submenu-1").style.setProperty('--submenu-before-top', '-1.8rem');
+    // document.querySelector("#submenu-2").style.top = "4.45rem";
+    // document.querySelector("#submenu-2").style.setProperty('--submenu-before-top', '-1.8rem');
+    // document.getElementById("navbar-container").style.height = "5rem";
     document.getElementById("hamburger").style.padding = ".2rem";
+    document.querySelector("phone-navbar-ul").style.top = "5.4rem";
   } else {
-    document.querySelector(".section-navbar").style.height = "8rem";
-    document.querySelector("#submenu-1").style.top = "5.5rem";
-    document.querySelector("#submenu-1").style.setProperty('--submenu-before-top', '-2.9rem');
-    document.querySelector("#submenu-2").style.top = "5.5rem";
-    document.querySelector("#submenu-2").style.setProperty('--submenu-before-top', '-2.9rem');
-    document.getElementById("navbar-container").style.height = "8rem";
+    document.querySelector(".section-navbar").style.minHeight = "8rem";
+    // document.querySelector("#submenu-1").style.top = "5.5rem";
+    // document.querySelector("#submenu-1").style.setProperty('--submenu-before-top', '-2.9rem');
+    // document.querySelector("#submenu-2").style.setProperty('--submenu-before-top', '-2.9rem');
+    // document.getElementById("navbar-container").style.height = "8rem";
     document.getElementById("hamburger").style.padding = ".5rem";
+    document.querySelector("phone-navbar-ul").style.top = "8rem";
   }
 }
 //////////////
