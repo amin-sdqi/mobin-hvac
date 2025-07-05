@@ -5,45 +5,12 @@
 // همبرگر و منو
 const hamburger = document.getElementById('hamburger');
 
-// تشخیص حالت موبایل
-const getIsMobile = () => {
-  const emToPx = parseFloat(getComputedStyle(document.documentElement).fontSize);
-  return window.innerWidth <= (37.5 * emToPx); // 600px
-};
-
-let lastIsMobile = getIsMobile();
-
-// هندل تغییر اندازه صفحه
-const handleResize = () => {
-  const isMobile = getIsMobile();
-
-  // اگر از موبایل رفتیم به دسکتاپ، منو رو ببند
-  if (lastIsMobile && !isMobile) {
-    hamburger.classList.remove('active');
-    document.querySelector('.phone-navbar-ul').classList.remove('active');
-    document.body.classList.remove('menu-open');
-  }
-
-  lastIsMobile = isMobile;
-};
-
 // کلیک روی همبرگر
 hamburger.addEventListener('click', () => {
   hamburger.classList.toggle('active');
   document.querySelector('.phone-navbar-ul').classList.toggle('active')
-
-
-  if (getIsMobile()) {
-    document.body.classList.toggle('menu-open'); // فقط توی موبایل اسکرول رو قفل کن
-  } else {
-    document.body.classList.remove('menu-open'); // توی دسکتاپ اطمینان حاصل کن اسکرول فعاله
-  }
+  document.body.classList.toggle('menu-open')
 });
-
-
-// اجرا روی resize و بارگذاری
-window.addEventListener('resize', handleResize);
-document.addEventListener('DOMContentLoaded', handleResize);
 
 
   // برای باز شدن زیر منوها در حالت موبایل
