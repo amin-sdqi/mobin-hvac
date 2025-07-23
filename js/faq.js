@@ -1,29 +1,20 @@
 "use strict";
 
-
+// ورودی و آیکن
 const input = document.querySelector('.faq-hero-searchwrapper-input');
 const icon = document.querySelector('.faq-hero-iconwrapper');
 
-input.addEventListener('focus', () => {
-  icon.classList.add('focused');
-});
+input.addEventListener('focus', () => icon.classList.add('focused'));
+input.addEventListener('blur', () => icon.classList.remove('focused'));
 
-input.addEventListener('blur', () => {
-  icon.classList.remove('focused');
-});
+let allFaqs = [];
 
-
-/////////////////////////////////
-////////////////////////////////// برای فچ کردن سوالات از فایل json
-//////////////////////////////////
- let allFaqs = [];
-
-// بارگذاری داده‌های JSON
+// دریافت سوالات
 fetch("./json/faq.json")
   .then(res => res.json())
   .then(data => {
     allFaqs = data;
-    renderFAQs(); // در ابتدا سوالات عمومی
+    renderFAQs(); // سوالات عمومی در ابتدا
   });
 
 const faqWrapper = document.querySelector(".faq-hero-faqswrapper");
@@ -46,7 +37,7 @@ searchInput.addEventListener("input", () => {
   const keyword = searchInput.value.trim().toLowerCase();
   const noResultMsg = document.querySelector(".no-result-message");
 
-  if (noResultMsg) noResultMsg.remove(); // حذف پیام قبلی
+  if (noResultMsg) noResultMsg.remove();
 
   if (keyword === "") {
     categoryWrapper.style.display = "block";
@@ -62,7 +53,7 @@ searchInput.addEventListener("input", () => {
   }
 });
 
-// رندر سوالات بر اساس دسته
+// نمایش سوالات یک دسته
 function renderFAQs(category = "general") {
   const filtered = allFaqs.filter(f => f.category === category);
   const titles = {
@@ -75,11 +66,9 @@ function renderFAQs(category = "general") {
   renderFaqList(filtered);
 }
 
-// رندر لیست سوال‌ها
+// رندر سوالات
 function renderFaqList(list) {
   const container = document.querySelector(".faq-hero-faqswrapper");
-
-  // حذف سوالات و پیام‌های قبلی
   container.querySelectorAll(".faq-hero-faqswrapper-faq, .no-result-message").forEach(el => el.remove());
 
   if (list.length === 0) {
@@ -106,27 +95,22 @@ function renderFaqList(list) {
     const answer = faq.querySelector(".faq-hero-faqswrapper-faq-answer");
     const arrow = faq.querySelector(".faq-hero-faqswrapper-faq-arrow");
 
-    // انیمیشن باز و بسته شدن پاسخ
-  question.addEventListener("click", () => {
+    question.addEventListener("click", () => {
   const isOpen = answer.classList.contains("active");
 
-  if (isOpen) {
-    answer.classList.remove("active");
-    arrow.style.transform = "rotate(180deg)";
-  } else {
-    answer.classList.add("active");
-    arrow.style.transform = "rotate(90deg)";
-  }
-});
+  // بستن همه‌ی پاسخ‌ها و چرخش فلش‌ها
+    document.querySelectorAll(".faq-hero-faqswrapper-faq-answer").forEach(ans => ans.classList.remove("active"));
+    document.querySelectorAll(".faq-hero-faqswrapper-faq-arrow").forEach(arr => arr.classList.remove("rotate"));
 
+    // فقط اگر قبلاً باز نبود، بازش کن
+    if (!isOpen) {
+      answer.classList.add("active");
+      arrow.classList.add("rotate");
+    }
+  });
 
-    // هاور برای اضافه کردن سایه
-    question.addEventListener("mouseenter", () => {
-      faq.classList.add("hover-shadow");
-    });
-    question.addEventListener("mouseleave", () => {
-      faq.classList.remove("hover-shadow");
-    });
+    question.addEventListener("mouseenter", () => faq.classList.add("hover-shadow"));
+    question.addEventListener("mouseleave", () => faq.classList.remove("hover-shadow"));
 
     container.appendChild(faq);
   });
