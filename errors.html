@@ -15,6 +15,7 @@
 
     <link rel="stylesheet" href="./css/style.css">
     <script src="./js/index.js" defer></script>
+    <script src="./js/errors.js" defer></script>
     
 </head>
 
@@ -263,6 +264,74 @@
             <li class="phone-navbar-ul-li"><a class="btn btn-primary" href="#">تماس با ما</a></li>
             
         </ul>
+    </section>
+
+
+    
+<!-- section errors-hero -->
+    <section class="section errors-hero">
+        <div class="container">
+            <div class="errors-hero-grid">
+                <img src="./assets/img/user-manual/errors-hero.png" alt="">
+                <div class="errors-hero-grid-texts">
+                    <h1 class="heading-1">
+                        دفترچه راهنمای محصول شما فقط چند کلیک فاصله دارد!
+                    </h1>
+                    <p class="paragraph">
+                        ما سعی کردیم دفترچه راهنمای بیشتر مدل‌های کولر، یخچال و 
+                        لباسشویی رو از برندهای معروف بازار جمع کنیم تا راحت پیداشون کنی.
+                        فرقی نمی‌کنه دستگاهت از کدوم 
+                        برند باشه یا چه مدلی داشته باشه، اینجا 
+                        احتمال زیادی هست که راهنمای کاملش
+                         رو توی چند ثانیه پیدا کنی و دانلودش کنی.
+                    </p>
+                </div>
+                <!-- فرم  -->
+                <form action="" class="errors-hero-grid-form">
+                    
+                    <label class="heading-4" for="device">نوع دستگاه:</label>
+                    <div class="custom-select">
+                        <input type="text" id="deviceInput" placeholder="نوع دستگاه را انتخاب کنید ..." autocomplete="off">
+                        <input type="hidden" id="deviceValue" name="device"> <!-- برای ارسال در فرم -->
+
+                        <div class="options-container" id="deviceOptions">
+                            <div class="option" data-value="ac">کولر گازی</div>
+                            <div class="option" data-value="refrigerator">یخچال و فریزر</div>
+                            <div class="option" data-value="washing">ماشین لباسشویی</div>
+                        </div>
+                    </div>
+
+
+                    <label class="heading-4" for="brand">برند:</label>
+                    <div class="custom-select">
+                        <input  type="text" placeholder="برند دستگاه را انتخاب کنید ..." id="brandInput" autocomplete="off" disabled>
+                        <input type="hidden" id="brandValue" name="brand"> <!-- برای ارسال در فرم -->
+
+                        <div class="options-container" id="brandOptions">
+                            
+                        </div>
+                    </div>
+
+                    <label class="heading-4" for="model">مدل:</label>
+                    <div class="custom-select">
+                        <input type="text" placeholder="مدل دستگاه را انتخاب کنید ..." id="modelInput" autocomplete="off" disabled>
+                        <input type="hidden" id="modelValue" name="model"> <!-- برای ارسال در فرم -->
+
+                        <div class="options-container" id="modelOptions">
+                            
+                        </div>
+                    </div>
+
+                    <label class="heading-4" for="downloadLink">لینک دانلود دفترچه راهنما <br> به صورت pdf:</label>
+                    <a class="manual-download-link" href="#" id="downloadLink" target="_blank">دانلود دفترچه راهنما</a>
+                    
+                    <button type="button" id="resetBtn" class="manual-reset-btn" disabled>ریست کردن فرم جستجو</button>
+
+                </form>
+
+                <div class="errors-hero-grid-icon"></div>
+            </div>
+        </div>
     </section>
 
 

@@ -3123,7 +3123,7 @@ body {
 }
 .user-manual-hero-grid {
   display: grid;
-  grid-template-columns: 3fr 2fr;
+  grid-template-columns: 2fr 3fr;
   gap: 6.4rem;
   align-items: center;
   align-content: center;
@@ -3172,7 +3172,189 @@ body {
     max-width: 100%;
   }
 }
-.user-manual-hero-grid-form {
+.user-manual-hero-grid-wrapper {
+  grid-column: 1/3;
+  grid-row: 2;
+  width: 100%;
+}
+@media (max-width: 47.5em) {
+  .user-manual-hero-grid-wrapper {
+    grid-column: 1;
+    grid-row: 3;
+  }
+}
+.user-manual-hero-grid-wrapper-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.6rem;
+  margin-bottom: 1.6rem;
+}
+.user-manual-hero-grid-wrapper-filters .custom-select {
+  position: relative;
+  width: 25rem;
+  font-family: vazir;
+  font-size: 1.5rem;
+}
+.user-manual-hero-grid-wrapper-filters .custom-select .custom-select-trigger {
+  padding: 1.2rem 1.6rem;
+  background-color: #fff;
+  border: var(--border-testimonial-2);
+  border-radius: var(--border-radius-10);
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: var(--text-color-primary);
+}
+.user-manual-hero-grid-wrapper-filters .custom-select .arrow {
+  transition: transform 0.3s ease;
+  transform: rotate(90deg);
+}
+.user-manual-hero-grid-wrapper-filters .custom-select.open .arrow {
+  transform: rotate(-90deg);
+}
+.user-manual-hero-grid-wrapper-filters .custom-select .custom-options {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background-color: #fff;
+  border: var(--border-testimonial-2);
+  border-radius: 0 0 var(--border-radius-10) var(--border-radius-10);
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+  max-height: 20rem;
+  overflow-y: auto;
+  z-index: 99;
+  display: none;
+}
+.user-manual-hero-grid-wrapper-filters .custom-select .custom-options .custom-option {
+  padding: 1rem 1.6rem;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+.user-manual-hero-grid-wrapper-filters .custom-select .custom-options .custom-option:hover {
+  background-color: #f6e9d7;
+  color: var(--text-color-primary);
+}
+.user-manual-hero-grid-wrapper-filters .custom-select .custom-options .custom-option.selected {
+  background-color: #fbd38d;
+  font-weight: bold;
+}
+.user-manual-hero-grid-wrapper-filters .custom-select.open .custom-options {
+  display: block;
+}
+.user-manual-hero-grid-wrapper-wrapper {
+  border: var(--border-testimonial-2);
+  border-radius: var(--border-radius-10);
+  overflow: hidden;
+}
+.user-manual-hero-grid-wrapper-wrapper #user-manual-hero-grid-wrapper-table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: #fff;
+}
+.user-manual-hero-grid-wrapper-wrapper #user-manual-hero-grid-wrapper-table thead {
+  background-color: #FBD38D;
+}
+.user-manual-hero-grid-wrapper-wrapper #user-manual-hero-grid-wrapper-table thead th {
+  width: 25%;
+  padding: 1rem;
+  text-align: center;
+  font-weight: 700;
+  color: var(--text-color-primary);
+  font-size: 1.5rem;
+  line-height: 1.7;
+}
+.user-manual-hero-grid-wrapper-wrapper #user-manual-hero-grid-wrapper-table tbody tr {
+  width: 25%;
+  font-size: 1.3rem;
+  font-weight: 500;
+  color: var(--text-color-p);
+  border-top: var(--border-testimonial-2);
+  transition: background-color 0.2s ease;
+}
+.user-manual-hero-grid-wrapper-wrapper #user-manual-hero-grid-wrapper-table tbody tr:hover {
+  background-color: #FFFAF0;
+  color: var(--text-color-primary);
+}
+.user-manual-hero-grid-wrapper-wrapper #user-manual-hero-grid-wrapper-table tbody tr td {
+  padding: 0.75rem;
+  text-align: center;
+}
+.user-manual-hero-grid-wrapper-wrapper #user-manual-hero-grid-wrapper-table tbody tr td a {
+  display: inline-block;
+  color: var(--color-primary);
+  text-decoration: none;
+  padding: 1rem 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+.user-manual-hero-grid-wrapper-wrapper #user-manual-hero-grid-wrapper-table tbody tr td a:hover {
+  text-decoration: underline;
+}
+.user-manual-hero-grid-wrapper-wrapper #user-manual-hero-grid-wrapper-table tbody tr td a img {
+  height: 2rem;
+  width: 2rem;
+}
+
+.errors-hero {
+  margin-top: 8rem;
+  background-image: radial-gradient(circle farthest-corner at 125% 100%, #fff 19%, rgba(255, 255, 255, 0) 41%), linear-gradient(38deg, rgba(255, 255, 255, 0) 78%, rgba(255, 255, 255, 0.6901960784)), linear-gradient(45deg, #fff 10%, rgba(255, 255, 255, 0) 22%), linear-gradient(0deg, #fff, rgba(255, 255, 255, 0) 91%), radial-gradient(circle farthest-corner at 0 -50%, rgba(255, 255, 255, 0) 15%, rgba(30, 199, 255, 0.4) 38%, rgba(255, 255, 255, 0) 65%), repeating-linear-gradient(214deg, rgba(255, 255, 255, 0), rgba(221, 108, 32, 0.3411764706) 25%, rgba(255, 255, 255, 0) 71%), repeating-linear-gradient(212deg, rgba(255, 255, 255, 0) 51%, rgba(100, 57, 232, 0.3333333333) 64%, rgba(255, 255, 255, 0) 80%);
+}
+.errors-hero-grid {
+  display: grid;
+  grid-template-columns: 3fr 2fr;
+  gap: 6.4rem;
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+  justify-items: center;
+}
+@media (max-width: 47.5em) {
+  .errors-hero-grid {
+    grid-template-columns: 1fr;
+  }
+}
+.errors-hero-grid img {
+  width: 100%;
+  border-radius: var(--border-radius-10);
+}
+@media (max-width: 47.5em) {
+  .errors-hero-grid img {
+    grid-column: 1;
+    grid-row: 2;
+  }
+}
+.errors-hero-grid-texts {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 1.6rem;
+}
+@media (max-width: 47.5em) {
+  .errors-hero-grid-texts {
+    max-width: 80%;
+    grid-column: 1;
+    grid-row: 1;
+    justify-self: right;
+  }
+}
+@media (max-width: 37.5em) {
+  .errors-hero-grid-texts {
+    justify-self: center;
+    text-align: center;
+  }
+}
+@media (max-width: 28.125em) {
+  .errors-hero-grid-texts {
+    max-width: 100%;
+  }
+}
+.errors-hero-grid-form {
   width: 100%;
   display: grid;
   grid-template-columns: max-content 1fr;
@@ -3182,22 +3364,22 @@ body {
   column-gap: 1.6rem;
 }
 @media (max-width: 37.5em) {
-  .user-manual-hero-grid-form {
+  .errors-hero-grid-form {
     grid-template-columns: 1fr;
     row-gap: 0.8rem;
   }
 }
-.user-manual-hero-grid-form .custom-select {
+.errors-hero-grid-form .custom-select {
   position: relative;
   width: 100%;
   font-family: vazir;
 }
 @media (max-width: 37.5em) {
-  .user-manual-hero-grid-form .custom-select {
+  .errors-hero-grid-form .custom-select {
     margin-bottom: 0.8rem;
   }
 }
-.user-manual-hero-grid-form .custom-select::after {
+.errors-hero-grid-form .custom-select::after {
   content: "❮"; /* فلش: ‹ */
   position: absolute;
   left: 1rem;
@@ -3208,7 +3390,7 @@ body {
   color: var(--text-color-p);
   z-index: 10;
 }
-.user-manual-hero-grid-form .custom-select input {
+.errors-hero-grid-form .custom-select input {
   width: 100%;
   padding: 1rem 1rem;
   border: 1px solid #ccc;
@@ -3216,11 +3398,11 @@ body {
   font-size: 1.6rem;
   position: relative;
 }
-.user-manual-hero-grid-form .custom-select input::placeholder {
+.errors-hero-grid-form .custom-select input::placeholder {
   font-family: vazir;
   font-size: 1.4rem;
 }
-.user-manual-hero-grid-form .custom-select .options-container {
+.errors-hero-grid-form .custom-select .options-container {
   position: absolute;
   width: 100%;
   background: white;
@@ -3232,16 +3414,16 @@ body {
   z-index: 999;
   border-radius: 0 0 0.6rem 0.6rem;
 }
-.user-manual-hero-grid-form .custom-select .options-container .option {
+.errors-hero-grid-form .custom-select .options-container .option {
   padding: 0.8rem 1rem;
   cursor: pointer;
   font-size: 1.6rem;
 }
-.user-manual-hero-grid-form .custom-select .options-container .option:hover {
+.errors-hero-grid-form .custom-select .options-container .option:hover {
   background-color: #f0f0f0;
 }
-.user-manual-hero-grid-form .manual-download-link:link,
-.user-manual-hero-grid-form .manual-download-link:visited {
+.errors-hero-grid-form .manual-download-link:link,
+.errors-hero-grid-form .manual-download-link:visited {
   justify-self: center;
   color: #862fe7;
   font-size: 1.3rem;
@@ -3254,23 +3436,23 @@ body {
   visibility: hidden;
 }
 @media (max-width: 37.5em) {
-  .user-manual-hero-grid-form .manual-download-link:link,
-  .user-manual-hero-grid-form .manual-download-link:visited {
+  .errors-hero-grid-form .manual-download-link:link,
+  .errors-hero-grid-form .manual-download-link:visited {
     margin-bottom: 0.8rem;
   }
 }
-.user-manual-hero-grid-form .manual-download-link:hover,
-.user-manual-hero-grid-form .manual-download-link:active {
+.errors-hero-grid-form .manual-download-link:hover,
+.errors-hero-grid-form .manual-download-link:active {
   color: #DD6B20;
   transform: translateY(1px);
 }
 @media (max-width: 37.5em) {
-  .user-manual-hero-grid-form .manual-download-link:hover,
-  .user-manual-hero-grid-form .manual-download-link:active {
+  .errors-hero-grid-form .manual-download-link:hover,
+  .errors-hero-grid-form .manual-download-link:active {
     margin-bottom: 0.8rem;
   }
 }
-.user-manual-hero-grid-icon {
+.errors-hero-grid-icon {
   grid-column: 2/3;
   grid-row: 2;
   width: 19.2rem;
@@ -3282,14 +3464,14 @@ body {
   -webkit-mask-size: contain;
   background-color: #DD6B20;
 }
-.user-manual-hero-grid-icon:hover {
+.errors-hero-grid-icon:hover {
   background-color: var(--color-primary);
 }
-.user-manual-hero-grid-icon.focused {
+.errors-hero-grid-icon.focused {
   background-color: #862fe7;
 }
 @media (max-width: 47.5em) {
-  .user-manual-hero-grid-icon {
+  .errors-hero-grid-icon {
     grid-column: 1;
     grid-row: 4;
   }

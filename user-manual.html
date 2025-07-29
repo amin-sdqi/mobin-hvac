@@ -270,7 +270,6 @@
     <section class="section user-manual-hero">
         <div class="container">
             <div class="user-manual-hero-grid">
-                <img src="./assets/img/user-manual/user-manual-hero.png" alt="">
                 <div class="user-manual-hero-grid-texts">
                     <h1 class="heading-1">
                         دفترچه راهنمای محصول شما فقط چند کلیک فاصله دارد!
@@ -284,53 +283,160 @@
                          رو توی چند ثانیه پیدا کنی و دانلودش کنی.
                     </p>
                 </div>
-                <!-- فرم  -->
-                <form action="" class="user-manual-hero-grid-form">
+                
+                <picture>
+                    <source media="(min-width: 1024px)" srcset="./assets/img/user-manual/hero-img-high.webp">
+                    <source media="(min-width: 600px)" srcset="./assets/img/user-manual/hero-img-med.webp">
+                    <img src="./assets/img/user-manual/hero-img-low.webp" alt="تصویر واکنش‌گرا" style="width: 100%; height: auto;">
+                </picture>
+
+                <div class="user-manual-hero-grid-wrapper">
+                     <!-- فیلترها -->
+                    <div class="user-manual-hero-grid-wrapper-filters">
+                        <div class="custom-select" data-filter-type="deviceType">
+                            <div class="custom-select-trigger">
+                                <span>همه دستگاه‌ها</span>
+                                <span class="arrow">&#10094;</span>
+                            </div>
+                            <ul class="custom-options">
+                                <li class="custom-option selected" data-value="">همه دستگاه‌ها</li>
+                                <li class="custom-option" data-value="کولر">کولر</li>
+                                <li class="custom-option" data-value="یخچال">یخچال</li>
+                                <li class="custom-option" data-value="ماشین لباسشویی">ماشین لباسشویی</li>
+                            </ul>
+                        </div>
+
+                        <div class="custom-select"  data-filter-type="brand">
+                            <div class="custom-select-trigger">
+                                <span>همه برندها</span>
+                                <span class="arrow">&#10094;</span>
+                            </div>
+                            <ul class="custom-options">
+                                <li class="custom-option selected" data-value="">همه برندها</li>
+                                <li class="custom-option" data-value="ال جی">ال جی</li>
+                                <li class="custom-option" data-value="سامسونگ">سامسونگ</li>
+                                <li class="custom-option" data-value="جنرال">جنرال</li>
+                                <li class="custom-option" data-value="بوش">بوش</li>
+                            </ul>
+                        </div>
+
+
+                    </div>
+
+
+                        <!-- جدول داده‌ها -->
+                    <div class="user-manual-hero-grid-wrapper-wrapper">
+                        <table id="user-manual-hero-grid-wrapper-table">
+                            <thead>
+                                <tr>
+                                    <th>نوع دستگاه</th>
+                                    <th>برند</th>
+                                    <th>مدل</th>
+                                    <th>دفترچه</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>یخچال</td>
+                                    <td>سامسونگ</td>
+                                    <td>RT62K7130SL</td>
+                                    <td><a href="docs/RT62K7130SL.pdf" download><img src="./assets/icons/user-manual/download-96.png" alt=""><span>دانلود</span></a></td>
+                                </tr>
+                                <tr>
+                                    <td>کولر</td>
+                                    <td>ال جی</td>
+                                    <td>CS18SQ</td>
+                                    <td><a href="docs/CS18SQ.pdf" download><img src="./assets/icons/user-manual/download-96.png" alt=""><span>دانلود</span></a></td>
+                                </tr>
+                                <tr>
+                                    <td>ماشین لباسشویی</td>
+                                    <td>بوش</td>
+                                    <td>WAT28460GC</td>
+                                    <td><a href="docs/WAT28460GC.pdf" download><img src="./assets/icons/user-manual/download-96.png" alt=""><span>دانلود</span></a></td>
+                                </tr>
+                                <tr>
+                                    <td>یخچال</td>
+                                    <td>ال جی</td>
+                                    <td>GR-B802HLHU</td>
+                                    <td><a href="docs/GR-B802HLHU.pdf" download><img src="./assets/icons/user-manual/download-96.png" alt=""><span>دانلود</span></a></td>
+                                </tr>
+                            </tbody>
+                            </table>
+                    </div>
                     
-                    <label class="heading-4" for="device">نوع دستگاه:</label>
-                    <div class="custom-select">
-                        <input type="text" id="deviceInput" placeholder="نوع دستگاه را انتخاب کنید ..." autocomplete="off">
-                        <input type="hidden" id="deviceValue" name="device"> <!-- برای ارسال در فرم -->
 
-                        <div class="options-container" id="deviceOptions">
-                            <div class="option" data-value="ac">کولر گازی</div>
-                            <div class="option" data-value="refrigerator">یخچال و فریزر</div>
-                            <div class="option" data-value="washing">ماشین لباسشویی</div>
-                        </div>
-                    </div>
+                 </div>
 
 
-                    <label class="heading-4" for="brand">برند:</label>
-                    <div class="custom-select">
-                        <input  type="text" placeholder="برند دستگاه را انتخاب کنید ..." id="brandInput" autocomplete="off" disabled>
-                        <input type="hidden" id="brandValue" name="brand"> <!-- برای ارسال در فرم -->
 
-                        <div class="options-container" id="brandOptions">
-                            
-                        </div>
-                    </div>
-
-                    <label class="heading-4" for="model">مدل:</label>
-                    <div class="custom-select">
-                        <input type="text" placeholder="مدل دستگاه را انتخاب کنید ..." id="modelInput" autocomplete="off" disabled>
-                        <input type="hidden" id="modelValue" name="model"> <!-- برای ارسال در فرم -->
-
-                        <div class="options-container" id="modelOptions">
-                            
-                        </div>
-                    </div>
-
-                    <label class="heading-4" for="downloadLink">لینک دانلود دفترچه راهنما <br> به صورت pdf:</label>
-                    <a class="manual-download-link" href="#" id="downloadLink" target="_blank">دانلود دفترچه راهنما</a>
-                    
-                    <button type="button" id="resetBtn" class="manual-reset-btn" disabled>ریست کردن فرم جستجو</button>
-
-                </form>
-
-                <div class="user-manual-hero-grid-icon"></div>
             </div>
         </div>
     </section>
+
+
+    <!-- section cta -->
+     <section class="section ac-cta">
+        <div class="container">
+            <div class="ac-cta-grid">
+                <!-- right  -->
+                <div class="section-cta-grid-right vertical-right-flex">
+                    <p class="super-script">
+                        نزدیک‌تر از همیشه
+                    </p>
+                    <h2 class="heading-2">جهت دریافت مشاوره<br> رایگان تخصصی، با ما در ارتباط باشید.</h2>
+                    <a class="btn btn-primary" >تماس با ما</a>
+                </div>
+                <!-- left  -->
+                 <div class="ac-cta-grid-left">
+
+                    <!-- 1 -->
+                    <a class="ac-cta-grid-left-service" href="./services-air-conditioner.html">
+                        <img src="./assets/img/services-refrigerator/section-cta-1.webp" alt="">
+                        <div class="ac-cta-grid-left-service-texts">
+                            <h3 class="heading-3">کولرهای گازی</h3>
+                            <p class="paragraph">
+                                نصب، سرویس و تعمیر انواع کولرهای گازی دیواری، ایستاده، سقفی، داکت اسپلیت و پرتابل،
+                                از برندهای ال‌جی، سامسونگ، گری، جنرال، هایسنس و دیگر برندهای معتبر،
+                                توسط تکنسین‌های متخصص مرکز مبین 
+                                با استفاده از تجهیزات حرفه‌ای و رعایت کامل اصول فنی انجام می‌شود.
+                            </p>
+                        </div>
+                    </a>
+
+                    <!-- 2 -->
+                    <a class="ac-cta-grid-left-service" href="./services-refrigerator.html">
+                        <img src="./assets/img/services-air-conditioner/section-cta-1.webp" alt="">
+                        <div class="ac-cta-grid-left-service-texts">
+                            <h3 class="heading-3">یخچال و فریزر</h3>
+                            <p class="paragraph">
+                                نصب، سرویس و تعمیر انواع یخچال‌ و فریزهای خانگی، 
+                                صنعتی و فروشگاهی، از برندهای سامسونگ، ال‌جی، هیتاچی، هایسنس و سایر برندها،
+                                توسط تکنسین‌های مجرب مرکز مبین با سرعت، دقت و تعهد انجام می‌شود.
+                            </p>
+                        </div>
+                    </a>
+                    
+                    <!-- 3 -->
+                    <a class="ac-cta-grid-left-service" href="./services-washing-machine.html">
+                        <img src="./assets/img/services-air-conditioner/section-cta-2.webp" alt="">
+                        <div class="ac-cta-grid-left-service-texts">
+                            <h3 class="heading-3">ماشین لباسشویی</h3>
+                            <p class="paragraph">
+                                نصب، سرویس و تعمیر انواع ماشین‌های لباسشویی خانگی و 
+                                صنعتی از برندهای معتبر مانند سامسونگ، ال‌جی، اسنوا و دیگر برندها، با 
+                                تکیه بر تجربه و 
+                                مهارت تکنسین‌های مرکز مبین، با دقت و در کوتاه‌ترین زمان انجام می‌شود.
+                            </p>
+                        </div>
+                    </a>
+
+
+                    
+                 </div>
+
+            </div>
+        </div>
+     </section>
 
 
 
