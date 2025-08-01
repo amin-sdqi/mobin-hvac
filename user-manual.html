@@ -15,7 +15,7 @@
 
 
     <link rel="stylesheet" href="./css/style.css">
-    <script src="./js/index.js" defer></script>
+    <script src="./js/navbar.js" defer></script>
     <script src="./js/user-manual.js" defer></script>
 </head>
 <body>
@@ -287,12 +287,14 @@
                 <picture>
                     <source media="(min-width: 1024px)" srcset="./assets/img/user-manual/hero-img-high.webp">
                     <source media="(min-width: 600px)" srcset="./assets/img/user-manual/hero-img-med.webp">
-                    <img src="./assets/img/user-manual/hero-img-low.webp" alt="تصویر واکنش‌گرا" style="width: 100%; height: auto;">
+                    <img src="./assets/img/user-manual/hero-img-low.webp" alt="پسر جوانی پشت میز نشسته و لپ‌تاپش را به سمت مادرش 
+                        که ایستاده چرخانده تا دفترچه راهنمای ماشین لباسشویی را نشان دهد؛ در کنار آن‌ها گلدانی روی زمین و ماشین لباسشویی‌ای با درِب باز و نشتی آب دیده می‌شود.
+                        " style="width:     100%; height: auto;">
                 </picture>
 
                 <div class="user-manual-hero-grid-wrapper">
                      <!-- فیلترها -->
-                    <div class="user-manual-hero-grid-wrapper-filters">
+                    <div class="user-manual-hero-grid-wrapper-filters" id="user-manual-hero-grid-wrapper-filters">
                         <div class="custom-select" data-filter-type="deviceType">
                             <div class="custom-select-trigger">
                                 <span>همه دستگاه‌ها</span>
@@ -301,8 +303,8 @@
                             <ul class="custom-options">
                                 <li class="custom-option selected" data-value="">همه دستگاه‌ها</li>
                                 <li class="custom-option" data-value="کولر">کولر</li>
-                                <li class="custom-option" data-value="یخچال">یخچال</li>
                                 <li class="custom-option" data-value="ماشین لباسشویی">ماشین لباسشویی</li>
+                                <li class="custom-option" data-value="یخچال">یخچال</li>
                             </ul>
                         </div>
 
@@ -314,9 +316,9 @@
                             <ul class="custom-options">
                                 <li class="custom-option selected" data-value="">همه برندها</li>
                                 <li class="custom-option" data-value="ال جی">ال جی</li>
-                                <li class="custom-option" data-value="سامسونگ">سامسونگ</li>
-                                <li class="custom-option" data-value="جنرال">جنرال</li>
                                 <li class="custom-option" data-value="بوش">بوش</li>
+                                <li class="custom-option" data-value="جنرال">جنرال</li>
+                                <li class="custom-option" data-value="سامسونگ">سامسونگ</li>
                             </ul>
                         </div>
 
@@ -329,6 +331,7 @@
                         <table id="user-manual-hero-grid-wrapper-table">
                             <thead>
                                 <tr>
+                                    <th>ردیف</th>
                                     <th>نوع دستگاه</th>
                                     <th>برند</th>
                                     <th>مدل</th>
@@ -337,31 +340,159 @@
                             </thead>
                             <tbody>
                                 <tr>
+                                    <td>1</td>
                                     <td>یخچال</td>
-                                    <td>سامسونگ</td>
-                                    <td>RT62K7130SL</td>
-                                    <td><a href="docs/RT62K7130SL.pdf" download><img src="./assets/icons/user-manual/download-96.png" alt=""><span>دانلود</span></a></td>
+                                    <td>بوش</td>
+                                    <td>refrigerator-bosch-1234</td>
+                                    <td><a href="./json/manuals/refrigerator/bosch/refrigerator-bosch-1234.pdf" download><img src="./assets/icons/user-manual/download-96.png" alt=""><span>دانلود</span></a></td>
                                 </tr>
                                 <tr>
+                                    <td>2</td>
                                     <td>کولر</td>
                                     <td>ال جی</td>
-                                    <td>CS18SQ</td>
-                                    <td><a href="docs/CS18SQ.pdf" download><img src="./assets/icons/user-manual/download-96.png" alt=""><span>دانلود</span></a></td>
+                                    <td>ac-lg-1234</td>
+                                    <td><a href="./json/manuals/ac/lg/ac-lg-1234.pdf" download><img src="./assets/icons/user-manual/download-96.png" alt=""><span>دانلود</span></a></td>
                                 </tr>
                                 <tr>
+                                    <td>3</td>
                                     <td>ماشین لباسشویی</td>
-                                    <td>بوش</td>
-                                    <td>WAT28460GC</td>
-                                    <td><a href="docs/WAT28460GC.pdf" download><img src="./assets/icons/user-manual/download-96.png" alt=""><span>دانلود</span></a></td>
+                                    <td>ال جی</td>
+                                    <td>wasing-lg-1234</td>
+                                    <td><a href="./json/manuals/washing-machine/lg/wasing-lg-1234.pdf" download><img src="./assets/icons/user-manual/download-96.png" alt=""><span>دانلود</span></a></td>
                                 </tr>
                                 <tr>
-                                    <td>یخچال</td>
+                                    <td>4</td>
+                                    <td>ماشین لباسشویی</td>
                                     <td>ال جی</td>
-                                    <td>GR-B802HLHU</td>
-                                    <td><a href="docs/GR-B802HLHU.pdf" download><img src="./assets/icons/user-manual/download-96.png" alt=""><span>دانلود</span></a></td>
+                                    <td>wasing-lg-5678</td>
+                                    <td><a href="./json/manuals/washing-machine/lg/wasing-lg-5678.pdf" download><img src="./assets/icons/user-manual/download-96.png" alt=""><span>دانلود</span></a></td>
                                 </tr>
+                                <tr>
+                                <tr>
+                                    <td>1</td>
+                                    <td>یخچال</td>
+                                    <td>بوش</td>
+                                    <td>refrigerator-bosch-1234</td>
+                                    <td><a href="./json/manuals/refrigerator/bosch/refrigerator-bosch-1234.pdf" download><img src="./assets/icons/user-manual/download-96.png" alt=""><span>دانلود</span></a></td>
+                                </tr>
+                                <tr>
+                                    <td>2</td>
+                                    <td>کولر</td>
+                                    <td>ال جی</td>
+                                    <td>ac-lg-1234</td>
+                                    <td><a href="./json/manuals/ac/lg/ac-lg-1234.pdf" download><img src="./assets/icons/user-manual/download-96.png" alt=""><span>دانلود</span></a></td>
+                                </tr>
+                                <tr>
+                                    <td>3</td>
+                                    <td>ماشین لباسشویی</td>
+                                    <td>ال جی</td>
+                                    <td>wasing-lg-1234</td>
+                                    <td><a href="./json/manuals/washing-machine/lg/wasing-lg-1234.pdf" download><img src="./assets/icons/user-manual/download-96.png" alt=""><span>دانلود</span></a></td>
+                                </tr>
+                                <tr>
+                                    <td>4</td>
+                                    <td>ماشین لباسشویی</td>
+                                    <td>ال جی</td>
+                                    <td>wasing-lg-5678</td>
+                                    <td><a href="./json/manuals/washing-machine/lg/wasing-lg-5678.pdf" download><img src="./assets/icons/user-manual/download-96.png" alt=""><span>دانلود</span></a></td>
+                                </tr>
+                                <tr>
+                                <tr>
+                                    <td>1</td>
+                                    <td>یخچال</td>
+                                    <td>بوش</td>
+                                    <td>refrigerator-bosch-1234</td>
+                                    <td><a href="./json/manuals/refrigerator/bosch/refrigerator-bosch-1234.pdf" download><img src="./assets/icons/user-manual/download-96.png" alt=""><span>دانلود</span></a></td>
+                                </tr>
+                                <tr>
+                                    <td>2</td>
+                                    <td>کولر</td>
+                                    <td>ال جی</td>
+                                    <td>ac-lg-1234</td>
+                                    <td><a href="./json/manuals/ac/lg/ac-lg-1234.pdf" download><img src="./assets/icons/user-manual/download-96.png" alt=""><span>دانلود</span></a></td>
+                                </tr>
+                                <tr>
+                                    <td>3</td>
+                                    <td>ماشین لباسشویی</td>
+                                    <td>ال جی</td>
+                                    <td>wasing-lg-1234</td>
+                                    <td><a href="./json/manuals/washing-machine/lg/wasing-lg-1234.pdf" download><img src="./assets/icons/user-manual/download-96.png" alt=""><span>دانلود</span></a></td>
+                                </tr>
+                                <tr>
+                                    <td>4</td>
+                                    <td>ماشین لباسشویی</td>
+                                    <td>ال جی</td>
+                                    <td>wasing-lg-5678</td>
+                                    <td><a href="./json/manuals/washing-machine/lg/wasing-lg-5678.pdf" download><img src="./assets/icons/user-manual/download-96.png" alt=""><span>دانلود</span></a></td>
+                                </tr>
+                                <tr>
+                                <tr>
+                                    <td>1</td>
+                                    <td>یخچال</td>
+                                    <td>بوش</td>
+                                    <td>refrigerator-bosch-1234</td>
+                                    <td><a href="./json/manuals/refrigerator/bosch/refrigerator-bosch-1234.pdf" download><img src="./assets/icons/user-manual/download-96.png" alt=""><span>دانلود</span></a></td>
+                                </tr>
+                                <tr>
+                                    <td>2</td>
+                                    <td>کولر</td>
+                                    <td>ال جی</td>
+                                    <td>ac-lg-1234</td>
+                                    <td><a href="./json/manuals/ac/lg/ac-lg-1234.pdf" download><img src="./assets/icons/user-manual/download-96.png" alt=""><span>دانلود</span></a></td>
+                                </tr>
+                                <tr>
+                                    <td>3</td>
+                                    <td>ماشین لباسشویی</td>
+                                    <td>ال جی</td>
+                                    <td>wasing-lg-1234</td>
+                                    <td><a href="./json/manuals/washing-machine/lg/wasing-lg-1234.pdf" download><img src="./assets/icons/user-manual/download-96.png" alt=""><span>دانلود</span></a></td>
+                                </tr>
+                                <tr>
+                                    <td>4</td>
+                                    <td>ماشین لباسشویی</td>
+                                    <td>ال جی</td>
+                                    <td>wasing-lg-5678</td>
+                                    <td><a href="./json/manuals/washing-machine/lg/wasing-lg-5678.pdf" download><img src="./assets/icons/user-manual/download-96.png" alt=""><span>دانلود</span></a></td>
+                                </tr>
+                                <tr>
+                                <tr>
+                                    <td>1</td>
+                                    <td>یخچال</td>
+                                    <td>بوش</td>
+                                    <td>refrigerator-bosch-1234</td>
+                                    <td><a href="./json/manuals/refrigerator/bosch/refrigerator-bosch-1234.pdf" download><img src="./assets/icons/user-manual/download-96.png" alt=""><span>دانلود</span></a></td>
+                                </tr>
+                                <tr>
+                                    <td>2</td>
+                                    <td>کولر</td>
+                                    <td>ال جی</td>
+                                    <td>ac-lg-1234</td>
+                                    <td><a href="./json/manuals/ac/lg/ac-lg-1234.pdf" download><img src="./assets/icons/user-manual/download-96.png" alt=""><span>دانلود</span></a></td>
+                                </tr>
+                                <tr>
+                                    <td>3</td>
+                                    <td>ماشین لباسشویی</td>
+                                    <td>ال جی</td>
+                                    <td>wasing-lg-1234</td>
+                                    <td><a href="./json/manuals/washing-machine/lg/wasing-lg-1234.pdf" download><img src="./assets/icons/user-manual/download-96.png" alt=""><span>دانلود</span></a></td>
+                                </tr>
+                                <tr>
+                                    <td>4</td>
+                                    <td>ماشین لباسشویی</td>
+                                    <td>ال جی</td>
+                                    <td>wasing-lg-5678</td>
+                                    <td><a href="./json/manuals/washing-machine/lg/wasing-lg-5678.pdf" download><img src="./assets/icons/user-manual/download-96.png" alt=""><span>دانلود</span></a></td>
+                                </tr>
+                                <tr>
+
                             </tbody>
-                            </table>
+                        </table>
+
+                        <div id="pagination" class="pagination"></div>
+                        <p id="no-results" class="no-results" style="display: none; text-align: center; font-size: 1.4rem; margin: 1.6rem 0;">
+                            نتیجه‌ای یافت نشد.
+                        </p>
+
                     </div>
                     
 

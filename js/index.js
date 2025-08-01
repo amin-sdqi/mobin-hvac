@@ -1,84 +1,9 @@
 "use strict";
 
-
-
-// همبرگر و منو
-const hamburger = document.getElementById('hamburger');
-
-// کلیک روی همبرگر
-hamburger.addEventListener('click', () => {
-  hamburger.classList.toggle('active');
-  document.querySelector('.phone-navbar-ul').classList.toggle('active')
-  
-  document.body.classList.toggle('menu-open')
-});
-
-
-  // برای باز شدن زیر منوها در حالت موبایل
-document.addEventListener('DOMContentLoaded', () => {
-  const buttons = document.querySelectorAll('.phone-navbar-ul-li-button');
-
-  buttons.forEach(button => {
-    button.addEventListener('click', () => {
-      const submenu = button.nextElementSibling;
-      if (submenu && submenu.classList.contains('phone-navbar-ul-li-submenu')) {
-        submenu.classList.toggle('active');
-      }
-    });
-  });
-});
-
-
-
-/// تغییر سایز نوبار با اسکرول
-window.onscroll = function() {scrollFunction()};
-
-function scrollFunction() {
-  if (document.body.scrollTop > 80 || document.documentElement.scrollTop > 80) {
-    document.querySelector(".section-navbar").style.minHeight = "5.4rem";
-    // document.querySelector("#submenu-1").style.top = "4.45rem";
-    // document.querySelector("#submenu-1").style.setProperty('--submenu-before-top', '-1.8rem');
-    // document.querySelector("#submenu-2").style.top = "4.45rem";
-    // document.querySelector("#submenu-2").style.setProperty('--submenu-before-top', '-1.8rem');
-    // document.getElementById("navbar-container").style.height = "5rem";
-    document.getElementById("hamburger").style.padding = ".2rem";
-    document.querySelector("phone-navbar-ul").style.top = "5.4rem";
-  } else {
-    document.querySelector(".section-navbar").style.minHeight = "8rem";
-    // document.querySelector("#submenu-1").style.top = "5.5rem";
-    // document.querySelector("#submenu-1").style.setProperty('--submenu-before-top', '-2.9rem');
-    // document.querySelector("#submenu-2").style.setProperty('--submenu-before-top', '-2.9rem');
-    // document.getElementById("navbar-container").style.height = "8rem";
-    document.getElementById("hamburger").style.padding = ".5rem";
-    document.querySelector("phone-navbar-ul").style.top = "8rem";
-  }
-}
-//////////////
-//اسکرول آرام لینک های نوبار
-document.querySelectorAll('nav a').forEach(link => {
-  link.addEventListener('click', function(e) {
-    e.preventDefault(); // جلوگیری از رفتار پیش‌فرض لینک
-
-    const targetID = this.getAttribute('href').substring(1); // حذف #
-    const targetSection = document.getElementById(targetID);
-
-    if (targetSection) {
-      targetSection.scrollIntoView({
-        behavior: 'smooth',
-        block: 'start'
-      });
-    }
-  });
-});
-
-
-
-
-
 ////////////////////////////////////
+/// hero section slider logic
 ////////////////////////////////////
-/// hero section
-////////////////
+
 const heroSlider = document.querySelector('.section-hero-slider');
 const heroSlides = document.querySelectorAll('.section-hero-slider-slide');
 const heroDots = document.querySelectorAll('.section-hero-dots-dot');
@@ -112,12 +37,12 @@ function prevSlide() {
 }
 
 heroBtnRight.addEventListener('click', () => {
-  prevSlide();
+  nextSlide();
   resetAutoSlide();
 });
 
 heroBtnLeft.addEventListener('click', () => {
-  nextSlide();
+  prevSlide();
   resetAutoSlide();
 });
 
@@ -166,7 +91,6 @@ function snapToClosestSlide(velocity = 0) {
   const rawIndex = currentScroll / slideWidth;
   let newIndex = Math.round(rawIndex);
 
-  // اعمال اینرسی: اگر سرعت زیاد باشه، به جهت سرعت یک اسلاید جلوتر یا عقب‌تر بریم
   if (Math.abs(velocity) > 1.5) {
     newIndex = velocity > 0 ? Math.floor(rawIndex) : Math.ceil(rawIndex);
   }
@@ -199,259 +123,49 @@ function onDragEnd(e) {
   const endX = (e.changedTouches ? e.changedTouches[0].pageX : e.pageX) - heroSlider.offsetLeft;
   const dx = endX - startX;
   const dt = (Date.now() - startTime) / 1000;
-  const velocity = dx / dt / 100; // سرعت نسبی
+  const velocity = dx / dt / 100;
 
-  const minDragDistance = window.innerWidth * 0.10; // ۱۰٪ عرض ویوپورت
+  const minDragDistance = window.innerWidth * 0.10;
 
   if (Math.abs(dx) >= minDragDistance) {
     snapToClosestSlide(velocity);
   } else {
-    // اگه کمتر از ۱۰٪ بود، برگرد به اسلاید فعلی
     goToSlide(heroCurrentIndex);
   }
 }
 
-// Mouse events
 heroSlider.addEventListener('mousedown', onDragStart);
 heroSlider.addEventListener('mousemove', onDragMove);
 heroSlider.addEventListener('mouseup', onDragEnd);
 heroSlider.addEventListener('mouseleave', onDragEnd);
 
-// Touch events
 heroSlider.addEventListener('touchstart', onDragStart);
 heroSlider.addEventListener('touchmove', onDragMove);
 heroSlider.addEventListener('touchend', onDragEnd);
 
-// شروع
 startAutoSlide();
 goToSlide(0);
 
-
-
-
-
-//////////////////////////////////////
-//////////////////////////////////////
-// testimonial section
-
-
-// const slides = document.querySelectorAll('.section-testimonials-content-slider-slides-wrapper');
-// const leftArrow = document.querySelector('.leftarr');
-// const rightArrow = document.querySelector('.rightarr');
-
-// let currentIndex = 0;
-
-// // Find the initially shown slide
-// slides.forEach((slide, index) => {
-//   if (slide.classList.contains('shown')) {
-//     currentIndex = index;
-//   }
-// });
-
-// function updateArrows() {
-//   if (currentIndex === 0) {
-//     leftArrow.style.opacity = "0.5";
-//     leftArrow.style.pointerEvents = "none";
-//   } else {
-//     leftArrow.style.opacity = "1";
-//     leftArrow.style.pointerEvents = "auto";
-//   }
-
-//   if (currentIndex === slides.length - 1) {
-//     rightArrow.style.opacity = "0.5";
-//     rightArrow.style.pointerEvents = "none";
-//   } else {
-//     rightArrow.style.opacity = "1";
-//     rightArrow.style.pointerEvents = "auto";
-//   }
-// }
-
-// function showSlide(index) {
-//   slides.forEach(slide => slide.classList.remove('shown'));
-//   slides[index].classList.add('shown');
-//   updateArrows();
-// }
-
-// // Right arrow: next slide
-// rightArrow.addEventListener('click', () => {
-//   if (currentIndex < slides.length - 1) {
-//     currentIndex++;
-//     showSlide(currentIndex);
-//   }
-// });
-
-// // Left arrow: previous slide
-// leftArrow.addEventListener('click', () => {
-//   if (currentIndex > 0) {
-//     currentIndex--;
-//     showSlide(currentIndex);
-//   }
-// });
-
-// // Run once at start
-// updateArrows();
-
-
-
-
-
-
-// faqs
-// document.querySelectorAll('.wrapper-faqs-faq-question').forEach(question => {
-//   question.addEventListener('click', () => {
-//     const faq = question.parentElement;
-//     const answerDiv = faq.querySelector('.answer-div');
-//     const isActive = faq.classList.contains('active');
-
-//     if (isActive) {
-//       // مرحله بستن
-//       answerDiv.style.maxHeight = answerDiv.scrollHeight + 'px'; // مقدار اولیه برای انیمیشن
-//       requestAnimationFrame(() => {
-//         answerDiv.style.maxHeight = '0';
-//       });
-//       faq.classList.remove('active');
-//     } else {
-//       // مرحله باز کردن
-//       answerDiv.style.maxHeight = answerDiv.scrollHeight + 'px';
-//       faq.classList.add('active');
-//     }
-//   });
-// });
-
-
-//////////////////////////
-///////////////////////
-// مقالات
-
-  const slider = document.querySelector('.section-articles-slider');
-  const prevBtn = document.getElementById('articles-next');
-  const nextBtn = document.getElementById('articles-prev');
-
-  const scrollAmount = slider.offsetWidth / 3; // حدود یک اسلاید
-
-  nextBtn.addEventListener('click', () => {
-    slider.scrollBy({ left: scrollAmount, behavior: 'smooth' });
-  });
-
-  prevBtn.addEventListener('click', () => {
-    slider.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
-  });
-
-  
-
-
-///////////////////////////////////////
-////////////////////////////////////////
-// cost estimate برآورد هزینه
-// const estBtn = document.querySelector('#estimate-cost-btn');
-// const estimateSection = document.querySelector('.estimate-section');
-// const estimateSectionOverlay = document.querySelector('#estimate-section-overlay');
-// const estimateForm = document.querySelector('.estimate-section-form');
-
-
-// estBtn.addEventListener('click', ()=>{
-//   estimateSection.classList.add('show');
-// })
-
-// estimateSectionOverlay.addEventListener('click', ()=>{
-//   estimateSection.classList.remove('show');
-
-// })
-///////////////////////////////////
-//////////////////////////////////
-// دکمه تماس با ما
-// document.querySelectorAll('.call-btn').forEach(function (btn) {
-//   btn.addEventListener('click', function () {
-//     const userAgent = navigator.userAgent || navigator.vendor || window.opera;
-//     const isMobileUA = /android|iphone|ipad|ipod|windows phone/i.test(userAgent.toLowerCase());
-//     const isSmallScreen = window.innerWidth <= 768;
-
-//     if (isMobileUA && isSmallScreen) {
-//       // موبایل واقعی: تماس
-//       window.location.href = "tel:+989123456789";
-//     } else {
-//       // دسکتاپ یا تبلت: رفتن به صفحه تماس با ما
-//       window.location.href = "#contact";
-//     }
-//   });
-// });
-
-///////////////////////////////////
 ////////////////////////////////////
-//دکمه ثبت درخواست
-// const openBtns = document.querySelectorAll(".open-request-form");
-// const formSection = document.getElementById("request-section");
-// const formOverlay = document.getElementById("request-section-overlay");
-// const closeBtn = document.getElementById("close-form");
+/// articles slider controls (راست به چپ)
+////////////////////////////////////
 
-// const form = document.getElementById("request-form");
-// const messageEl = document.getElementById("form-message");
-// const deviceSelect = document.getElementById("device-type");
-// const acQ = document.getElementById("ac-questions");
-// const fridgeQ = document.getElementById("fridge-questions");
-// const washerQ = document.getElementById("washer-questions");
+const articlesSlider = document.querySelector('.section-articles-slider');
+const articlesNextBtn = document.getElementById('articles-next');
+const articlesPrevBtn = document.getElementById('articles-prev');
 
-// // فرم رو با کلیک روی هر دکمه باز کن
-// openBtns.forEach(btn => {
-//   btn.addEventListener("click", () => {
-//     formSection.classList.add("show");
-//     messageEl.textContent = "";
-//   });
-// });
+if (articlesSlider && articlesPrevBtn && articlesNextBtn) {
+  const scrollAmountArticles = articlesSlider.offsetWidth / 3;
 
-// // بستن فرم
-// closeBtn.addEventListener("click", () => formSection.classList.remove("show"));
-// formOverlay.addEventListener("click", () => formSection.classList.remove("show"));
+  // دکمه next اسکرول به سمت چپ (بعدی در راست به چپ)
+  articlesNextBtn.addEventListener('click', () => {
+    articlesSlider.scrollBy({ left: scrollAmountArticles, behavior: 'smooth' });
+  });
 
-// // تغییر سوالات بر اساس وسیله
-// deviceSelect.addEventListener("change", () => {
-//   [acQ, fridgeQ, washerQ].forEach(q => {
-//     q.classList.remove("active");
-//     [...q.querySelectorAll("input, select")].forEach(f => f.disabled = true);
-//   });
-
-//   if (deviceSelect.value === "ac") {
-//     acQ.classList.add("active");
-//     [...acQ.querySelectorAll("input, select")].forEach(f => f.disabled = false);
-//   }
-//   if (deviceSelect.value === "fridge") {
-//     fridgeQ.classList.add("active");
-//     [...fridgeQ.querySelectorAll("input")].forEach(f => f.disabled = false);
-//   }
-//   if (deviceSelect.value === "washer") {
-//     washerQ.classList.add("active");
-//     [...washerQ.querySelectorAll("input")].forEach(f => f.disabled = false);
-//   }
-// });
-
-// // ارسال فرم با AJAX به Formspree
-// form.addEventListener("submit", async function (e) {
-//   e.preventDefault();
-//   const formData = new FormData(form);
-
-//   try {
-//     const res = await fetch(form.action, {
-//       method: "POST",
-//       body: formData,
-//       headers: { Accept: "application/json" }
-//     });
-
-//     if (res.ok) {
-//       messageEl.textContent = "درخواست با موفقیت ارسال شد.";
-//       messageEl.style.color = "green";
-//       form.reset();
-//       [acQ, fridgeQ, washerQ].forEach(q => q.classList.remove("active"));
-
-//       setTimeout(() => {
-//         formSection.classList.remove("show");
-//         messageEl.textContent = "";
-//       }, 3000);
-//     } else {
-//       messageEl.textContent = "خطایی در ارسال فرم رخ داد.";
-//       messageEl.style.color = "red";
-//     }
-//   } catch (err) {
-//     messageEl.textContent = "اتصال برقرار نشد. لطفاً دوباره تلاش کنید.";
-//     messageEl.style.color = "red";
-//   }
-// });
+  // دکمه prev اسکرول به سمت راست (قبلی)
+  articlesPrevBtn.addEventListener('click', () => {
+    articlesSlider.scrollBy({ left: -scrollAmountArticles, behavior: 'smooth' });
+  });
+} else {
+  console.warn('یکی از المان‌های اسلایدر مقالات پیدا نشد!');
+}
