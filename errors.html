@@ -270,70 +270,236 @@
     
 <!-- section errors-hero -->
     <section class="section errors-hero">
-        <div class="container">
-            <div class="errors-hero-grid">
-                <img src="./assets/img/user-manual/errors-hero.png" alt="">
-                <div class="errors-hero-grid-texts">
-                    <h1 class="heading-1">
-                        دفترچه راهنمای محصول شما فقط چند کلیک فاصله دارد!
-                    </h1>
-                    <p class="paragraph">
-                        ما سعی کردیم دفترچه راهنمای بیشتر مدل‌های کولر، یخچال و 
-                        لباسشویی رو از برندهای معروف بازار جمع کنیم تا راحت پیداشون کنی.
-                        فرقی نمی‌کنه دستگاهت از کدوم 
-                        برند باشه یا چه مدلی داشته باشه، اینجا 
-                        احتمال زیادی هست که راهنمای کاملش
-                         رو توی چند ثانیه پیدا کنی و دانلودش کنی.
-                    </p>
+        <div class="container vertical-central-flex">
+            <div class="errors-hero-iconwrapper"></div>
+            <h1 class="heading-1 text-center">مفهوم خطاهای دستگاه ها</h1>
+            
+            <!-- دسته بندی نوع دستگاه -->
+            <div class="errors-hero-categorieswrapper vertical-right-flex">
+                <h3 class="heading-3">نوع دستگاه را انتخاب کنید:</h3>
+                <div class="errors-hero-categorieswrapper-categories">
+                    <a class="errors-hero-categorieswrapper-categories-category 
+                    errors-hero-categorieswrapper-categories-category-ac" 
+                    data-category="ac"
+                    href="#brandswrapper">
+                        <img class="errors-hero-categorieswrapper-categories-category-icon" src="./assets/icons/faq/air-conditioning-svgrepo-com.svg" alt="">
+                        <h4 class="heading-4">کولر گازی</h4>
+                    </a>
+                    <a class="errors-hero-categorieswrapper-categories-category 
+                    errors-hero-categorieswrapper-categories-category-refrigerator" 
+                    data-category="refrigerator"
+                    href="#brandswrapper">
+                        <img class="errors-hero-categorieswrapper-categories-category-icon" src="./assets/icons/faq/refrigerator-svgrepo-com.svg" alt="">
+                        <h4 class="heading-4">یخچال و فریزر</h4>
+                    </a>
+                    <a class="errors-hero-categorieswrapper-categories-category 
+                    errors-hero-categorieswrapper-categories-category-washing" 
+                    data-category="washing"
+                    href="brandsswrapper">
+                        <img class="errors-hero-categorieswrapper-categories-category-icon" src="./assets/icons/faq/washing-machine-svgrepo-com.svg" alt="">
+                        <h4 class="heading-4">ماشین لباسشویی</h4>
+                    </a>
                 </div>
-                <!-- فرم  -->
-                <form action="" class="errors-hero-grid-form">
-                    
-                    <label class="heading-4" for="device">نوع دستگاه:</label>
-                    <div class="custom-select">
-                        <input type="text" id="deviceInput" placeholder="نوع دستگاه را انتخاب کنید ..." autocomplete="off">
-                        <input type="hidden" id="deviceValue" name="device"> <!-- برای ارسال در فرم -->
-
-                        <div class="options-container" id="deviceOptions">
-                            <div class="option" data-value="ac">کولر گازی</div>
-                            <div class="option" data-value="refrigerator">یخچال و فریزر</div>
-                            <div class="option" data-value="washing">ماشین لباسشویی</div>
-                        </div>
-                    </div>
-
-
-                    <label class="heading-4" for="brand">برند:</label>
-                    <div class="custom-select">
-                        <input  type="text" placeholder="برند دستگاه را انتخاب کنید ..." id="brandInput" autocomplete="off" disabled>
-                        <input type="hidden" id="brandValue" name="brand"> <!-- برای ارسال در فرم -->
-
-                        <div class="options-container" id="brandOptions">
-                            
-                        </div>
-                    </div>
-
-                    <label class="heading-4" for="model">مدل:</label>
-                    <div class="custom-select">
-                        <input type="text" placeholder="مدل دستگاه را انتخاب کنید ..." id="modelInput" autocomplete="off" disabled>
-                        <input type="hidden" id="modelValue" name="model"> <!-- برای ارسال در فرم -->
-
-                        <div class="options-container" id="modelOptions">
-                            
-                        </div>
-                    </div>
-
-                    <label class="heading-4" for="downloadLink">لینک دانلود دفترچه راهنما <br> به صورت pdf:</label>
-                    <a class="manual-download-link" href="#" id="downloadLink" target="_blank">دانلود دفترچه راهنما</a>
-                    
-                    <button type="button" id="resetBtn" class="manual-reset-btn" disabled>ریست کردن فرم جستجو</button>
-
-                </form>
-
-                <div class="errors-hero-grid-icon"></div>
             </div>
-        </div>
-    </section>
 
+            <!-- انتخاب برند ها -->
+            <div class="errors-hero-brandswrapper" id="brandswrapper">
+                
+                <!-- برندهای کولر  -->
+                <div class="errors-hero-brandswrapper-ac  vertical-right-flex">
+                    <h3 class="errors-hero-brandswrapper-categorytitle heading-3 ">برند کولر را انتخاب کنید:</h3>
+                    <div class="errors-hero-brandswrapper-ac-brands">
+                        <a href="#errorswrapper" class="errors-hero-brandswrapper-ac-brands-brand  heading-5 text-center">جی پلاس<BR>(GPlus)</a>
+                        <a href="#errorswrapper" class="errors-hero-brandswrapper-ac-brands-brand  heading-5 text-center">ال‌جی<br>(LG)</a>
+                        <a href="#errorswrapper" class="errors-hero-brandswrapper-ac-brands-brand  heading-5 text-center">سامسونگ<br>(Samsung)</a>
+                        <a href="#errorswrapper" class="errors-hero-brandswrapper-ac-brands-brand  heading-5 text-center">گری<br>(Gree)</a>
+                        <a href="#errorswrapper" class="errors-hero-brandswrapper-ac-brands-brand  heading-5 text-center">هایسنس<br>(Hisense)</a>
+                        <a href="#errorswrapper" class="errors-hero-brandswrapper-ac-brands-brand  heading-5 text-center">توشیبا<br>(Toshiba)</a>
+                        <a href="#errorswrapper" class="errors-hero-brandswrapper-ac-brands-brand  heading-5 text-center">جنرال<br>(General)</a>
+                        <a href="#errorswrapper" class="errors-hero-brandswrapper-ac-brands-brand  heading-5 text-center">میتسوبیشی<br>(Mitsubishi)</a>
+                        <a href="#errorswrapper" class="errors-hero-brandswrapper-ac-brands-brand  heading-5 text-center">هیتاچی<br>(Hitachi)</a>
+                        <a href="#errorswrapper" class="errors-hero-brandswrapper-ac-brands-brand  heading-5 text-center">پاناسونیک<br>(Panasonic)</a>
+                        <a href="#errorswrapper" class="errors-hero-brandswrapper-ac-brands-brand  heading-5 text-center">تی‌سی‌ال<br>(TCL)</a>
+                        <a href="#errorswrapper" class="errors-hero-brandswrapper-ac-brands-brand  heading-5 text-center">ایران رادیاتور</a>
+                        <a href="#errorswrapper" class="errors-hero-brandswrapper-ac-brands-brand  heading-5 text-center">های‌تک<br>(Hi-Tech)</a>
+                    </div>
+                </div>
+                
+                
+            </div>
+
+            
+            <!-- انتخاب خطا  -->
+            <div class="errors-hero-errorswrapper" id="errorswrapper">
+                
+                <!-- خطاهای کولر جی پلاس -->
+                <div  id="ac-errors-gplus"  class="errors-hero-errorswrapper-brand active vertical-right-flex">
+                    <h3 class="errors-hero-errorswrapper-categorytitle heading-3 ">خطاهای کولرهای گازی جی پلاس</h3>
+                    <!-- کد ارور ها -->
+                    <div class="errors-hero-errorswrapper-brand-errors">
+                        <a href="#ac-gplus-error-meaning-1" class="errors-hero-errorswrapper-brand-errors-error  heading-5 text-center">1</a>
+                        <a href="#ac-gplus-error-meaning-2" class="errors-hero-errorswrapper-brand-errors-error  heading-5 text-center">2</a>
+                        <a href="#ac-gplus-error-meaning-6" class="errors-hero-errorswrapper-brand-errors-error  heading-5 text-center">6</a>
+                        <a href="#ac-gplus-error-meaning-13" class="errors-hero-errorswrapper-brand-errors-error  heading-5 text-center">13</a>
+                        <a href="#ac-gplus-error-meaning-14" class="errors-hero-errorswrapper-brand-errors-error  heading-5 text-center">14</a>
+                        <a href="#ac-gplus-error-meaning-15" class="errors-hero-errorswrapper-brand-errors-error  heading-5 text-center">15</a>
+                        <a href="#ac-gplus-error-meaning-19" class="errors-hero-errorswrapper-brand-errors-error  heading-5 text-center">19</a>
+                        <a href="#ac-gplus-error-meaning-20" class="errors-hero-errorswrapper-brand-errors-error  heading-5 text-center">20</a>
+                        <a href="#ac-gplus-error-meaning-21" class="errors-hero-errorswrapper-brand-errors-error  heading-5 text-center">21</a>
+                        <a href="#ac-gplus-error-meaning-33" class="errors-hero-errorswrapper-brand-errors-error  heading-5 text-center">33</a>
+                        <a href="#ac-gplus-error-meaning-34" class="errors-hero-errorswrapper-brand-errors-error  heading-5 text-center">34</a>
+                        <a href="#ac-gplus-error-meaning-36" class="errors-hero-errorswrapper-brand-errors-error  heading-5 text-center">36</a>
+                        <a href="#ac-gplus-error-meaning-39" class="errors-hero-errorswrapper-brand-errors-error  heading-5 text-center">39</a>
+                        <a href="#ac-gplus-error-meaning-ea" class="errors-hero-errorswrapper-brand-errors-error  heading-5 text-center">EA</a>
+                        <a href="#ac-gplus-error-meaning-ec" class="errors-hero-errorswrapper-brand-errors-error  heading-5 text-center">EC</a>
+                        <a href="#ac-gplus-error-meaning-ee" class="errors-hero-errorswrapper-brand-errors-error  heading-5 text-center">EE</a>
+                        <a href="#ac-gplus-error-meaning-ef" class="errors-hero-errorswrapper-brand-errors-error  heading-5 text-center">EF</a>
+                        <a href="#ac-gplus-error-meaning-el" class="errors-hero-errorswrapper-brand-errors-error  heading-5 text-center">EL</a>
+                        <a href="#ac-gplus-error-meaning-ep" class="errors-hero-errorswrapper-brand-errors-error  heading-5 text-center">EP</a>
+                        <a href="#ac-gplus-error-meaning-eu" class="errors-hero-errorswrapper-brand-errors-error  heading-5 text-center">EU</a>
+                        <a href="#ac-gplus-error-meaning-e0" class="errors-hero-errorswrapper-brand-errors-error  heading-5 text-center">E0</a>
+                        <a href="#ac-gplus-error-meaning-e1" class="errors-hero-errorswrapper-brand-errors-error  heading-5 text-center">E1</a>
+                        <a href="#ac-gplus-error-meaning-e2" class="errors-hero-errorswrapper-brand-errors-error  heading-5 text-center">E2</a>
+                        <a href="#ac-gplus-error-meaning-e3" class="errors-hero-errorswrapper-brand-errors-error  heading-5 text-center">E3</a>
+                        <a href="#ac-gplus-error-meaning-e4" class="errors-hero-errorswrapper-brand-errors-error  heading-5 text-center">E4</a>
+                        <a href="#ac-gplus-error-meaning-e5" class="errors-hero-errorswrapper-brand-errors-error  heading-5 text-center">E5</a>
+                        <a href="#ac-gplus-error-meaning-e6" class="errors-hero-errorswrapper-brand-errors-error  heading-5 text-center">E6</a>
+                        <a href="#ac-gplus-error-meaning-e7" class="errors-hero-errorswrapper-brand-errors-error  heading-5 text-center">E7</a>
+                        <a href="#ac-gplus-error-meaning-e8" class="errors-hero-errorswrapper-brand-errors-error  heading-5 text-center">E8</a>
+                        <a href="#ac-gplus-error-meaning-e9" class="errors-hero-errorswrapper-brand-errors-error  heading-5 text-center">E9</a>
+                        <a href="#ac-gplus-error-meaning-p0" class="errors-hero-errorswrapper-brand-errors-error  heading-5 text-center">P0</a>
+                        <a href="#ac-gplus-error-meaning-p1" class="errors-hero-errorswrapper-brand-errors-error  heading-5 text-center">P1</a>
+                        <a href="#ac-gplus-error-meaning-p2" class="errors-hero-errorswrapper-brand-errors-error  heading-5 text-center">P2</a>
+                        <a href="#ac-gplus-error-meaning-p4" class="errors-hero-errorswrapper-brand-errors-error  heading-5 text-center">P4</a>
+                        <a href="#ac-gplus-error-meaning-p5" class="errors-hero-errorswrapper-brand-errors-error  heading-5 text-center">P5</a>
+                        <a href="#ac-gplus-error-meaning-p6" class="errors-hero-errorswrapper-brand-errors-error  heading-5 text-center">P6</a>
+                        <a href="#ac-gplus-error-meaning-p7" class="errors-hero-errorswrapper-brand-errors-error  heading-5 text-center">P7</a>
+                        <a href="#ac-gplus-error-meaning-p8" class="errors-hero-errorswrapper-brand-errors-error  heading-5 text-center">P8</a>
+                        <a href="#ac-gplus-error-meaning-p9" class="errors-hero-errorswrapper-brand-errors-error  heading-5 text-center">P9</a>
+                    </div>
+
+                    <!-- معنی ارورها  -->
+                     <!-- 1 -->
+                    <div class="errors-hero-errorswrapper-brand-meaning vertical-right-flex">
+                        <h3 id="ac-gplus-error-meaning-1" class="errors-hero-errorswrapper-brand-meaning-code heading-3">خطای 1 کولرگازی GPlus</h3>
+                        <h5 class="errors-hero-errorswrapper-brand-meaning-cause heading-5">در صورتی که کولرگازی جی پلاس شما ارور 1 
+                            می‌دهد، احتمال دارد سنسور کندانسور یونیت بیرونی دستگاه دچار مشکل شده باشد. 
+                            این قطعه دمای محدوده‌ی کندانسور را تشخیص داده و به برد دستگاه ارسال می‌کند.
+                        </h5>
+                        <p class="errors-hero-errorswrapper-brand-meaning-solution paragraph">
+                            در صورت بروز این مشکل، لازم است کارشناس 
+                            برای بررسی و رفع ایراد دستگاه مراجعه
+                             کرده و آن را بررسی و رفع ایراد نمایند.
+                             لطفا چنانچه دستگاه شما دچار 
+                            این مشکل شده است، با کارشناسان ما تماس بگیرید.
+                        </p>
+                    </div>
+                    <!-- 2 -->
+                    <div class="errors-hero-errorswrapper-brand-meaning vertical-right-flex">
+                        <h3 id="ac-gplus-error-meaning-2" class="errors-hero-errorswrapper-brand-meaning-code heading-3">خطای 1 کولرگازی GPlus</h3>
+                        <h5 class="errors-hero-errorswrapper-brand-meaning-cause heading-5">
+                            در صورتی که کولرگازی جی پلاس شما ارور 1 
+                            می‌دهد، احتمال دارد سنسور کندانسور یونیت بیرونی دستگاه دچار مشکل شده باشد. 
+                            این قطعه دمای محدوده‌ی کندانسور را تشخیص داده و به برد دستگاه ارسال می‌کند.
+                        </h5>
+                        <p class="errors-hero-errorswrapper-brand-meaning-solution paragraph">
+                            در صورت بروز این مشکل، لازم است کارشناس 
+                            برای بررسی و رفع ایراد دستگاه مراجعه
+                             کرده و آن را بررسی و رفع ایراد نمایند.
+                             لطفا چنانچه دستگاه شما دچار 
+                            این مشکل شده است، با کارشناسان ما تماس بگیرید.
+                        </p>
+                    </div>
+
+
+                </div>
+                
+                <!-- خطاهای کولر الجی -->
+                <div id="ac-errors-lg" class="errors-hero-errorswrapper-brand  vertical-right-flex">
+                    <h3 class="errors-hero-errorswrapper-categorytitle heading-3 ">خطاهای کولرهای گازی جی پلاس</h3>
+                    <!-- کد ارور ها -->
+                    <div class="errors-hero-errorswrapper-brand-errors">
+                        <a href="#ac-lg-error-meaning-" class="errors-hero-errorswrapper-brand-errors-error  heading-5 text-center">1</a>
+                        <a href="#ac-lg-error-meaning-" class="errors-hero-errorswrapper-brand-errors-error  heading-5 text-center">2</a>
+                        <a href="#ac-lg-error-meaning-" class="errors-hero-errorswrapper-brand-errors-error  heading-5 text-center">6</a>
+                        <a href="#ac-lg-error-meaning-" class="errors-hero-errorswrapper-brand-errors-error  heading-5 text-center">13</a>
+                        <a href="#ac-lg-error-meaning-" class="errors-hero-errorswrapper-brand-errors-error  heading-5 text-center">14</a>
+                        <a href="#ac-lg-error-meaning-" class="errors-hero-errorswrapper-brand-errors-error  heading-5 text-center">15</a>
+                        <a href="#ac-lg-error-meaning-" class="errors-hero-errorswrapper-brand-errors-error  heading-5 text-center">19</a>
+                        <a href="#ac-lg-error-meaning-" class="errors-hero-errorswrapper-brand-errors-error  heading-5 text-center">20</a>
+                        <a href="#ac-lg-error-meaning-" class="errors-hero-errorswrapper-brand-errors-error  heading-5 text-center">21</a>
+                        <a href="#ac-lg-error-meaning-" class="errors-hero-errorswrapper-brand-errors-error  heading-5 text-center">33</a>
+                        <a href="#ac-lg-error-meaning-" class="errors-hero-errorswrapper-brand-errors-error  heading-5 text-center">34</a>
+                        <a href="#ac-lg-error-meaning-" class="errors-hero-errorswrapper-brand-errors-error  heading-5 text-center">36</a>
+                        <a href="#ac-lg-error-meaning-" class="errors-hero-errorswrapper-brand-errors-error  heading-5 text-center">39</a>
+                        <a href="#ac-lg-error-meaning-" class="errors-hero-errorswrapper-brand-errors-error  heading-5 text-center">EA</a>
+                        <a href="#ac-lg-error-meaning-" class="errors-hero-errorswrapper-brand-errors-error  heading-5 text-center">EC</a>
+                        <a href="#ac-lg-error-meaning-" class="errors-hero-errorswrapper-brand-errors-error  heading-5 text-center">EE</a>
+                        <a href="#ac-lg-error-meaning-" class="errors-hero-errorswrapper-brand-errors-error  heading-5 text-center">EF</a>
+                        <a href="#ac-lg-error-meaning-" class="errors-hero-errorswrapper-brand-errors-error  heading-5 text-center">EL</a>
+                        <a href="#ac-lg-error-meaning-" class="errors-hero-errorswrapper-brand-errors-error  heading-5 text-center">EP</a>
+                        <a href="#ac-lg-error-meaning-" class="errors-hero-errorswrapper-brand-errors-error  heading-5 text-center">EU</a>
+                        <a href="#ac-lg-error-meaning-" class="errors-hero-errorswrapper-brand-errors-error  heading-5 text-center">E0</a>
+                        <a href="#ac-lg-error-meaning-" class="errors-hero-errorswrapper-brand-errors-error  heading-5 text-center">E1</a>
+                        <a href="#ac-lg-error-meaning-" class="errors-hero-errorswrapper-brand-errors-error  heading-5 text-center">E2</a>
+                        <a href="#ac-lg-error-meaning-" class="errors-hero-errorswrapper-brand-errors-error  heading-5 text-center">E3</a>
+                        <a href="#ac-lg-error-meaning-" class="errors-hero-errorswrapper-brand-errors-error  heading-5 text-center">E4</a>
+                        <a href="#ac-lg-error-meaning-" class="errors-hero-errorswrapper-brand-errors-error  heading-5 text-center">E5</a>
+                        <a href="#ac-lg-error-meaning-" class="errors-hero-errorswrapper-brand-errors-error  heading-5 text-center">E6</a>
+                        <a href="#ac-lg-error-meaning-" class="errors-hero-errorswrapper-brand-errors-error  heading-5 text-center">E7</a>
+                        <a href="#ac-lg-error-meaning-" class="errors-hero-errorswrapper-brand-errors-error  heading-5 text-center">E8</a>
+                        <a href="#ac-lg-error-meaning-" class="errors-hero-errorswrapper-brand-errors-error  heading-5 text-center">E9</a>
+                        <a href="#ac-lg-error-meaning-" class="errors-hero-errorswrapper-brand-errors-error  heading-5 text-center">P0</a>
+                        <a href="#ac-lg-error-meaning-" class="errors-hero-errorswrapper-brand-errors-error  heading-5 text-center">P1</a>
+                        <a href="#ac-lg-error-meaning-" class="errors-hero-errorswrapper-brand-errors-error  heading-5 text-center">P2</a>
+                        <a href="#ac-lg-error-meaning-" class="errors-hero-errorswrapper-brand-errors-error  heading-5 text-center">P4</a>
+                        <a href="#ac-lg-error-meaning-" class="errors-hero-errorswrapper-brand-errors-error  heading-5 text-center">P5</a>
+                        <a href="#ac-lg-error-meaning-" class="errors-hero-errorswrapper-brand-errors-error  heading-5 text-center">P6</a>
+                        <a href="#ac-lg-error-meaning-" class="errors-hero-errorswrapper-brand-errors-error  heading-5 text-center">P7</a>
+                        <a href="#ac-lg-error-meaning-" class="errors-hero-errorswrapper-brand-errors-error  heading-5 text-center">P8</a>
+                        <a href="#ac-lg-error-meaning-" class="errors-hero-errorswrapper-brand-errors-error  heading-5 text-center">P9</a>
+                    </div>
+
+                    <!-- معنی ارورها  -->
+                    <div class="errors-hero-errorswrapper-brand-meaning vertical-right-flex">
+                        <h3 id="error-meaning-1" class="errors-hero-errorswrapper-brand-meaning-code heading-3">خطای 1 کولرگازی brand</h3>
+                        <h5 class="errors-hero-errorswrapper-brand-meaning-cause heading-5">در صورتی که کولرگازی جی پلاس شما ارور 1 
+                            می‌دهد، احتمال دارد سنسور کندانسور یونیت بیرونی دستگاه دچار مشکل شده باشد. 
+                            این قطعه دمای محدوده‌ی کندانسور را تشخیص داده و به برد دستگاه ارسال می‌کند.
+                        </h5>
+                        <p class="errors-hero-errorswrapper-brand-meaning-solution paragraph">
+                            در صورت بروز این مشکل، لازم است کارشناس 
+                            برای بررسی و رفع ایراد دستگاه مراجعه
+                             کرده و آن را بررسی و رفع ایراد نمایند.
+                             لطفا چنانچه دستگاه شما دچار 
+                            این مشکل شده است، با کارشناسان ما تماس بگیرید.
+                        </p>
+                    </div>
+
+                    <div class="errors-hero-errorswrapper-brand-meaning vertical-right-flex">
+                        <h3 id="error-meaning-2" class="errors-hero-errorswrapper-brand-meaning-code heading-3">خطای 1 کولرگازی brand</h3>
+                        <h5 class="errors-hero-errorswrapper-brand-meaning-cause heading-5">در صورتی که کولرگازی جی پلاس شما ارور 1 
+                            می‌دهد، احتمال دارد سنسور کندانسور یونیت بیرونی دستگاه دچار مشکل شده باشد. 
+                            این قطعه دمای محدوده‌ی کندانسور را تشخیص داده و به برد دستگاه ارسال می‌کند.
+                        </h5>
+                        <p class="errors-hero-errorswrapper-brand-meaning-solution paragraph">
+                            در صورت بروز این مشکل، لازم است کارشناس 
+                            برای بررسی و رفع ایراد دستگاه مراجعه
+                             کرده و آن را بررسی و رفع ایراد نمایند.
+                             لطفا چنانچه دستگاه شما دچار 
+                            این مشکل شده است، با کارشناسان ما تماس بگیرید.
+                        </p>
+                    </div>
+
+
+                </div>                
+                
+            </div>
+
+            
+        </div>
+    </section>    
+ 
 
 <!-- section cta -->
      <section class="section ac-cta">
