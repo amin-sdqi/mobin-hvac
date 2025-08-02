@@ -1,165 +1,103 @@
 "use strict";
 
-document.addEventListener("DOMContentLoaded", async () => {
-  const deviceInput = document.getElementById("deviceInput");
-  const deviceValue = document.getElementById("deviceValue");
-  const deviceOptionsContainer = document.getElementById("deviceOptions");
+document.addEventListener("DOMContentLoaded", () => {
 
-  const brandInput = document.getElementById("brandInput");
-  const brandValue = document.getElementById("brandValue");
-  const brandOptionsContainer = document.getElementById("brandOptions");
 
-  const modelInput = document.getElementById("modelInput");
-  const modelValue = document.getElementById("modelValue");
-  const modelOptionsContainer = document.getElementById("modelOptions");
+  // با انتخاب هر نوع دستگاه، برندهای مربوط به آن نمایش داده شوند: 
 
-  const downloadLink = document.getElementById("downloadLink");
-  const resetBtn = document.getElementById('resetBtn');
+  const categoriesWrapper = document.querySelector('.errors-hero-categorieswrapper-categories');
 
-  let manualsData = {};
+  categoriesWrapper.addEventListener('click', function (e) {
+    //مرئی شدن برند رپر
+    document.querySelector('.errors-hero-brandswrapper').classList.add('active');
 
-  // Load JSON
-  try {
-    const res = await fetch("./json/manuals.json");
-    manualsData = await res.json();
-  } catch (err) {
-    console.error("خطا در بارگذاری فایل JSON:", err);
-    return;
-  }
+    const clickedDevice = e.target.closest('a.errors-hero-categorieswrapper-categories-category');
+    if (!clickedDevice) return;
 
-  // Helper: create options
-  function createOptions(container, dataObj, callback) {
-    container.innerHTML = "";
-    Object.entries(dataObj).forEach(([key, value]) => {
-      const div = document.createElement("div");
-      div.className = "option";
-      div.dataset.value = key;
-      div.textContent = typeof value === "string" ? value : value.name;
+    // حذف کلاس active از همه دیوهای برند
+    const allBrandDivs = document.querySelectorAll('.errors-hero-brandswrapper-device');
+    allBrandDivs.forEach(div => div.classList.remove('active'));
 
-      div.addEventListener("click", () => {
-        callback(div.dataset.value, div.textContent);
-        container.style.display = "none";
-      });
-
-      container.appendChild(div);
-    });
-  }
-
-  // Search filter
-  function addFilter(inputEl, optionsContainer) {
-    inputEl.addEventListener("input", () => {
-      const filter = inputEl.value.toLowerCase();
-      const options = optionsContainer.querySelectorAll(".option");
-      options.forEach(opt => {
-        const text = opt.textContent.toLowerCase();
-        opt.style.display = text.includes(filter) ? "block" : "none";
-      });
-    });
-
-    inputEl.addEventListener("focus", () => {
-      optionsContainer.style.display = "block";
-    });
-
-    document.addEventListener("click", e => {
-      if (!e.target.closest(".custom-select")) {
-        optionsContainer.style.display = "none";
-      }
-    });
-  }
-
-  // Apply filter to inputs
-  addFilter(deviceInput, deviceOptionsContainer);
-  addFilter(brandInput, brandOptionsContainer);
-  addFilter(modelInput, modelOptionsContainer);
-
-  // 1️⃣ Device selection
-  const deviceOptions = {
-    ac: "کولر گازی",
-    refrigerator: "یخچال و فریزر",
-    washing: "ماشین لباسشویی",
-  };
-  createOptions(deviceOptionsContainer, deviceOptions, (val, text) => {
-    deviceInput.value = text;
-    deviceValue.value = val;
-
-    resetBtn.disabled = false; //فعال سازی دکمه ریست فرم
-
-    // Reset brand/model fields
-    brandInput.value = "";
-    brandValue.value = "";
-    brandInput.disabled = false;
-
-    modelInput.value = "";
-    modelValue.value = "";
-    modelInput.disabled = true;
-
-    downloadLink.href = "#";
-
-    // Load brand options
-    if (manualsData[val]) {
-      createOptions(brandOptionsContainer, manualsData[val].brands, (brandKey, brandText) => {
-        brandInput.value = brandText;
-        brandValue.value = brandKey;
-
-        // Reset model
-        modelInput.value = "";
-        modelValue.value = "";
-        modelInput.disabled = false;
-
-        downloadLink.href = "#";
-
-        // Load model options
-        const modelData = manualsData[val].brands[brandKey].models;
-        createOptions(modelOptionsContainer, modelData, (modelKey, modelText) => {
-          modelInput.value = modelText;
-          modelValue.value = modelKey;
-
-          // Set final link
-          const finalLink = `./json/manuals/${val}/${brandKey}/${modelKey}.pdf`;
-          downloadLink.href = finalLink;
-          downloadLink.style.opacity = '1';
-          downloadLink.style.visibility = 'visible';
-          
-
-        });
-      });
+    // اضافه کردن کلاس active به دیوی که id اش مطابق data-category هست
+    const category = clickedDevice.getAttribute('data-category');
+    const targetBrandDiv = document.getElementById(`errors-hero-${category}-brands`);
+    if (targetBrandDiv) {
+      targetBrandDiv.classList.add('active');
     }
   });
 
 
 
-  ////////////////// ریست کردن فرم 
-resetBtn.addEventListener('click', () => {
-  // ریست مقدارها
-  deviceInput.value = '';
-  brandInput.value = '';
-  modelInput.value = '';
 
-  deviceValue.value = '';
-  brandValue.value = '';
-  modelValue.value = '';
 
-  // غیرفعال کردن برند و مدل
-  brandInput.disabled = true;
-  modelInput.disabled = true;
 
-  // پاک کردن گزینه‌ها
-  brandOptionsContainer.innerHTML = '';
-  modelOptionsContainer.innerHTML = '';
+  ///////////////////////////////////
+ // با انتخاب هر برند، ارورهای مربوط به آن نمایش داده شوند: 
 
-  // پاک کردن لینک دانلود
-  downloadLink.href = '#';
-  downloadLink.style.opacity = '0';
-  downloadLink.style.visibility = 'hidden';
+ //// ابتدا اطلاعات باید فچ شوند. قبل از کلیک باید فچ شوند:
+  let devicesData = null;
 
-  // بستن لیست آپشن‌ها
-  deviceOptionsContainer.style.display = 'none';
+    // ابتدا دیتا را از فایل JSON بخوانیم
+    fetch('./json/errors.json')
+      .then(res => res.json())
+      .then(data => {
+        devicesData = data;
+      })
+      .catch(err => {
+        console.error("موردی یافت نشد.", err);
+      });
 
-  // غیرفعال کردن دکمه ریست
-  resetBtn.disabled = true;
+  const brandsWrapper = document.querySelector('.errors-hero-brandswrapper');
+ // حالا کلیک کار میکند:
+  brandsWrapper.addEventListener('click', function (e) {
+
+    const clickedBrand = e.target.closest('a.heading-5');
+    if (!clickedBrand || !devicesData) return;
+
+    //مرئی شدن ارور رپر
+    document.querySelector('.errors-hero-errorswrapper').classList.add('active');
+
+    const brand = clickedBrand.getAttribute('data-brand'); // مثل "ac-gplus"
+    const [deviceId, brandId] = brand.split('-'); // ["ac", "gplus"]
+
+    // حذف کلاس active از همه دیوهای برند
+    const allErrorsDivs = document.querySelectorAll('.errors-hero-errorswrapper-brand');
+    allErrorsDivs.forEach(div => div.classList.remove('active'));
+
+    // اضافه کردن کلاس active به دیوی که id اش مطابق data-brand هست
+    const targetErrorsDiv = document.getElementById(`${brand}-errors`);
+    if (targetErrorsDiv) {
+      targetErrorsDiv.classList.add('active');
+    }
+
+    // حذف ارورهای قبلی (اگر وجود دارند)
+    targetErrorsDiv.querySelectorAll('.errors-hero-errorswrapper-brand-meaning').forEach(el => el.remove());
+
+     // گرفتن ارورها از JSON
+    const device = devicesData.devices.find(d => d.id === deviceId);
+    if (!device) return;
+
+    const brandObj = device.brands.find(b => b.id === brandId);
+    if (!brandObj) return;
+
+
+    // ساختن و اضافه کردن ارورها به HTML
+    brandObj.errors.forEach(error => {
+      const wrapper = document.createElement("div");
+      wrapper.className = "errors-hero-errorswrapper-brand-meaning vertical-right-flex";
+
+      wrapper.innerHTML = `
+        <h3 id="${brand}-error-meaning-${error.code}" class="errors-hero-errorswrapper-brand-meaning-code heading-3">${error.title}</h3>
+        <h5 class="errors-hero-errorswrapper-brand-meaning-cause heading-5">${error.cause}</h5>
+        <p class="errors-hero-errorswrapper-brand-meaning-solution paragraph">${error.solution}</p>
+      `;
+
+      targetErrorsDiv.appendChild(wrapper);
+    });
+
+   
+
+  })
+
+
 });
-
-
-
-});
-
