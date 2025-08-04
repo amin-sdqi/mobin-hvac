@@ -169,3 +169,5 @@ if (articlesSlider && articlesPrevBtn && articlesNextBtn) {
 } else {
   console.warn('یکی از المان‌های اسلایدر مقالات پیدا نشد!');
 }
+
+
