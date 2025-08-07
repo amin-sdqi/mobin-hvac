@@ -270,198 +270,240 @@
     
 <!-- section errors-hero -->
     <section class="section errors-hero">
-        <div class="container vertical-central-flex">
-            <div class="errors-hero-iconwrapper"></div>
-            <h1 class="heading-1 text-center">مفهوم خطاهای دستگاه ها</h1>
-            
-            <!-- دسته بندی نوع دستگاه -->
-            <div class="errors-hero-categorieswrapper vertical-right-flex">
-                <h3 class="heading-3">نوع دستگاه را انتخاب کنید:</h3>
-                <div class="errors-hero-categorieswrapper-categories">
-                    <a class="errors-hero-categorieswrapper-categories-category " 
-                    data-category="ac"
-                    href="#brandswrapper">
-                        <img class="errors-hero-categorieswrapper-categories-category-icon" src="./assets/icons/faq/air-conditioning-svgrepo-com.svg" alt="">
-                        <h4 class="heading-4">کولر گازی</h4>
-                    </a>
-                    <a class="errors-hero-categorieswrapper-categories-category " 
-                    data-category="refrigerator"
-                    href="#brandswrapper">
-                        <img class="errors-hero-categorieswrapper-categories-category-icon" src="./assets/icons/faq/refrigerator-svgrepo-com.svg" alt="">
-                        <h4 class="heading-4">یخچال و فریزر</h4>
-                    </a>
-                    <a class="errors-hero-categorieswrapper-categories-category " 
-                    data-category="washing"
-                    href="#brandswrapper">
-                        <img class="errors-hero-categorieswrapper-categories-category-icon" src="./assets/icons/faq/washing-machine-svgrepo-com.svg" alt="">
-                        <h4 class="heading-4">ماشین لباسشویی</h4>
-                    </a>
+        <div class="container">
+            <div class="errors-hero-grid">
+                <div class="errors-hero-grid-texts">
+                    <p class="super-script">راهنمای کامل کدهای خطا و ارور لوازم خانگی</p>
+
+                    <h1 class="heading-1">
+                        دیگه لازم نیست حدس بزنید؛ اینجا معنی ارور دقیقاً معلومه!
+                    </h1>
+
+                    <p class="paragraph">
+                        در این صفحه می‌توانید معنی تمام کدهای خطا و ارورهای رایج یخچال، کولر گازی و ماشین لباسشویی را پیدا کنید.  
+                        ما کدهای ارور برندهای مختلف مانند ال‌جی (LG)، سامسونگ، بوش، اسنوا، دوو و سایر برندهای معتبر را به‌صورت دسته‌بندی‌شده جمع‌آوری کرده‌ایم تا بتوانید به‌راحتی مشکل دستگاه خود را شناسایی و برطرف کنید.
+                    </p>
+
+                </div>
+                
+                <picture>
+                    <source media="(min-width: 1024px)" srcset="./assets/img/errors/hero-img-high.webp">
+                    <source media="(min-width: 600px)" srcset="./assets/img/errors/hero-img-med.webp">
+                    <img src="./assets/img/errors/hero-img-low.webp" alt="پسر جوانی پشت میز نشسته و لپ‌تاپش را به سمت مادرش 
+                        که ایستاده چرخانده تا دفترچه راهنمای ماشین لباسشویی را نشان دهد؛ در کنار آن‌ها گلدانی روی زمین و ماشین لباسشویی‌ای با درِب باز و نشتی آب دیده می‌شود.
+                        " style="width:     100%; height: auto;">
+                </picture>
+
+                <div class="errors-hero-grid-wrapper vertical-central-flex">
+
+                    <!-- کادر سرچ  -->
+                    <div class="errors-hero-grid-wrapper-searchwrapper">
+                        <input type="text" class="errors-hero-grid-wrapper-searchwrapper-input" placeholder="کد خطای دستگاه خود را وارد کنید.">
+                        <button class="btn-search">جستجو</button>
+                    </div>
+                    <div id="search-results-wrapper" class="vertical-right-flex" style="display: none;"></div>
+
+
+                    <!-- انتخاب نوع دستگاه  -->
+                    <!-- section useful -->
+                    <div id="errors-categorieswrapper" class="errors-hero-grid-wrapper-categorieswrapper">
+                        
+                        <!-- 2 -->
+                        <a href="#errors-brandswrapper" id="errors-ac" class="errors-hero-grid-wrapper-categorieswrapper-link">
+                            <div class="errors-hero-grid-wrapper-categorieswrapper-link-content" style="background-color: #fff;" >
+                                <div class="errors-hero-grid-wrapper-categorieswrapper-link-content-icon errors-hero-grid-wrapper-categorieswrapper-link-content-icon-6"
+                                role="img" aria-label="آیکون نماد کولر اسپلیت">
+                                </div>
+                                <h4 class="heading-4">کولر های گازی</h4>
+                                <div class="spacer"></div>
+                                <p class="caption">مشاهده لیست ارورهای کولرهای گازی برندهای مختلف</p>
+                            </div>
+                        </a>
+                        <!-- 3 -->
+                        <a href="#errors-brandswrapper" id="errors-refrigerator"  class="errors-hero-grid-wrapper-categorieswrapper-link">
+                            <div class="errors-hero-grid-wrapper-categorieswrapper-link-content"  style="background-color: #fff;">
+                                <div class="errors-hero-grid-wrapper-categorieswrapper-link-content-icon errors-hero-grid-wrapper-categorieswrapper-link-content-icon-7"
+                                role="img" aria-label="آیکون نماد یخچال و فریزر">
+                                </div>
+                                <h4 class="heading-4">یخچال و فریزر</h4>
+                                <div class="spacer"></div>
+                                <p class="caption">مشاهده لیست ارورهای یخچال و فریزر برندهای مختلف</p>
+                            </div>
+                        </a>
+                        <!-- 4 -->
+                        <a href="#errors-brandswrapper" id="errors-washing"  class="errors-hero-grid-wrapper-categorieswrapper-link">
+                            <div class="errors-hero-grid-wrapper-categorieswrapper-link-content" style="background-color: #fff;">
+                                <div class="errors-hero-grid-wrapper-categorieswrapper-link-content-icon errors-hero-grid-wrapper-categorieswrapper-link-content-icon-8"
+                                role="img" aria-label="آیکون نماد ماشین لباسشویی">
+                                </div>
+                                <h4 class="heading-4">ماشین لباسشویی</h4>
+                                <div class="spacer"></div>
+                                <p class="caption">بررسی کدهای خطای ماشین های لباسشویی برندهای مختلف</p>
+                            </div>
+                        </a>
+                    </div>
+                    
+                    <!-- انتخاب برند ها -->
+                    <div id="errors-brandswrapper" class="errors-hero-grid-wrapper-brandswrapper" >
+                        <!-- برندهای کولر  -->
+                        <div id="errors-ac-brands" class="errors-hero-grid-wrapper-brandswrapper-device active vertical-right-flex">
+                            <h3 class="errors-hero-grid-wrapper-brandswrapper-categorytitle heading-3 ">برند کولر را انتخاب کنید:</h3>
+                            <div class="errors-hero-grid-wrapper-brandswrapper-device-brands">
+                                <a data-brand="ac-gplus" href="#errors-errorswrapper" class="heading-5 text-center">جی پلاس<BR>(GPlus)</a>
+                                <a data-brand="ac-lg" href="#errors-errorswrapper" class="heading-5 text-center">ال‌جی<br>(LG)</a>
+                                <a data-brand="ac-samsung" href="#errors-errorswrapper" class="heading-5 text-center">سامسونگ<br>(Samsung)</a>
+                                <a data-brand="ac-gree" href="#errors-errorswrapper" class="heading-5 text-center">گری<br>(Gree)</a>
+                                <a data-brand="ac-hisense" href="#errors-errorswrapper" class="heading-5 text-center">هایسنس<br>(Hisense)</a>
+                                <a data-brand="ac-toshiba" href="#errors-errorswrapper" class="heading-5 text-center">توشیبا<br>(Toshiba)</a>
+                                <a data-brand="ac-general" href="#errors-errorswrapper" class="heading-5 text-center">جنرال<br>(General)</a>
+                                <a data-brand="ac-mitsubishi" href="#errors-errorswrapper" class="heading-5 text-center">میتسوبیشی<br>(Mitsubishi)</a>
+                                <a data-brand="ac-Hitachi" href="#errors-errorswrapper" class="heading-5 text-center">هیتاچی<br>(Hitachi)</a>
+                                <a data-brand="ac-panasonic" href="#errors-errorswrapper" class="heading-5 text-center">پاناسونیک<br>(Panasonic)</a>
+                                <a data-brand="ac-tcl" href="#errors-errorswrapper" class="heading-5 text-center">تی‌سی‌ال<br>(TCL)</a>
+                                <a data-brand="ac-iranradiator" href="#errors-errorswrapper" class="heading-5 text-center">ایران رادیاتور</a>
+                                <a data-brand="ac-hitech" href="#errors-errorswrapper" class="heading-5 text-center">های‌تک<br>(Hi-Tech)</a>
+                            </div>
+                        </div>
+                        <!-- برندهای یخچال  -->
+                        <div id="errors-refrigerator-brands"  class="errors-hero-grid-wrapper-brandswrapper-device  vertical-right-flex">
+                            <h3 class="errors-hero-grid-wrapper-brandswrapper-categorytitle heading-3 ">برند یخچال را انتخاب کنید:</h3>
+                            <div class="errors-hero-grid-wrapper-brandswrapper-device-brands">
+                                <a data-brand="refrigerator-lg" href="#errors-errorswrapper" class="heading-5 text-center">ال‌جی<br>(LG)</a>
+                                <a data-brand="refrigerator-samsung" href="#errors-errorswrapper" class="heading-5 text-center">سامسونگ<br>(Samsung)</a>
+                                <a data-brand="refrigerator-bosch" href="#errors-errorswrapper" class="heading-5 text-center">بوش<br>(Bosch)</a>
+                                <a data-brand="refrigerator-hisense" href="#errors-errorswrapper" class="heading-5 text-center">هایسنس<br>(Hisense)</a>
+                                <a data-brand="refrigerator-gplus" href="#errors-errorswrapper" class="heading-5 text-center">جی‌پلاس<br>(GPlus)</a>
+                                <a data-brand="refrigerator-snowa" href="#errors-errorswrapper" class="heading-5 text-center">اسنوا<br>(Snowa)</a>
+                                <a data-brand="refrigerator-daewoo" href="#errors-errorswrapper" class="heading-5 text-center">دوو<br>(Daewoo)</a>
+                                <a data-brand="refrigerator-electrosteel" href="#errors-errorswrapper" class="heading-5 text-center">الکترواستیل<br>(Electrosteel)</a>
+                                <a data-brand="refrigerator-xvision" href="#errors-errorswrapper" class="heading-5 text-center">ایکس‌ویژن<br>(XVision)</a>
+                                <a data-brand="refrigerator-emersun" href="#errors-errorswrapper" class="heading-5 text-center">امرسان<br>(Emersun)</a>
+                                <a data-brand="refrigerator-haier" href="#errors-errorswrapper" class="heading-5 text-center">هایر<br>(Haier)</a>
+                                <a data-brand="refrigerator-candy" href="#errors-errorswrapper" class="heading-5 text-center">کندی<br>(Candy)</a>
+                                <a data-brand="refrigerator-toshiba" href="#errors-errorswrapper" class="heading-5 text-center">توشیبا<br>(Toshiba)</a>
+                            </div>
+
+                        </div>
+                        <!-- برندهای لباسشویی  -->
+                        <div id="errors-washing-brands"  class="errors-hero-grid-wrapper-brandswrapper-device  vertical-right-flex">
+                            <h3 class="errors-hero-grid-wrapper-brandswrapper-categorytitle heading-3 ">برند ماشین لباسشویی را انتخاب کنید:</h3>
+                            <div class="errors-hero-grid-wrapper-brandswrapper-device-brands">
+                                <a data-brand="washing-lg" href="#errors-errorswrapper" class="heading-5 text-center">ال‌جی<br>(LG)</a>
+                                <a data-brand="washing-samsung" href="#errors-errorswrapper" class="heading-5 text-center">سامسونگ<br>(Samsung)</a>
+                                <a data-brand="washing-bosch" href="#errors-errorswrapper" class="heading-5 text-center">بوش<br>(Bosch)</a>
+                                <a data-brand="washing-gplus" href="#errors-errorswrapper" class="heading-5 text-center">جی‌پلاس<br>(GPlus)</a>
+                                <a data-brand="washing-snowa" href="#errors-errorswrapper" class="heading-5 text-center">اسنوا<br>(Snowa)</a>
+                                <a data-brand="washing-daewoo" href="#errors-errorswrapper" class="heading-5 text-center">دوو<br>(Daewoo)</a>
+                                <a data-brand="washing-aeg" href="#errors-errorswrapper" class="heading-5 text-center">آاگ<br>(AEG)</a>
+                                <a data-brand="washing-siemens" href="#errors-errorswrapper" class="heading-5 text-center">زیمنس<br>(Siemens)</a>
+                                <a data-brand="washing-kenwood" href="#errors-errorswrapper" class="heading-5 text-center">کنوود<br>(Kenwood)</a>
+                                <a data-brand="washing-haier" href="#errors-errorswrapper" class="heading-5 text-center">هایر<br>(Haier)</a>
+                                <a data-brand="washing-pakshoma" href="#errors-errorswrapper" class="heading-5 text-center">پاکشوما<br>(Pakshoma)</a>
+                                <a data-brand="washing-emersun" href="#errors-errorswrapper" class="heading-5 text-center">امرسان<br>(Emersun)</a>
+                                <a data-brand="washing-toshiba" href="#errors-errorswrapper" class="heading-5 text-center">توشیبا<br>(Toshiba)</a>
+                                <a data-brand="washing-candy" href="#errors-errorswrapper" class="heading-5 text-center">کندی<br>(Candy)</a>
+                                <a data-brand="washing-blomberg" href="#errors-errorswrapper" class="heading-5 text-center">بلومبرگ<br>(Blomberg)</a>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    
+                    <!-- انتخاب خطا  -->
+                    <div id="errors-errorswrapper" class="errors-hero-grid-wrapper-errorswrapper">
+
+                        <!-- خطاهای کولر جی پلاس -->
+                        <div  id="ac-gplus-errors"  class=" errors-hero-grid-wrapper-errorswrapper-brand vertical-right-flex">
+                            <h3 class="errors-hero-grid-wrapper-errorswrapper-categorytitle heading-3 ">خطاهای کولرهای گازی جی پلاس</h3>
+                            <!-- کد ارور ها -->
+                            <div class="errors-hero-grid-wrapper-errorswrapper-brand-errors">
+                                <a href="#ac-gplus-error-meaning-1" class=" heading-5 text-center">1</a>
+                                <a href="#ac-gplus-error-meaning-2" class=" heading-5 text-center">2</a>
+                                <a href="#ac-gplus-error-meaning-6" class=" heading-5 text-center">6</a>
+                                <a href="#ac-gplus-error-meaning-13" class=" heading-5 text-center">13</a>
+                                <a href="#ac-gplus-error-meaning-14" class=" heading-5 text-center">14</a>
+                                <a href="#ac-gplus-error-meaning-15" class=" heading-5 text-center">15</a>
+                                <a href="#ac-gplus-error-meaning-19" class=" heading-5 text-center">19</a>
+                                <a href="#ac-gplus-error-meaning-20" class=" heading-5 text-center">20</a>
+                                <a href="#ac-gplus-error-meaning-21" class=" heading-5 text-center">21</a>
+                                <a href="#ac-gplus-error-meaning-33" class=" heading-5 text-center">33</a>
+                                <a href="#ac-gplus-error-meaning-34" class=" heading-5 text-center">34</a>
+                                <a href="#ac-gplus-error-meaning-36" class=" heading-5 text-center">36</a>
+                                <a href="#ac-gplus-error-meaning-39" class=" heading-5 text-center">39</a>
+                                <a href="#ac-gplus-error-meaning-cl" class=" heading-5 text-center">CL</a>
+                                <a href="#ac-gplus-error-meaning-ea" class=" heading-5 text-center">EA</a>
+                                <a href="#ac-gplus-error-meaning-ec" class=" heading-5 text-center">EC</a>
+                                <a href="#ac-gplus-error-meaning-ee" class=" heading-5 text-center">EE</a>
+                                <a href="#ac-gplus-error-meaning-ef" class=" heading-5 text-center">EF</a>
+                                <a href="#ac-gplus-error-meaning-ep" class=" heading-5 text-center">EP</a>
+                                <a href="#ac-gplus-error-meaning-eu" class=" heading-5 text-center">EU</a>
+                                <a href="#ac-gplus-error-meaning-e0" class=" heading-5 text-center">E0</a>
+                                <a href="#ac-gplus-error-meaning-e1" class=" heading-5 text-center">E1</a>
+                                <a href="#ac-gplus-error-meaning-e2" class=" heading-5 text-center">E2</a>
+                                <a href="#ac-gplus-error-meaning-e3" class=" heading-5 text-center">E3</a>
+                                <a href="#ac-gplus-error-meaning-e4" class=" heading-5 text-center">E4</a>
+                                <a href="#ac-gplus-error-meaning-e5" class=" heading-5 text-center">E5</a>
+                                <a href="#ac-gplus-error-meaning-e6" class=" heading-5 text-center">E6</a>
+                                <a href="#ac-gplus-error-meaning-e7" class=" heading-5 text-center">E7</a>
+                                <a href="#ac-gplus-error-meaning-e8" class=" heading-5 text-center">E8</a>
+                                <a href="#ac-gplus-error-meaning-e9" class=" heading-5 text-center">E9</a>
+                                <a href="#ac-gplus-error-meaning-p0" class=" heading-5 text-center">P0</a>
+                                <a href="#ac-gplus-error-meaning-p1" class=" heading-5 text-center">P1</a>
+                                <a href="#ac-gplus-error-meaning-p2" class=" heading-5 text-center">P2</a>
+                                <a href="#ac-gplus-error-meaning-p4" class=" heading-5 text-center">P4</a>
+                                <a href="#ac-gplus-error-meaning-p5" class=" heading-5 text-center">P5</a>
+                                <a href="#ac-gplus-error-meaning-p6" class=" heading-5 text-center">P6</a>
+                                <a href="#ac-gplus-error-meaning-p7" class=" heading-5 text-center">P7</a>
+                                <a href="#ac-gplus-error-meaning-p8" class=" heading-5 text-center">P8</a>
+                                <a href="#ac-gplus-error-meaning-p9" class=" heading-5 text-center">P9</a>
+                            </div>
+                        </div>
+                        
+                        <!-- خطاهای کولر الجی -->
+                        <div id="ac-lg-errors" class="errors-hero-grid-wrapper-errorswrapper-brand vertical-right-flex">
+                            <h3 class="errors-hero-errorswrapper-categorytitle heading-3 ">خطاهای کولرهای گازی ال جی</h3>
+                            <!-- کد ارور ها -->
+                            <div class="errors-hero-grid-wrapper-errorswrapper-brand-errors">
+                                <a href="#ac-lg-error-meaning-ch01" class=" heading-5 text-center">CH01</a>
+                                <a href="#ac-lg-error-meaning-ch02" class=" heading-5 text-center">CH02</a>
+                                <a href="#ac-lg-error-meaning-ch05" class=" heading-5 text-center">CH05</a>
+                                <a href="#ac-lg-error-meaning-ch06" class=" heading-5 text-center">CH06</a>
+                                <a href="#ac-lg-error-meaning-ch09" class=" heading-5 text-center">CH09</a>
+                                <a href="#ac-lg-error-meaning-ch10" class=" heading-5 text-center">CH10</a>
+                                <a href="#ac-lg-error-meaning-ch12" class=" heading-5 text-center">CH12</a>
+                                <a href="#ac-lg-error-meaning-ch21" class=" heading-5 text-center">CH21</a>
+                                <a href="#ac-lg-error-meaning-ch22" class=" heading-5 text-center">CH22</a>
+                                <a href="#ac-lg-error-meaning-ch26" class=" heading-5 text-center">CH26</a>
+                                <a href="#ac-lg-error-meaning-ch29" class=" heading-5 text-center">CH29</a>
+                                <a href="#ac-lg-error-meaning-ch32" class=" heading-5 text-center">CH32</a>
+                                <a href="#ac-lg-error-meaning-ch38" class=" heading-5 text-center">CH38</a>
+                                <a href="#ac-lg-error-meaning-ch40" class=" heading-5 text-center">CH40</a>
+                                <a href="#ac-lg-error-meaning-ch41" class=" heading-5 text-center">CH41</a>
+                                <a href="#ac-lg-error-meaning-ch44" class=" heading-5 text-center">CH44</a>
+                                <a href="#ac-lg-error-meaning-ch45" class=" heading-5 text-center">CH45</a>
+                                <a href="#ac-lg-error-meaning-ch46" class=" heading-5 text-center">CH46</a>
+                                <a href="#ac-lg-error-meaning-ch47" class=" heading-5 text-center">CH47</a>
+                                <a href="#ac-lg-error-meaning-ch53" class=" heading-5 text-center">CH53</a>
+                                <a href="#ac-lg-error-meaning-ch60" class=" heading-5 text-center">CH60</a>
+                                <a href="#ac-lg-error-meaning-ch61" class=" heading-5 text-center">CH61</a>
+                                <a href="#ac-lg-error-meaning-ch62" class=" heading-5 text-center">CH62</a>
+                                <a href="#ac-lg-error-meaning-ch67" class=" heading-5 text-center">CH67</a>
+                                <a href="#ac-lg-error-meaning-co" class=" heading-5 text-center">CO</a>
+                                <a href="#ac-lg-error-meaning-po" class=" heading-5 text-center">PO</a>
+                                <a href="#ac-lg-error-meaning-fl" class=" heading-5 text-center">FL</a>
+                                <a href="#ac-lg-error-meaning-co" class=" heading-5 text-center"><img src="./assets/icons/errors/error-co-1.png" alt=""></a>
+                                <a href="#ac-lg-error-meaning-co" class=" heading-5 text-center"><img src="./assets/icons/errors/error-co-2.png" alt=""></a>
+                                <a href="#ac-lg-error-meaning-plasma" class=" heading-5 text-center"><img src="./assets/icons/errors/error-plasma.png" alt=""></a>
+                                <a id="ac-lg-error-lights" href="#ac-lg-error-meaning-lights" class=" heading-5 text-center">پیغام های چشمک زن</a>
+                            </div>
+
+
+                        </div>                
+                        
+                    </div>
+
                 </div>
             </div>
-
-            <!-- انتخاب برند ها -->
-            <div class="errors-hero-brandswrapper" id="brandswrapper">
-                
-                <!-- برندهای کولر  -->
-                <div id="errors-hero-ac-brands" class="errors-hero-brandswrapper-device active vertical-right-flex">
-                    <h3 class="errors-hero-brandswrapper-categorytitle heading-3 ">برند کولر را انتخاب کنید:</h3>
-                    <div class="errors-hero-brandswrapper-device-brands">
-                        <a data-brand="ac-gplus" href="#errorswrapper" class="heading-5 text-center">جی پلاس<BR>(GPlus)</a>
-                        <a data-brand="ac-lg" href="#errorswrapper" class="heading-5 text-center">ال‌جی<br>(LG)</a>
-                        <a data-brand="ac-samsung" href="#errorswrapper" class="heading-5 text-center">سامسونگ<br>(Samsung)</a>
-                        <a data-brand="ac-gree" href="#errorswrapper" class="heading-5 text-center">گری<br>(Gree)</a>
-                        <a data-brand="ac-hisense" href="#errorswrapper" class="heading-5 text-center">هایسنس<br>(Hisense)</a>
-                        <a data-brand="ac-toshiba" href="#errorswrapper" class="heading-5 text-center">توشیبا<br>(Toshiba)</a>
-                        <a data-brand="ac-general" href="#errorswrapper" class="heading-5 text-center">جنرال<br>(General)</a>
-                        <a data-brand="ac-mitsubishi" href="#errorswrapper" class="heading-5 text-center">میتسوبیشی<br>(Mitsubishi)</a>
-                        <a data-brand="ac-Hitachi" href="#errorswrapper" class="heading-5 text-center">هیتاچی<br>(Hitachi)</a>
-                        <a data-brand="ac-panasonic" href="#errorswrapper" class="heading-5 text-center">پاناسونیک<br>(Panasonic)</a>
-                        <a data-brand="ac-tcl" href="#errorswrapper" class="heading-5 text-center">تی‌سی‌ال<br>(TCL)</a>
-                        <a data-brand="ac-iranradiator" href="#errorswrapper" class="heading-5 text-center">ایران رادیاتور</a>
-                        <a data-brand="ac-hitech" href="#errorswrapper" class="heading-5 text-center">های‌تک<br>(Hi-Tech)</a>
-                    </div>
-                </div>
-                <!-- برندهای یخچال  -->
-                <div id="errors-hero-refrigerator-brands"  class="errors-hero-brandswrapper-device  vertical-right-flex">
-                    <h3 class="errors-hero-brandswrapper-categorytitle heading-3 ">برند یخچال را انتخاب کنید:</h3>
-                    <div class="errors-hero-brandswrapper-device-brands">
-                        <a data-brand="refrigerator-lg" href="#errorswrapper" class="heading-5 text-center">ال‌جی<br>(LG)</a>
-                        <a data-brand="refrigerator-samsung" href="#errorswrapper" class="heading-5 text-center">سامسونگ<br>(Samsung)</a>
-                        <a data-brand="refrigerator-bosch" href="#errorswrapper" class="heading-5 text-center">بوش<br>(Bosch)</a>
-                        <a data-brand="refrigerator-hisense" href="#errorswrapper" class="heading-5 text-center">هایسنس<br>(Hisense)</a>
-                        <a data-brand="refrigerator-gplus" href="#errorswrapper" class="heading-5 text-center">جی‌پلاس<br>(GPlus)</a>
-                        <a data-brand="refrigerator-snowa" href="#errorswrapper" class="heading-5 text-center">اسنوا<br>(Snowa)</a>
-                        <a data-brand="refrigerator-daewoo" href="#errorswrapper" class="heading-5 text-center">دوو<br>(Daewoo)</a>
-                        <a data-brand="refrigerator-electrosteel" href="#errorswrapper" class="heading-5 text-center">الکترواستیل<br>(Electrosteel)</a>
-                        <a data-brand="refrigerator-xvision" href="#errorswrapper" class="heading-5 text-center">ایکس‌ویژن<br>(XVision)</a>
-                        <a data-brand="refrigerator-emersun" href="#errorswrapper" class="heading-5 text-center">امرسان<br>(Emersun)</a>
-                        <a data-brand="refrigerator-haier" href="#errorswrapper" class="heading-5 text-center">هایر<br>(Haier)</a>
-                        <a data-brand="refrigerator-candy" href="#errorswrapper" class="heading-5 text-center">کندی<br>(Candy)</a>
-                        <a data-brand="refrigerator-toshiba" href="#errorswrapper" class="heading-5 text-center">توشیبا<br>(Toshiba)</a>
-                    </div>
-
-                </div>
-                <!-- برندهای لباسشویی  -->
-                <div id="errors-hero-washing-brands"  class="errors-hero-brandswrapper-device  vertical-right-flex">
-                    <h3 class="errors-hero-brandswrapper-categorytitle heading-3 ">برند ماشین لباسشویی را انتخاب کنید:</h3>
-                    <div class="errors-hero-brandswrapper-device-brands">
-                        <a data-brand="washing-lg" href="#errorswrapper" class="heading-5 text-center">ال‌جی<br>(LG)</a>
-                        <a data-brand="washing-samsung" href="#errorswrapper" class="heading-5 text-center">سامسونگ<br>(Samsung)</a>
-                        <a data-brand="washing-bosch" href="#errorswrapper" class="heading-5 text-center">بوش<br>(Bosch)</a>
-                        <a data-brand="washing-gplus" href="#errorswrapper" class="heading-5 text-center">جی‌پلاس<br>(GPlus)</a>
-                        <a data-brand="washing-snowa" href="#errorswrapper" class="heading-5 text-center">اسنوا<br>(Snowa)</a>
-                        <a data-brand="washing-daewoo" href="#errorswrapper" class="heading-5 text-center">دوو<br>(Daewoo)</a>
-                        <a data-brand="washing-aeg" href="#errorswrapper" class="heading-5 text-center">آاگ<br>(AEG)</a>
-                        <a data-brand="washing-siemens" href="#errorswrapper" class="heading-5 text-center">زیمنس<br>(Siemens)</a>
-                        <a data-brand="washing-kenwood" href="#errorswrapper" class="heading-5 text-center">کنوود<br>(Kenwood)</a>
-                        <a data-brand="washing-haier" href="#errorswrapper" class="heading-5 text-center">هایر<br>(Haier)</a>
-                        <a data-brand="washing-pakshoma" href="#errorswrapper" class="heading-5 text-center">پاکشوما<br>(Pakshoma)</a>
-                        <a data-brand="washing-emersun" href="#errorswrapper" class="heading-5 text-center">امرسان<br>(Emersun)</a>
-                        <a data-brand="washing-toshiba" href="#errorswrapper" class="heading-5 text-center">توشیبا<br>(Toshiba)</a>
-                        <a data-brand="washing-candy" href="#errorswrapper" class="heading-5 text-center">کندی<br>(Candy)</a>
-                        <a data-brand="washing-blomberg" href="#errorswrapper" class="heading-5 text-center">بلومبرگ<br>(Blomberg)</a>
-                    </div>
-
-                </div>
-                
-                
-            </div>
-
-            
-            <!-- انتخاب خطا  -->
-            <div class="errors-hero-errorswrapper" id="errorswrapper">
-
-                <!-- خطاهای کولر جی پلاس -->
-                <div  id="ac-gplus-errors"  class=" errors-hero-errorswrapper-brand vertical-right-flex">
-                    <h3 class="errors-hero-errorswrapper-categorytitle heading-3 ">خطاهای کولرهای گازی جی پلاس</h3>
-                    <!-- کد ارور ها -->
-                    <div class="errors-hero-errorswrapper-brand-errors">
-                        <a href="#ac-gplus-error-meaning-1" class=" heading-5 text-center">1</a>
-                        <a href="#ac-gplus-error-meaning-2" class=" heading-5 text-center">2</a>
-                        <a href="#ac-gplus-error-meaning-6" class=" heading-5 text-center">6</a>
-                        <a href="#ac-gplus-error-meaning-13" class=" heading-5 text-center">13</a>
-                        <a href="#ac-gplus-error-meaning-14" class=" heading-5 text-center">14</a>
-                        <a href="#ac-gplus-error-meaning-15" class=" heading-5 text-center">15</a>
-                        <a href="#ac-gplus-error-meaning-19" class=" heading-5 text-center">19</a>
-                        <a href="#ac-gplus-error-meaning-20" class=" heading-5 text-center">20</a>
-                        <a href="#ac-gplus-error-meaning-21" class=" heading-5 text-center">21</a>
-                        <a href="#ac-gplus-error-meaning-33" class=" heading-5 text-center">33</a>
-                        <a href="#ac-gplus-error-meaning-34" class=" heading-5 text-center">34</a>
-                        <a href="#ac-gplus-error-meaning-36" class=" heading-5 text-center">36</a>
-                        <a href="#ac-gplus-error-meaning-39" class=" heading-5 text-center">39</a>
-                        <a href="#ac-gplus-error-meaning-cl" class=" heading-5 text-center">CL</a>
-                        <a href="#ac-gplus-error-meaning-ea" class=" heading-5 text-center">EA</a>
-                        <a href="#ac-gplus-error-meaning-ec" class=" heading-5 text-center">EC</a>
-                        <a href="#ac-gplus-error-meaning-ee" class=" heading-5 text-center">EE</a>
-                        <a href="#ac-gplus-error-meaning-ef" class=" heading-5 text-center">EF</a>
-                        <a href="#ac-gplus-error-meaning-ep" class=" heading-5 text-center">EP</a>
-                        <a href="#ac-gplus-error-meaning-eu" class=" heading-5 text-center">EU</a>
-                        <a href="#ac-gplus-error-meaning-e0" class=" heading-5 text-center">E0</a>
-                        <a href="#ac-gplus-error-meaning-e1" class=" heading-5 text-center">E1</a>
-                        <a href="#ac-gplus-error-meaning-e2" class=" heading-5 text-center">E2</a>
-                        <a href="#ac-gplus-error-meaning-e3" class=" heading-5 text-center">E3</a>
-                        <a href="#ac-gplus-error-meaning-e4" class=" heading-5 text-center">E4</a>
-                        <a href="#ac-gplus-error-meaning-e5" class=" heading-5 text-center">E5</a>
-                        <a href="#ac-gplus-error-meaning-e6" class=" heading-5 text-center">E6</a>
-                        <a href="#ac-gplus-error-meaning-e7" class=" heading-5 text-center">E7</a>
-                        <a href="#ac-gplus-error-meaning-e8" class=" heading-5 text-center">E8</a>
-                        <a href="#ac-gplus-error-meaning-e9" class=" heading-5 text-center">E9</a>
-                        <a href="#ac-gplus-error-meaning-p0" class=" heading-5 text-center">P0</a>
-                        <a href="#ac-gplus-error-meaning-p1" class=" heading-5 text-center">P1</a>
-                        <a href="#ac-gplus-error-meaning-p2" class=" heading-5 text-center">P2</a>
-                        <a href="#ac-gplus-error-meaning-p4" class=" heading-5 text-center">P4</a>
-                        <a href="#ac-gplus-error-meaning-p5" class=" heading-5 text-center">P5</a>
-                        <a href="#ac-gplus-error-meaning-p6" class=" heading-5 text-center">P6</a>
-                        <a href="#ac-gplus-error-meaning-p7" class=" heading-5 text-center">P7</a>
-                        <a href="#ac-gplus-error-meaning-p8" class=" heading-5 text-center">P8</a>
-                        <a href="#ac-gplus-error-meaning-p9" class=" heading-5 text-center">P9</a>
-                    </div>
-                </div>
-                
-                <!-- خطاهای کولر الجی -->
-                <div id="ac-lg-errors" class="errors-hero-errorswrapper-brand vertical-right-flex">
-                    <h3 class="errors-hero-errorswrapper-categorytitle heading-3 ">خطاهای کولرهای گازی ال جی</h3>
-                    <!-- کد ارور ها -->
-                    <div class="errors-hero-errorswrapper-brand-errors">
-                        <a href="#ac-lg-error-meaning-ch01" class=" heading-5 text-center">CH01</a>
-                        <a href="#ac-lg-error-meaning-ch02" class=" heading-5 text-center">CH02</a>
-                        <a href="#ac-lg-error-meaning-ch05" class=" heading-5 text-center">CH05</a>
-                        <a href="#ac-lg-error-meaning-ch06" class=" heading-5 text-center">CH06</a>
-                        <a href="#ac-lg-error-meaning-ch09" class=" heading-5 text-center">CH09</a>
-                        <a href="#ac-lg-error-meaning-ch10" class=" heading-5 text-center">CH10</a>
-                        <a href="#ac-lg-error-meaning-ch12" class=" heading-5 text-center">CH12</a>
-                        <a href="#ac-lg-error-meaning-ch21" class=" heading-5 text-center">CH21</a>
-                        <a href="#ac-lg-error-meaning-ch22" class=" heading-5 text-center">CH22</a>
-                        <a href="#ac-lg-error-meaning-ch26" class=" heading-5 text-center">CH26</a>
-                        <a href="#ac-lg-error-meaning-ch29" class=" heading-5 text-center">CH29</a>
-                        <a href="#ac-lg-error-meaning-ch32" class=" heading-5 text-center">CH32</a>
-                        <a href="#ac-lg-error-meaning-ch38" class=" heading-5 text-center">CH38</a>
-                        <a href="#ac-lg-error-meaning-ch40" class=" heading-5 text-center">CH40</a>
-                        <a href="#ac-lg-error-meaning-ch41" class=" heading-5 text-center">CH41</a>
-                        <a href="#ac-lg-error-meaning-ch44" class=" heading-5 text-center">CH44</a>
-                        <a href="#ac-lg-error-meaning-ch45" class=" heading-5 text-center">CH45</a>
-                        <a href="#ac-lg-error-meaning-ch46" class=" heading-5 text-center">CH46</a>
-                        <a href="#ac-lg-error-meaning-ch47" class=" heading-5 text-center">CH47</a>
-                        <a href="#ac-lg-error-meaning-ch53" class=" heading-5 text-center">CH53</a>
-                        <a href="#ac-lg-error-meaning-ch60" class=" heading-5 text-center">CH60</a>
-                        <a href="#ac-lg-error-meaning-ch61" class=" heading-5 text-center">CH61</a>
-                        <a href="#ac-lg-error-meaning-ch62" class=" heading-5 text-center">CH62</a>
-                        <a href="#ac-lg-error-meaning-ch67" class=" heading-5 text-center">CH67</a>
-                        <a href="#ac-lg-error-meaning-co" class=" heading-5 text-center">CO</a>
-                        <a href="#ac-lg-error-meaning-po" class=" heading-5 text-center">PO</a>
-                        <a href="#ac-lg-error-meaning-fl" class=" heading-5 text-center">FL</a>
-                        <a href="#ac-lg-error-meaning-co" class=" heading-5 text-center"><img src="./assets/icons/errors/error-co-1.png" alt=""></a>
-                        <a href="#ac-lg-error-meaning-co" class=" heading-5 text-center"><img src="./assets/icons/errors/error-co-2.png" alt=""></a>
-                        <a href="#ac-lg-error-meaning-plasma" class=" heading-5 text-center"><img src="./assets/icons/errors/error-plasma.png" alt=""></a>
-                        <a id="ac-lg-error-lights" href="#ac-lg-error-meaning-lights" class=" heading-5 text-center">پیغام های چشمک زن</a>
-                    </div>
-
-
-                </div>                
-                
-            </div>
-
-            
         </div>
     </section>    
  
