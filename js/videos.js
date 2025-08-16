@@ -38,7 +38,7 @@ function renderVideos(videoList, container) {
         // آیتم خاص
         if (i === 6) {
             return `
-                <div class="${containerClass}-videocard-cta vertical-central-flex">
+                <div class="${containerClass}-videocard-cta">
                     <p class="super-script">
                         همراه مطمئن شما
                     </p>
@@ -52,7 +52,7 @@ function renderVideos(videoList, container) {
         }
         if (i === 13) {
             return `
-                <div class="${containerClass}-videocard-cta vertical-central-flex">
+                <div class="${containerClass}-videocard-cta">
                     <p class="super-script">
                         پشتیبانی فنی همیشه همراه شما
                     </p>
@@ -78,8 +78,8 @@ function renderVideos(videoList, container) {
             <div class="${containerClass}-videocard-texts">
                 <div class="${containerClass}-videocard-texts-details">
                     <a href="./videos-${v.categoryEnglish}.html" class="subscript category">${v.categoryPersian}</a>
-                    <hr>
-                    <p class="subscript">${v.date}</p>
+                    
+                    <p class="video-date subscript">${v.date}</p>
                 </div>
                 <h4 class="${containerClass}-videocard-texts-title heading-4">
                     ${v.title}
