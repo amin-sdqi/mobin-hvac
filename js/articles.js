@@ -78,7 +78,7 @@ document.addEventListener('DOMContentLoaded', () => {
             //
             return `
             <div class="${containerClass}-card vertical-right-flex">
-                <a href="article.html?id=${a.id}" target="_blank" class="${containerClass}-card-imgwrapper">
+                <a href="article.html?id=${a.id}" class="${containerClass}-card-imgwrapper">
                     <img src="${getFirstImage(a)}" alt="${a.content.find(block => block.type === "image")?.alt || a.title}">
                 </a>
                 <div class="${containerClass}-card-texts">
@@ -88,7 +88,7 @@ document.addEventListener('DOMContentLoaded', () => {
                         <p class="article-date subscript">${a.date}</p>
                     </div>
                     <h4 class="${containerClass}-card-texts-title heading-4">
-                        <a href="article.html?id=${a.id}"  target="_blank">
+                        <a href="article.html?id=${a.id}" >
                             ${a.title}
                         </a>
                     </h4>
@@ -112,16 +112,36 @@ document.addEventListener('DOMContentLoaded', () => {
                 case "image":
                     return `<img ${blockId} src="${block.src}" alt="${block.alt}">`;
                 case "heading":
-                    return `<h${block.level} ${blockId} class="heading-${block.level}">${block.text}</h${block.level}>`;
+                    return `<h${block.level} ${blockId} ">${block.text}</h${block.level}>`;
                 case "list":
                     const tag = block.style === "ordered" ? "ol" : "ul";
                     const items = block.items.map(item => `<li>${item}</li>`).join('');
                     return `<${tag} ${blockId}>${items}</${tag}>`;
+                
+                case "quote":
+                    const author = block.author ? `<footer class="quote-box-author">— ${block.author}</footer>` : "";
+                    const cite = block.cite ? `<a href="${block.cite}" target="_blank" class="quote-box-cite">منبع</a>` : "";
+                    return `<blockquote ${blockId} class="quote-box"><p class="quote-box-text">«${block.text}»</p>${author}${cite}</blockquote>`;
+
+                case "table":
+                    const headers = block.headers.map(h => `<th>${h}</th>`).join('');
+                    const rows = block.rows.map(
+                        row => `<tr  class="caption">${row.map(cell => `<td>${cell}</td>`).join('')}</tr>`
+                    ).join('');
+                    return `
+                        <table ${blockId} class="article-table">
+                            <thead><tr class="heading-4">${headers}</tr></thead>
+                            <tbody>${rows}</tbody>
+                        </table>
+                    `;
+                case "link":
+                    return `<a ${blockId} href="${block.href}" target="_blank" class="article-link">${block.text}</a>`;
                 default:
                     return "";
             }
         }).join('');
     }
+
 
 
     //گرفتن id از URL
