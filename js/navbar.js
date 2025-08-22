@@ -74,7 +74,7 @@ document.querySelectorAll('nav a').forEach(link => {
     // تابع بررسی اسکرول
     function handleScroll() {
       const scrollY = window.scrollY || document.documentElement.scrollTop;
-      const triggerPoint = window.innerHeight * 2; // یعنی 4 ویوپورت
+      const triggerPoint = window.innerHeight * 1; // یعنی 4 ویوپورت
 
       if (scrollY > triggerPoint) {
         backToTopBtn.style.display = "block";
