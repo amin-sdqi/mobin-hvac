@@ -27,7 +27,32 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
   ///////////////////////////////////
- // با انتخاب هر برند، ارورهای مربوط به آن نمایش داده شوند: 
+ // با انتخاب هر برند، مدلهای مربوط به آن نمایش داده شوند: 
+  const brandsWrapper = document.querySelector('#errors-brandswrapper');
+  
+  brandsWrapper.addEventListener('click', function (e) {
+    const clickedbrand = e.target.closest('a.errors-hero-grid-wrapper-brandswrapper-link');
+
+    if (!clickedbrand) return;
+    //مرئی شدن مدل رپر
+    document.querySelector('#errors-modelswrapper').classList.add('active');
+    // حذف کلاس active از همه دیوهای مدل
+    const allModelsDivs = document.querySelectorAll('.errors-hero-grid-wrapper-modelswrapper-brand');
+    allModelsDivs.forEach(div => div.classList.remove('active'));
+
+    // اضافه کردن کلاس active به دیوی که id اش مطابق data-category هست
+    const brand = clickedbrand.getAttribute('id');
+    const targetModelDiv = document.getElementById(`${brand}-models`);
+    if (targetModelDiv) {
+      targetModelDiv.classList.add('active');
+    }
+  });
+
+
+
+
+  ///////////////////////////////////
+ // با انتخاب هر مدل ارورهای مربوط به آن نمایش داده شوند: 
 
  //// ابتدا اطلاعات باید فچ شوند. قبل از کلیک باید فچ شوند:
   let devicesData = null;
@@ -43,50 +68,80 @@ document.addEventListener("DOMContentLoaded", () => {
       });
 
 
-  const brandsWrapper = document.querySelector('.errors-hero-grid-wrapper-brandswrapper');
- // حالا کلیک کار میکند:
-  brandsWrapper.addEventListener('click', function (e) {
+  
+ // حالا کلیک روی هر مدل کار میکند:
+ const modelsWrapper = document.querySelector('.errors-hero-grid-wrapper-modelswrapper');
 
-    const clickedBrand = e.target.closest('a.heading-5');
-    if (!clickedBrand || !devicesData) return;
+  modelsWrapper.addEventListener('click', function (e) {
+
+    const clickedModel = e.target.closest('a.heading-5');
+    if (!clickedModel || !devicesData) return;
 
     //مرئی شدن ارور رپر
     document.querySelector('#errors-errorswrapper').classList.add('active');
 
-    const brand = clickedBrand.getAttribute('data-brand'); // مثل "ac-gplus"
-    const [deviceId, brandId] = brand.split('-'); // ["ac", "gplus"]
+    const model = clickedModel.getAttribute('data-model'); // مثل "ac-lg-gplus"
+    const [deviceId, brandId, modelId] = model.split('-'); // ["ac","lg", "gplus"]
 
-    // حذف کلاس active از همه دیوهای برند
-    const allErrorsDivs = document.querySelectorAll('.errors-hero-grid-wrapper-errorswrapper-brand');
+    // حذف کلاس اکتیو از همه دیوهای برند
+    const allErrorsDivs = document.querySelectorAll('.errors-hero-grid-wrapper-errorswrapper-model');
     allErrorsDivs.forEach(div => div.classList.remove('active'));
 
-    // اضافه کردن کلاس active به دیوی که id اش مطابق data-brand هست
-    const targetErrorsDiv = document.getElementById(`${brand}-errors`);
+    // اضافه کردن کلاس اکتیو به دیوی که آیدی اش مطابق دیتا-برند هست
+    const targetErrorsDiv = document.getElementById(`${model}-errors`);
     if (targetErrorsDiv) {
       targetErrorsDiv.classList.add('active');
     }
 
     // حذف ارورهای قبلی (اگر وجود دارند)
-    targetErrorsDiv.querySelectorAll('.errors-hero-grid-wrapper-errorswrapper-brand-meaning').forEach(el => el.remove());
+    targetErrorsDiv.querySelectorAll('.errors-hero-grid-wrapper-errorswrapper-model-meaning').forEach(el => el.remove());
 
-     // گرفتن ارورها از JSON
+     // گرفتن ارورها از جی سون
     const device = devicesData.devices.find(d => d.id === deviceId);
     if (!device) return;
 
     const brandObj = device.brands.find(b => b.id === brandId);
     if (!brandObj) return;
 
+    const modelObj = brandObj.models.find(b => b.id === modelId);
+    if (!modelObj) return;
+
 
     // ساختن و اضافه کردن ارورها به HTML
-    brandObj.errors.forEach(error => {
+    modelObj.errors.forEach(error => {
       const wrapper = document.createElement("div");
-      wrapper.className = "errors-hero-grid-wrapper-errorswrapper-brand-meaning vertical-right-flex";
+      wrapper.className = "errors-hero-grid-wrapper-errorswrapper-model-meaning vertical-right-flex";
 
-      wrapper.innerHTML = `
-        <h3 id="${brand}-error-meaning-${error.code}" class="errors-hero-grid-wrapper-errorswrapper-brand-meaning-code heading-3">${error.title}</h3>
-        <h5 class="errors-hero-grid-wrapper-errorswrapper-brand-meaning-cause heading-5">${error.cause}</h5>
-        <p class="errors-hero-grid-wrapper-errorswrapper-brand-meaning-solution paragraph">${error.solution}</p>
-      `;
+      wrapper.innerHTML = error.blocks.map(block => {
+            switch (block.type) {
+                case "heading":
+                  return `<h${block.level} id="${model}-error-meaning-${block.code}" class="errors-hero-grid-wrapper-errorswrapper-model-meaning-code heading-${block.level}">${block.text}</h${block.level}>`;
+                case "subheading":
+                  return `<h5 class="errors-hero-grid-wrapper-errorswrapper-model-meaning-subheading heading-5">${block.text}</h5>`;
+                case "cause":
+                    return `<h4 class="errors-hero-grid-wrapper-errorswrapper-model-meaning-cause heading-4">${block.text}</h4>`;
+                case "solution":
+                    return `<p  class="errors-hero-grid-wrapper-errorswrapper-model-meaning-solution paragraph">${block.text}</p>`;
+                case "image-s":
+                    return `<img class="errors-hero-grid-wrapper-errorswrapper-model-meaning-img-s" src="${block.src}" alt="${block.alt}">`;
+                case "image-m":
+                    return `<img class="errors-hero-grid-wrapper-errorswrapper-model-meaning-img-m" src="${block.src}" alt="${block.alt}">`;
+                case "image-l":
+                    return `<img class="errors-hero-grid-wrapper-errorswrapper-model-meaning-img-l" src="${block.src}" alt="${block.alt}">`;
+                case "image-xl":
+                    return `<img class="errors-hero-grid-wrapper-errorswrapper-model-meaning-img-xl" src="${block.src}" alt="${block.alt}">`;
+                case "list":
+                    const tag = block.style === "ordered" ? "ol" : "ul";
+                    const items = block.items.map(item => `<li>${item}</li>`).join('');
+                    return `<${tag}>${items}</${tag}>`;
+                
+                case "link":
+                    return `<a href="${block.href}" target="_blank" class="article-link">${block.text}</a>`;
+                default:
+                    return "";
+            }
+        }).join('');
+        ;
 
       targetErrorsDiv.appendChild(wrapper);
     });
