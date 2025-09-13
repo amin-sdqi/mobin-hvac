@@ -17,6 +17,16 @@ document.addEventListener('DOMContentLoaded', () => {
     fetch('./json/articles/articles.json')
     .then(res => res.json())
     .then(articles => {
+
+        
+        // مرتب‌سازی بر اساس تاریخ (جدیدترین‌ها اول)
+        articles.sort((a, b) => {
+            // تبدیل تاریخ شمسی به فرمت قابل مقایسه
+            // فرض می‌کنیم تاریخ‌ها در فرمت yyyy/mm/dd هستند
+            const dateA = a.date.split('/').reverse().join('');
+            const dateB = b.date.split('/').reverse().join('');
+            return dateB.localeCompare(dateA);
+        });
         
         // 1. بخش ویژه‌ها
         const featuredArticles = articles.filter(a => a.featured === true).slice(0, 3);
@@ -79,7 +89,7 @@ document.addEventListener('DOMContentLoaded', () => {
             return `
             <div class="${containerClass}-card vertical-right-flex">
                 <a href="article.html?id=${a.id}" class="${containerClass}-card-imgwrapper">
-                    <img src="${getFirstImage(a)}" alt="${a.content.find(block => block.type === "image")?.alt || a.title}">
+                    <img src="${a.heroImage}" alt="${a.heroImageAlt}">
                 </a>
                 <div class="${containerClass}-card-texts">
                     <div class="${containerClass}-card-texts-details">

@@ -164,16 +164,20 @@ document.addEventListener("DOMContentLoaded", () => {
 
   devicesData.devices.forEach(device => {
     device.brands.forEach(brand => {
-        brand.errors.forEach(error => {
-          allErrors.push({
-            deviceId: device.id,
-            deviceTitle: device.title,
-            brandId: brand.id,
-            brandTitle: brand.title,
-            code: error.code,
-            title: error.title,
-            cause: error.cause,
-            solution: error.solution
+      brand.models.forEach(model => {
+          model.errors.forEach(error => {
+            allErrors.push({
+              deviceId: device.id,
+              deviceTitle: device.title,
+              brandId: brand.id,
+              brandTitle: brand.title,
+              modelId: model.id,
+              modelTitle: model.title,
+              code: error.blocks.code,
+              title: error.title,
+              cause: error.cause,
+              solution: error.solution
+            });
           });
         });
       });
