@@ -3,10 +3,10 @@
 // مطمئن شو بعد از لود DOM اجرا میشه
 document.addEventListener('DOMContentLoaded', () => {
 
-    function getFirstImage(article) {
-        const imageBlock = article.content.find(block => block.type === "image");
-        return imageBlock ? imageBlock.src : "./assets/img/default.jpg"; // عکس پیش‌فرض
-    }
+    // function getFirstImage(article) {
+    //     const imageBlock = article.content.find(block => block.type === "image");
+    //     return imageBlock ? imageBlock.src : "./assets/img/default.jpg"; // عکس پیش‌فرض
+    // }
 
     function getFirstParagraph(article) {
         const paragraphBlock = article.content.find(block => block.type === "paragraph");
@@ -122,7 +122,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 case "image":
                     return `<img ${blockId} src="${block.src}" alt="${block.alt}">`;
                 case "heading":
-                    return `<h${block.level} ${blockId} ">${block.text}</h${block.level}>`;
+                    return `<h${block.level} ${blockId} class="heading-${block.level}" ">${block.text}</h${block.level}>`;
                 case "list":
                     const tag = block.style === "ordered" ? "ol" : "ul";
                     const items = block.items.map(item => `<li>${item}</li>`).join('');
@@ -176,6 +176,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 document.querySelector('.article-hero-grid-top-title').textContent = article.title;
                 document.querySelector('.article-hero-grid-top-subtitle').textContent = article.subtitle;
                 document.querySelector('.article-hero-grid-img-1').src = article.heroImage;
+                document.querySelector('.article-hero-grid-img-1').alt = article.heroImageAlt;
 
                 // برای رندر کردن منو
                 renderTOC(article);
