@@ -67,7 +67,7 @@ document.addEventListener('DOMContentLoaded', () => {
                             ما در کنار شما هستیم تا با ارائه مشاوره تخصصی
                             بهترین تصمیم را برای نیازهای خود بگیرید.
                         </h3>
-                        <a class="btn btn-primary">درخواست مشاوره تخصصی</a>
+                        <a href="./contact-us.html" class="btn btn-primary">درخواست مشاوره تخصصی</a>
                     </div>
                 `;
             }
@@ -80,7 +80,7 @@ document.addEventListener('DOMContentLoaded', () => {
                         <h3 class="heading-3">
                             تیم ما آماده است تا بهترین راهکارهای تخصصی را به شما ارائه دهد.
                         </h3>
-                        <a class="btn btn-primary">دریافت پشتیبانی</a>
+                        <a href="./contact-us.html" class="btn btn-primary">دریافت پشتیبانی</a>
                     </div>
                 `;
             }
