@@ -3,62 +3,96 @@
 // مطمئن شو بعد از لود DOM اجرا میشه
 document.addEventListener('DOMContentLoaded', () => {
 
-    // function getFirstImage(article) {
-    //     const imageBlock = article.content.find(block => block.type === "image");
-    //     return imageBlock ? imageBlock.src : "./assets/img/default.jpg"; // عکس پیش‌فرض
-    // }
-
     function getFirstParagraph(article) {
         const paragraphBlock = article.content.find(block => block.type === "paragraph");
         return paragraphBlock ? paragraphBlock.text : "";
     }
+
+    // مرتب‌سازی بر اساس تاریخ (جدیدترین اول)
+    // مرتب‌سازی بر اساس تاریخ (جدیدترین اول)
+function sortArticlesByDate(list) {
+    return list.sort((a, b) => {
+        const [yA, mA, dA] = a.date.split('/').map(Number);
+        const [yB, mB, dB] = b.date.split('/').map(Number);
+
+        // ساخت شیء Date از اجزای تاریخ
+        const dateA = new Date(yA, mA - 1, dA).getTime();
+        const dateB = new Date(yB, mB - 1, dB).getTime();
+
+        return dateB - dateA; // نزولی (جدیدترین بالا)
+    });
+}
 
 
     fetch('./json/articles/articles.json')
     .then(res => res.json())
     .then(articles => {
 
-        
-        // مرتب‌سازی بر اساس تاریخ (جدیدترین‌ها اول)
-        articles.sort((a, b) => {
-            // تبدیل تاریخ شمسی به فرمت قابل مقایسه
-            // فرض می‌کنیم تاریخ‌ها در فرمت yyyy/mm/dd هستند
-            const dateA = a.date.split('/').reverse().join('');
-            const dateB = b.date.split('/').reverse().join('');
-            return dateB.localeCompare(dateA);
-        });
-        
         // 1. بخش ویژه‌ها
-        const featuredArticles = articles.filter(a => a.featured === true).slice(0, 3);
+        const featuredArticles = sortArticlesByDate(
+            articles.filter(a => a.featured === true)
+        ).slice(0, 3);
         const featuredContainer = document.querySelector('.articles-tricks-trickswrapper-tricks');
         if (featuredContainer) renderArticles(featuredArticles, featuredContainer);
-        
+
         // 2. همه مقالات
         const recentContainer = document.querySelector('.articles-recentvids-recentvidswrapper-recentvids');
-        if (recentContainer) renderArticles(articles, recentContainer);
-        
+        if (recentContainer) renderArticles(sortArticlesByDate([...articles]), recentContainer);
+
         // 3. فقط کولر گازی
-        const acArticles = articles.filter(a => a.categoryPersian == "کولر گازی");
+        const acArticles = sortArticlesByDate(
+            articles.filter(a => a.categoryPersian === "کولر گازی")
+        );
         const acContainer = document.querySelector('.articles-ac-hero-recentvidswrapper-recentvids');
         if (acContainer) renderArticles(acArticles, acContainer);
-        
+
         // 4. یخچال
-        const refrigeratorArticles = articles.filter(a => a.categoryPersian == "یخچال و فریزر");
+        const refrigeratorArticles = sortArticlesByDate(
+            articles.filter(a => a.categoryPersian === "یخچال و فریزر")
+        );
         const refrigeratorContainer = document.querySelector('.articles-refrigerator-hero-recentvidswrapper-recentvids');
         if (refrigeratorContainer) renderArticles(refrigeratorArticles, refrigeratorContainer);
-        
+
         // 5. ماشین لباسشویی
-        const washingArticles = articles.filter(a => a.categoryPersian == "ماشین لباسشویی");
+        const washingArticles = sortArticlesByDate(
+            articles.filter(a => a.categoryPersian === "ماشین لباسشویی")
+        );
         const washingContainer = document.querySelector('.articles-washing-hero-recentvidswrapper-recentvids');
         if (washingContainer) renderArticles(washingArticles, washingContainer);
     });
 
     function renderArticles(articleList, container) {
-        let containerClass = container.classList[0]; // اولین کلاس عنصر کانتینر
-        container.innerHTML = articleList.map((a, i) => {
-            // آیتم خاص
-            if (i === 6 && articleList.length > 6) {
-                return `
+        let containerClass = container.classList[0]; // اولین کلاس کانتینر
+        let items = [];
+
+        articleList.forEach((a, i) => {
+            // کارت مقاله
+            const articleCard = `
+                <div class="${containerClass}-card vertical-right-flex">
+                    <a href="article.html?id=${a.id}" class="${containerClass}-card-imgwrapper">
+                        <img src="${a.heroImage}" alt="${a.heroImageAlt}">
+                    </a>
+                    <div class="${containerClass}-card-texts">
+                        <div class="${containerClass}-card-texts-details">
+                            <a href="./articles-${a.categoryEnglish}.html" class="subscript category">${a.categoryPersian}</a>
+                            <p class="article-date subscript">${a.date}</p>
+                        </div>
+                        <h4 class="${containerClass}-card-texts-title heading-4">
+                            <a href="article.html?id=${a.id}" >
+                                ${a.title}
+                            </a>
+                        </h4>
+                        <p class="paragraph ${containerClass}-card-texts-paragraph">
+                            ${getFirstParagraph(a)}
+                        </p>
+                    </div>
+                </div>
+            `;
+            items.push(articleCard);
+
+            // CTA بعد از مقاله 6
+            if (i === 5) {
+                items.push(`
                     <div class="${containerClass}-card-cta vertical-central-flex">
                         <p class="super-script">
                             همراه مطمئن شما
@@ -69,10 +103,12 @@ document.addEventListener('DOMContentLoaded', () => {
                         </h3>
                         <a href="./contact-us.html" class="btn btn-primary">درخواست مشاوره تخصصی</a>
                     </div>
-                `;
+                `);
             }
-            if (i === 13 && articleList.length > 13) {
-                return `
+
+            // CTA بعد از مقاله 13
+            if (i === 12) {
+                items.push(`
                     <div class="${containerClass}-card-cta vertical-central-flex">
                         <p class="super-script">
                             پشتیبانی فنی همیشه همراه شما
@@ -82,34 +118,11 @@ document.addEventListener('DOMContentLoaded', () => {
                         </h3>
                         <a href="./contact-us.html" class="btn btn-primary">دریافت پشتیبانی</a>
                     </div>
-                `;
+                `);
             }
+        });
 
-            //
-            return `
-            <div class="${containerClass}-card vertical-right-flex">
-                <a href="article.html?id=${a.id}" class="${containerClass}-card-imgwrapper">
-                    <img src="${a.heroImage}" alt="${a.heroImageAlt}">
-                </a>
-                <div class="${containerClass}-card-texts">
-                    <div class="${containerClass}-card-texts-details">
-                        <a href="./articles-${a.categoryEnglish}.html" class="subscript category">${a.categoryPersian}</a>
-                        
-                        <p class="article-date subscript">${a.date}</p>
-                    </div>
-                    <h4 class="${containerClass}-card-texts-title heading-4">
-                        <a href="article.html?id=${a.id}" >
-                            ${a.title}
-                        </a>
-                    </h4>
-                    <p class="paragraph ${containerClass}-card-texts-paragraph">
-                        ${getFirstParagraph(a)}
-                    </p>
-
-                </div>
-            </div>
-        `;
-        }).join('');
+        container.innerHTML = items.join('');
     }
 
     // رندر محتوای کامل مقاله برای صفحه مقاله
@@ -127,12 +140,10 @@ document.addEventListener('DOMContentLoaded', () => {
                     const tag = block.style === "ordered" ? "ol" : "ul";
                     const items = block.items.map(item => `<li>${item}</li>`).join('');
                     return `<${tag} ${blockId}>${items}</${tag}>`;
-                
                 case "quote":
                     const author = block.author ? `<footer class="quote-box-author">— ${block.author}</footer>` : "";
                     const cite = block.cite ? `<a href="${block.cite}" target="_blank" class="quote-box-cite">منبع</a>` : "";
                     return `<blockquote ${blockId} class="quote-box"><p class="quote-box-text">«${block.text}»</p>${author}${cite}</blockquote>`;
-
                 case "table":
                     const headers = block.headers.map(h => `<th>${h}</th>`).join('');
                     const rows = block.rows.map(
@@ -152,16 +163,14 @@ document.addEventListener('DOMContentLoaded', () => {
         }).join('');
     }
 
-
-
-    //گرفتن id از URL
+    // گرفتن id از URL
     function getArticleIdFromURL() {
         const params = new URLSearchParams(window.location.search);
         return params.get("id");
     }
 
     // فچ JSON و پیدا کردن مقاله
-    const articleContainer = document.querySelector('.article-hero-grid-articlebody'); // عنصر برای رندر مقاله
+    const articleContainer = document.querySelector('.article-hero-grid-articlebody');
     const articleId = getArticleIdFromURL();
 
     if (articleId && articleContainer) {
@@ -171,14 +180,14 @@ document.addEventListener('DOMContentLoaded', () => {
             const article = articles.find(a => a.id === articleId);
             if (article) {
                 renderArticleContent(article, articleContainer);
-                // می‌تونی عنوان و تاریخ هم اینجا ست کنی
+                // ست کردن اطلاعات بالا
                 document.querySelector('.article-hero-grid-top-superscript').textContent = article.categoryPersian;
                 document.querySelector('.article-hero-grid-top-title').textContent = article.title;
                 document.querySelector('.article-hero-grid-top-subtitle').textContent = article.subtitle;
                 document.querySelector('.article-hero-grid-img-1').src = article.heroImage;
                 document.querySelector('.article-hero-grid-img-1').alt = article.heroImageAlt;
 
-                // برای رندر کردن منو
+                // رندر TOC
                 renderTOC(article);
             } else {
                 articleContainer.innerHTML = "<p>مقاله یافت نشد.</p>";
@@ -188,12 +197,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // ساخت HTML داینامیک برای TOC
     function renderTOC(article) {
-
         if (!article.toc || article.toc.length === 0) return;
 
         const ul = document.querySelector('.article-hero-grid-toc-ul'); 
-    if (!ul) return; // جلوگیری از ارور اگه ul پیدا نشد
-        
+        if (!ul) return;
+
         ul.innerHTML = article.toc.map(item => {
             return `
                 <li class="article-hero-grid-toc-ul-li">
@@ -204,7 +212,7 @@ document.addEventListener('DOMContentLoaded', () => {
             `;
         }).join('');
 
-        // اسکرول نرم هنگام کلیک
+        // اسکرول نرم
         ul.querySelectorAll('a').forEach(link => {
             link.addEventListener('click', e => {
                 e.preventDefault();
