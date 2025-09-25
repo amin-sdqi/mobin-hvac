@@ -12,6 +12,10 @@ document.addEventListener("DOMContentLoaded", () => {
     if (!clickedDevice) return;
     //مرئی شدن برند رپر
     document.querySelector('#errors-brandswrapper').classList.add('active');
+    //نامرئی شدن مدل رپر
+    document.querySelector('#errors-modelswrapper').classList.remove('active');
+    //نامرئی شدن ارور رپر
+    document.querySelector('#errors-errorswrapper').classList.remove('active');
     // حذف کلاس active از همه دیوهای برند
     const allBrandDivs = document.querySelectorAll('.errors-hero-grid-wrapper-brandswrapper-device');
     allBrandDivs.forEach(div => div.classList.remove('active'));
@@ -36,6 +40,8 @@ document.addEventListener("DOMContentLoaded", () => {
     if (!clickedbrand) return;
     //مرئی شدن مدل رپر
     document.querySelector('#errors-modelswrapper').classList.add('active');
+    //نامرئی شدن ارور رپر
+    document.querySelector('#errors-errorswrapper').classList.remove('active');
     // حذف کلاس active از همه دیوهای مدل
     const allModelsDivs = document.querySelectorAll('.errors-hero-grid-wrapper-modelswrapper-brand');
     allModelsDivs.forEach(div => div.classList.remove('active'));
@@ -134,7 +140,17 @@ document.addEventListener("DOMContentLoaded", () => {
                     const tag = block.style === "ordered" ? "ol" : "ul";
                     const items = block.items.map(item => `<li>${item}</li>`).join('');
                     return `<${tag}>${items}</${tag}>`;
-                
+                case "table":
+                    const headers = block.headers.map(h => `<th>${h}</th>`).join('');
+                    const rows = block.rows.map(
+                        row => `<tr  class="caption">${row.map(cell => `<td>${cell}</td>`).join('')}</tr>`
+                    ).join('');
+                    return `
+                        <table  class="errors-table">
+                            <thead><tr class="heading-4">${headers}</tr></thead>
+                            <tbody>${rows}</tbody>
+                        </table>
+                    `;
                 case "link":
                     return `<a href="${block.href}" target="_blank" class="article-link">${block.text}</a>`;
                 default:

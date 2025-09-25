@@ -107,7 +107,7 @@ function sortArticlesByDate(list) {
             }
 
             // CTA بعد از مقاله 13
-            if (i === 12) {
+            if (i === 11) {
                 items.push(`
                     <div class="${containerClass}-card-cta vertical-central-flex">
                         <p class="super-script">
