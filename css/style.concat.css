@@ -3575,6 +3575,14 @@ body {
 .errors-hero-grid-wrapper-modelswrapper-brand.active {
   display: flex;
 }
+.errors-hero-grid-wrapper-modelswrapper-brand ul,
+.errors-hero-grid-wrapper-modelswrapper-brand ol {
+  color: var(--text-color-p);
+  font-size: 1.5rem;
+  line-height: 1.9;
+  margin-bottom: 0.8rem;
+  margin-right: 3.2rem;
+}
 .errors-hero-grid-wrapper-modelswrapper-brand-models {
   width: 100%;
   display: grid;
