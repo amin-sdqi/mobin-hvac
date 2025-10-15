@@ -24,7 +24,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // صفحه فعلی و تعداد ردیف‌ها در هر صفحه
   let currentPage = 1;
-  const rowsPerPage = 15;
+  const rowsPerPage = 25;
 
   // تابع نرمال‌سازی رشته‌ها برای مقایسه بهتر (حذف فاصله‌ها، کاراکترهای ناخواسته و نرمال کردن یونیکد)
   function normalize(str) {
@@ -131,7 +131,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // اسکرول به دیو فیلترها هنگام فیلتر جدید
     if (filterSection) {
-      filterSection.scrollIntoView({ behavior: "smooth", block: "start" });
+      // filterSection.scrollIntoView({ behavior: "smooth", block: "start" });
     }
   }
 
