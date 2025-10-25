@@ -171,3 +171,82 @@ if (articlesSlider && articlesPrevBtn && articlesNextBtn) {
 }
 
 
+
+///////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////
+/////// رندر مقالات
+////////////////////////////////////////////////////////////////////////////////////////
+
+// مطمئن شو بعد از لود DOM اجرا میشه
+document.addEventListener('DOMContentLoaded', () => {
+
+
+    function getFirstParagraph(article) {
+      const paragraphBlock = article.content.find(block => block.type === "paragraph");
+      return paragraphBlock ? paragraphBlock.text : "";
+    }
+
+      // مرتب‌سازی بر اساس تاریخ (جدیدترین اول)
+    // مرتب‌سازی بر اساس تاریخ (جدیدترین اول)
+    function sortArticlesByDate(list) {
+        return list.sort((a, b) => {
+            const [yA, mA, dA] = a.date.split('/').map(Number);
+            const [yB, mB, dB] = b.date.split('/').map(Number);
+
+            // ساخت شیء Date از اجزای تاریخ
+            const dateA = new Date(yA, mA - 1, dA).getTime();
+            const dateB = new Date(yB, mB - 1, dB).getTime();
+
+            return dateB - dateA; // نزولی (جدیدترین بالا)
+        });
+    }
+
+    fetch('./json/articles/articles.json')
+    .then(res => res.json())
+    .then(articles => {
+
+        // 1. بخش تازه ترین مقالات
+        const recentArticles = sortArticlesByDate(
+          [...articles]
+        ).slice(0, 9);
+        const recentContainer = document.querySelector('.section-articles-slider');
+        if (recentContainer) renderArticles(recentArticles, recentContainer);
+      }
+    );
+
+
+
+  function renderArticles(articleList, container) {
+      let containerClass = container.classList[0]; // اولین کلاس کانتینر
+      let items = [];
+
+      articleList.forEach((a, i) => {
+          // کارت مقاله
+          const articleCard = `
+            
+              <a class="section-articles-slider-slide" href="article.html?id=${a.id}">
+                  <img class="section-articles-slider-slide-img" src="${a.heroImage}" alt="${a.heroImageAlt}" >
+                  <div class="section-articles-slider-slide-content">
+                      <h4 class="heading-4">${a.title}</h4>
+                      <p class="paragraph">${getFirstParagraph(a)}</p>
+                      <div class="spacer"></div>                     
+                      <div class="section-articles-slider-slide-content-date">
+                          <img  class="section-articles-slider-slide-content-date-icon" src="./assets/icons/index/calendar-96.png" alt="آیکون تقویم که نماد تاریخ انتشار مقاله است.">
+                          <p class="caption">${a.date}</p>
+                      </div>
+                  </div>
+              </a>
+
+
+          `;
+          items.push(articleCard);
+
+      });
+
+      container.innerHTML = items.join('');
+  };
+
+}
+)

@@ -10,18 +10,18 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // مرتب‌سازی بر اساس تاریخ (جدیدترین اول)
     // مرتب‌سازی بر اساس تاریخ (جدیدترین اول)
-function sortArticlesByDate(list) {
-    return list.sort((a, b) => {
-        const [yA, mA, dA] = a.date.split('/').map(Number);
-        const [yB, mB, dB] = b.date.split('/').map(Number);
+    function sortArticlesByDate(list) {
+        return list.sort((a, b) => {
+            const [yA, mA, dA] = a.date.split('/').map(Number);
+            const [yB, mB, dB] = b.date.split('/').map(Number);
 
-        // ساخت شیء Date از اجزای تاریخ
-        const dateA = new Date(yA, mA - 1, dA).getTime();
-        const dateB = new Date(yB, mB - 1, dB).getTime();
+            // ساخت شیء Date از اجزای تاریخ
+            const dateA = new Date(yA, mA - 1, dA).getTime();
+            const dateB = new Date(yB, mB - 1, dB).getTime();
 
-        return dateB - dateA; // نزولی (جدیدترین بالا)
-    });
-}
+            return dateB - dateA; // نزولی (جدیدترین بالا)
+        });
+    }
 
 
     fetch('./json/articles/articles.json')
@@ -184,6 +184,10 @@ function sortArticlesByDate(list) {
                 document.querySelector('.article-hero-grid-top-superscript').textContent = article.categoryPersian;
                 document.querySelector('.article-hero-grid-top-title').textContent = article.title;
                 document.querySelector('.article-hero-grid-top-subtitle').textContent = article.subtitle;
+                document.querySelector('.article-hero-grid-top-info-authorimage').src = article.authorImage;
+                document.querySelector('.article-hero-grid-top-info-authorimage').alt = article.authorImageAlt;
+                document.querySelector('.article-hero-grid-top-info-texts-authorname').textContent = article.author;
+                document.querySelector('.article-hero-grid-top-info-texts-date').textContent = article.date;
                 document.querySelector('.article-hero-grid-img-1').src = article.heroImage;
                 document.querySelector('.article-hero-grid-img-1').alt = article.heroImageAlt;
 
